@@ -1,0 +1,27 @@
+<Model globalCoordinateSystem="+proj=geocent +ellps=WGS84 +no_defs" globalCoordinateSystemWkt=""
+   globalCoordinateSystemName="local:1 - Euclidean" exportCoordinateSystemType="0">
+  <transformToModel>0.88594719460386 0.463719564916162 -0.00785197633829202 0 -0.463785663232942 0.885820432987218 -0.0149992400709872 0 6.18531413294633e-09 0.0169301771861356 0.999856638239856 -0 0 0 0 1</transformToModel>
+  <Header magic="5786959" version="1"/>
+</Model>
+<ModelExport exportBinary="1" exportInfoFile="1" exportVertices="1" exportVertexColors="0"
+   exportVertexNormals="0" exportTriangles="1" exportTriangleStrips="0"
+   meshColor="4294967295" tileType="1" exportTextureAlpha="0" exportToOneTexture="0"
+   embedTextures="0" shrinkTextures="0" oneTextureMaxSide="8192" oneTextureUsePow2TexSide="1"
+   exportCoordinateSystemType="0" settingsAnchor="0 0 0" settingsRotation="0 0 0"
+   settingsScalex="1" settingsScaley="1" settingsScalez="1" normalSpace="2"
+   normalRange="0" normalFlip="0 0 0" formatAndVersionUID="obj 000 "
+   exportModelByParts="0" exportRandomPartColor="0" exportCameras="0"
+   exportCamerasAsModelPart="0" exportMaterials="0" numberAsciiFormatting="5"
+   authorComment="" exportedLayerCount="1">
+  <Header magic="5786949" version="5"/>
+  <Layer0 type="1" textureLayerIndex="0" textureWicContainerFormat="{1B7CFAF4-713F-473C-BBCD-6137425FAEAF}"
+     textureWicPixelFormat="{6FDDC324-4E03-4BFE-B185-3D77768DC90C}" textureExtension="png"/>
+</ModelExport>
+<CalibrationExportSettings undistortImagesWicFormat="{1B7CFAF4-713F-473C-BBCD-6137425FAEAF}"
+   undistortImagesWicPixlFormat="{6FDDC324-4E03-4BFE-B185-3D77768DC90F}"
+   undistortDownscaleFactor="0" undistortNamingConvention="0" undistFitMode="0"
+   undistResMode="0" undistPrincipalMode="0" undistCutOut="0" undistMaxPixels="0"
+   undistBackColor="0" undistortCustomWidth="0" undistortCustomHeight="0"
+   undistortCalibration="0" undistortImagesExtension="png" undistortImageNameSuffix=""
+   undistortImageLayerType="0" exportUndistorted="0" exportImages="0"
+   exportDisabled="0"/>
