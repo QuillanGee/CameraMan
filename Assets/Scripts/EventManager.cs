@@ -22,6 +22,24 @@ public class EventManager : MonoBehaviour
             OnInstantiateGamePlay();
         }
     }
+
+    public event Action OnResetAlan2D;
+    public void ResetAlan2D()
+    {
+        if (OnResetAlan2D != null)
+        {
+            OnResetAlan2D();
+        }
+    }
+    
+    public event Action OnResetAlan;
+    public void ResetAlan()
+    {
+        if (OnResetAlan != null)
+        {
+            OnResetAlan();
+        }
+    }
     
     public event Action OnToggleFirstPerson;
 

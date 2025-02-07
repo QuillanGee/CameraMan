@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 8346065569585727941}
   - component: {fileID: 2032443703339194917}
   - component: {fileID: 3958165833495462411}
-  - component: {fileID: 765310905372610418}
+  - component: {fileID: 3071922138374577640}
   m_Layer: 0
   m_Name: Alan
   m_TagString: Untagged
@@ -622,7 +622,7 @@ MonoBehaviour:
   pickupDistance: 3
   holdPosition: {fileID: 5645958508628624367}
   isHolding: 0
---- !u!114 &765310905372610418
+--- !u!114 &3071922138374577640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -631,10 +631,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7558560907412150959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfcbf4f69711b4a9a92f55dc1ec02f3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a917be4d8f744a03baecebe05760a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectedWallTransform: {fileID: 0}
   Alan2D: {fileID: 0}
 --- !u!1 &7765885919276680502
 GameObject:
@@ -661,7 +660,7 @@ Transform:
   m_GameObject: {fileID: 7765885919276680502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.23000002, z: 2.055}
+  m_LocalPosition: {x: 0, y: 0.148, z: 2.055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
