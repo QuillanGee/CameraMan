@@ -48,6 +48,8 @@
      <Compile Include="Assets/Scripts/Spike2D.cs" />
      <Compile Include="Assets/Scripts/PausingPlatform.cs" />
      <Compile Include="Assets/Scripts/MovementTypeController.cs" />
+     <Compile Include="Assets/Scripts/FlashTransition.cs" />
+     <Compile Include="Assets/Scripts/MainMenu.cs" />
      <Compile Include="Assets/Scripts/PickUpPlaceBlock.cs" />
      <Compile Include="Assets/Materials/Outline Materials/Scripts/Outline.cs" />
      <Compile Include="Assets/Scripts/Alan.cs" />
