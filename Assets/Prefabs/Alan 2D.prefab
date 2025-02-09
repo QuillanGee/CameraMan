@@ -106,11 +106,10 @@ GameObject:
   - component: {fileID: 8259884087431677002}
   - component: {fileID: 6071922347518109154}
   - component: {fileID: 6038644587680399724}
-  - component: {fileID: 6457078322653255115}
   - component: {fileID: 552585914914533053}
   - component: {fileID: 2814611547467819697}
   - component: {fileID: 3596954066796572490}
-  - component: {fileID: 3356427787374140051}
+  - component: {fileID: 5754657939547598030}
   m_Layer: 0
   m_Name: Alan 2D
   m_TagString: Untagged
@@ -180,20 +179,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6457078322653255115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798396313193754910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a917be4d8f744a03baecebe05760a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alan: {fileID: 0}
-  objectProjection: {fileID: 0}
 --- !u!58 &552585914914533053
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -319,27 +304,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29287776, y: 0.8516966}
   m_EdgeRadius: 0
---- !u!95 &3356427787374140051
-Animator:
-  serializedVersion: 5
+--- !u!114 &5754657939547598030
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8798396313193754910}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63b11b92f232a3f41a968317dc36468c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfcbf4f69711b4a9a92f55dc1ec02f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectedWallTransform: {fileID: 0}
+  Alan: {fileID: 0}
+  holdPosition2D: {fileID: 0}
 --- !u!1001 &199824321706091144
 PrefabInstance:
   m_ObjectHideFlags: 0

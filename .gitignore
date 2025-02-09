@@ -398,3 +398,30 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.idea/
+*.iml
+*.ipr
+*.iws
+
+
+# Unity generated files
+Library/
+Temp/
+Logs/
+UserSettings/
+
+# Auto-generated files
+*.csproj
+*.unityproj
+*.sln
+*.pidb
+*.swp
+*.suo
+*.user
+*.booproj
+*.svd
+
+# Build artifacts
+Builds/
+MemoryCaptures/
+
