@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,10 +20,24 @@ public class Alan : MonoBehaviour
         EventManager.instance.OnToggleFirstPerson += WaitToEnableCrossHair;
         EventManager.instance.OnResetAlan += ResetPosition;
     }
-    
-    // Start is called before the first frame update
-    
-    public void ProjectAlan2DToMoveAlan()
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(other.transform);
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(null);
+        }
+    }
+
+    private void ProjectAlan2DToMoveAlan()
     {
         //Moves to corresponding X position
         Vector3 newPositionX = transform.position;
