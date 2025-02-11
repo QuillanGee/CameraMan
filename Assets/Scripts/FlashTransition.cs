@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class FlashTransition : MonoBehaviour
 {
     public CanvasGroup flashPanel;
-    public float flashDuration = 0.2f;
+    public float flashDuration = 1f;
+    public AudioSource audioSource;
 
 
     void Start()
@@ -17,6 +19,7 @@ public class FlashTransition : MonoBehaviour
 
     public void Flash()
     {
+        audioSource.Play();
         StartCoroutine(FlashEffect());
     }
 
@@ -25,6 +28,7 @@ public class FlashTransition : MonoBehaviour
     {
         flashPanel.alpha = 1;
         yield return new WaitForSeconds(flashDuration);
+        SceneManager.LoadScene("Level 4");
         flashPanel.alpha = 0;
     }
 }
