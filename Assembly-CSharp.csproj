@@ -76,6 +76,7 @@
      <Folder Include="Assets/Assets" />
      <Folder Include="Assets/Assets/Camera" />
      <Folder Include="Assets/Materials" />
+     <Folder Include="Assets/Audio" />
      <Folder Include="Assets/Assets/Door Texture Pack/Textures" />
      <Folder Include="Assets/Assets/2D Alan/Sprites" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs" />
