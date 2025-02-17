@@ -1,5 +1,13 @@
 {
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+	"process_id" : 51237,
+=======
 	"process_id" : 22195,
+>>>>>>> upstream/First-UI
+=======
+	"process_id" : 63454,
+>>>>>>> Stashed changes
 	"version" : "2022.3.7f1",
 	"app_path" : "/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app",
 	"app_contents_path" : "/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents"
