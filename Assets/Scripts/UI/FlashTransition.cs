@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 public class FlashTransition : MonoBehaviour
 {
@@ -25,6 +25,8 @@ public class FlashTransition : MonoBehaviour
     {
         flashPanel.alpha = 1;
         yield return new WaitForSeconds(flashDuration);
+        SceneManager.LoadScene("Level Demo");
+        yield return new WaitForSeconds(0.2f);
         flashPanel.alpha = 0;
     }
 }
