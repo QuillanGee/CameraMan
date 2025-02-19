@@ -6,6 +6,42 @@
   <component name="ChangeListManager">
     <list default="true" id="51aa6a0a-37ec-4f73-a2b8-af280ca4232b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CameraMan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CameraMan/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB-lock" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB-lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/backend1.traceevents" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/backend1.traceevents" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/fullprofile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/fullprofile.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.log.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.log.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/BurstCache/JIT/Hashes/a110ffe6b760e4b56cb86ae44bc7857d.bhc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/BurstCache/JIT/Hashes/a110ffe6b760e4b56cb86ae44bc7857d.bhc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/EditorInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorInstance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/PackageManager/ProjectCache" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PackageManager/ProjectCache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/PackageManager/ProjectCache.md5" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PackageManager/ProjectCache.md5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProtocolInstance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Search/transactions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Search/transactions.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB-lock" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB-lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SplashScreenCache/9e/9e336cf263d6545182e69dfd93439d09" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/ae/ae51ed4fdef65db26b84bc24cdbdea98.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/ae/ae51ed4fdef65db26b84bc24cdbdea98.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/com.unity.ide.rider/PersistedState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ilpp.pid" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ilpp.pid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/BurstOutput/test.app/Contents/Plugins/lib_burst_generated.bundle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/FSTimeGet-2b544c2b5ccbe43a4a7868e0e5cedd89" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/FSTimeGet-304bf8816d3f84c4e8c6bb3152ec590a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/FSTimeGet-666375cc373114a3892fb2d2fe69a354" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/FSTimeGet-909ed2ad390de48ecbc8f7a871a9c3d4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/FSTimeGet-e1f91adad4d434521b711ba148845b54" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/FSTimeGet-f086936e39d5a425b949f0d99d0148c8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/PlayerBuildAnalyticsEvents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/StagingArea/DefaultPreferences.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/burst.link.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/tempFile.res" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/tempFile.resG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Temp/tempFile.resS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +84,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../test.app/Contents/MacOS/Cameraman Mechanic Test" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../test.app/Contents/MacOS" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
@@ -97,6 +141,7 @@
       <workItem from="1738781285580" duration="759000" />
       <workItem from="1738885660382" duration="6548000" />
       <workItem from="1738954081596" duration="1838000" />
+      <workItem from="1739844311734" duration="1907000" />
     </task>
     <servers />
   </component>
