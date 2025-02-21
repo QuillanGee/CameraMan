@@ -9,13 +9,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level Demo.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Platforms/Ladder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Platforms/Ladder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_BeigeStripes.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_BeigeStripes.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanks.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanks.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanksWhitewash.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanksWhitewash.jpg.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB-lock" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB-lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/08/087c19b6628ad51d9c450ac08c8d3eb9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/d9/d9a65a611c97f134856477d349434027" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/TundraBuildState.state.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/artifacts/200b0aEDbg.dag/Assembly-CSharp.dll" afterDir="false" />
@@ -27,9 +21,7 @@
       <change beforePath="$PROJECT_DIR$/Library/Bee/fullprofile.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/fullprofile.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.digestcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Bee/tundra.log.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Bee/tundra.log.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/BurstCache/JIT/BurstCacheManifest.cm" beforeDir="false" afterPath="$PROJECT_DIR$/Library/BurstCache/JIT/BurstCacheManifest.cm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/BurstCache/JIT/Hashes/a110ffe6b760e4b56cb86ae44bc7857d.bhc" beforeDir="false" afterPath="$PROJECT_DIR$/Library/BurstCache/JIT/Hashes/a110ffe6b760e4b56cb86ae44bc7857d.bhc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/EditorInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorInstance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ProtocolInstance.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ProtocolInstance.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
@@ -37,15 +29,8 @@
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/Search/transactions.db" beforeDir="false" afterPath="$PROJECT_DIR$/Library/Search/transactions.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB-lock" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB-lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/ae/ae51ed4fdef65db26b84bc24cdbdea98.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/ae/ae51ed4fdef65db26b84bc24cdbdea98.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/c8/c88561da1557896383ad567e655acb73.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/c8/c88561da1557896383ad567e655acb73.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/expandedItems" beforeDir="false" afterPath="$PROJECT_DIR$/Library/expandedItems" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/ilpp.pid" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ilpp.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +152,7 @@
       <workItem from="1740104536686" duration="2344000" />
       <workItem from="1740113244014" duration="1742000" />
       <workItem from="1740157470583" duration="61000" />
+      <workItem from="1740175130574" duration="2173000" />
     </task>
     <servers />
   </component>

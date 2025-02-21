@@ -6,37 +6,41 @@ public class Ladder : MonoBehaviour
 {
     public float climbSpeed = 5.0f; // Speed at which the player climbs the ladder
     private bool isClimbing = false; // Whether the player is currently climbing the ladder
-    private FirstPersonCharacterMovement playerMovement; // Reference to the player's movement script
-    private Rigidbody playerRigidbody; // Reference to the player's Rigidbody
-
-    void Start()
-    {
-        // Assuming the player has the FirstPersonCharacterMovement script attached
-        playerMovement = GetComponent<FirstPersonCharacterMovement>();
-        playerRigidbody = GetComponent<Rigidbody>();
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Ladder"))
-        {
-            StartClimbing();
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Ladder"))
-        {
-            StopClimbing();
-        }
-    }
+    public FirstPersonCharacterMovement playerMovement; // Reference to the player's movement script
+    public Rigidbody playerRigidbody; // Reference to the player's Rigidbody
+    public Transform playerTransform; // Reference to the player's transform
+    public float detectionRadius = 1.0f; // Radius to detect the player
 
     void Update()
     {
+        CheckForPlayer();
         if (isClimbing)
         {
             ClimbLadder();
+        }
+    }
+
+    private void CheckForPlayer()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
+        bool playerDetected = false;
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Player"))
+            {
+                playerDetected = true;
+                if (!isClimbing)
+                {
+                    StartClimbing();
+                }
+                break;
+            }
+        }
+
+        if (!playerDetected && isClimbing)
+        {
+            StopClimbing();
         }
     }
 
