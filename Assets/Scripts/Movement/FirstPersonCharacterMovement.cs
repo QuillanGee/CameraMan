@@ -104,6 +104,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
             rb.AddForce(moveDirection.normalized * walkSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
+    
 
     private void SpeedControl()
     {
