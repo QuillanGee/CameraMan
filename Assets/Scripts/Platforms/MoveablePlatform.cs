@@ -2,37 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections;
-using UnityEngine;
-
 public class MoveablePlatform : MonoBehaviour
 {
-    public Transform[] waypoints; // Points the platform moves between
-    public float speed = 3f;      // Movement speed
-    protected int targetIndex = 0;  // Index of the next waypoint
-    protected bool isMoving = true; // Control movement
+    [System.Serializable]
+    public struct WayPointData
+    {
+        public Transform waypoint;
+        public bool isParallelToCameraMovement;
+    }
 
+    public WayPointData[] waypoints;
+    public float speed = 3f;
+    private int targetIndex = 0;
+    private bool isPaused = false;
+
+    public delegate void WaypointReachedEvent(bool isParallel);
+    public event WaypointReachedEvent OnWaypointReached;
+
+
+    private void Start()
+    {
+        EventManager.instance.OnPauseGamePlay += HandlePause;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.OnPauseGamePlay -= HandlePause;
+    }
     protected virtual void Update()
     {
-        if (!isMoving || waypoints.Length == 0) return;
-
+        if (isPaused || waypoints.Length == 0) return;
         MovePlatform();
     }
 
-    protected virtual void MovePlatform()
+    private void MovePlatform()
     {
-        // Move platform towards the target waypoint
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[targetIndex].position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, waypoints[targetIndex].waypoint.position, speed * Time.deltaTime);
 
-        // Check if the platform has reached the target waypoint
-        if (Vector3.Distance(transform.position, waypoints[targetIndex].position) < 0.1f)
+        if (Vector3.Distance(transform.position, waypoints[targetIndex].waypoint.position) < 0.1f)
         {
             OnReachWaypoint();
         }
     }
 
-    protected virtual void OnReachWaypoint()
+    private void OnReachWaypoint()
     {
         targetIndex = (targetIndex + 1) % waypoints.Length;
+        bool isParallel = waypoints[targetIndex].isParallelToCameraMovement;
+        
+        // Notify listeners (2D platform) about the waypoint change
+        OnWaypointReached?.Invoke(isParallel);
+    }
+
+    private void HandlePause(object sender, bool pause)
+    {
+        isPaused = pause;
     }
 }
