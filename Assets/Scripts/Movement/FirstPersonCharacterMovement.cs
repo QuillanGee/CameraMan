@@ -6,7 +6,7 @@ using Cinemachine;
 public class FirstPersonCharacterMovement : MonoBehaviour
 {
     // Player Control Settings
-    private float walkSpeed = 3.0f;            // Movement speed
+    public float walkSpeed = 3.0f;            // Movement speed
     private float gravity = -28.0f;           // Custom gravity force
     private float mouseSensitivity = 200.0f;  // Mouse sensitivity for look around
     private float groundDrag = 11.0f;
@@ -31,6 +31,9 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private float airMultiplier = 0.3f;
     private bool readyToJump = true;
 
+    //BouncePad
+    private float bouncePadForce = 30.0f;
+    
     private CinemachineVirtualCamera fpc;
     private Rigidbody rb;
 
@@ -133,5 +136,19 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("BouncePad"))
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            rb.AddForce(Vector3.up * bouncePadForce, ForceMode.Impulse);
+        }
+        
+        if (other.gameObject.CompareTag("DoorToUnlock"))
+        {
+            EventManager.instance.UnlockDoor();
+        }
     }
 }
