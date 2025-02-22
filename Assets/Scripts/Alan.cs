@@ -8,13 +8,13 @@ public class Alan : MonoBehaviour
     [SerializeField] GameObject Alan2D;
     private Canvas crossHair;
     private Vector3 startingPosition;
-
     
     private void Start()
     {
         crossHair = GetComponentInChildren<Canvas>();
         startingPosition = transform.position;
-
+        
+        
         EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
         EventManager.instance.OnToggleFirstPerson += WaitToEnableCrossHair;
