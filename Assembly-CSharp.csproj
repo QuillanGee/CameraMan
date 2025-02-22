@@ -75,7 +75,6 @@
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Floor" />
      <Folder Include="Assets/Assets/3D Blocks" />
      <Folder Include="Assets/UnityTechnologies/Settings" />
-     <Folder Include="Assets/Assets/Audio" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Props" />
      <None Include="Assets/Materials/GridShader.shader" />
      <Folder Include="Assets/Scripts/Movement" />
