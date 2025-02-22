@@ -393,6 +393,7 @@
 "Assets/Scripts/Movement/FirstPersonCharacterMovement.cs"
 "Assets/Scripts/Movement/MovementTypeController.cs"
 "Assets/Scripts/Movement/TwoDCharacterMovement.cs"
+"Assets/Scripts/Platforms/Ladder.cs"
 "Assets/Scripts/Platforms/MoveablePlatform.cs"
 "Assets/Scripts/Platforms/PausingPlatform.cs"
 "Assets/Scripts/Spikes/Spike.cs"

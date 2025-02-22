@@ -48,6 +48,7 @@
      <Compile Include="Assets/Scripts/UI/MainMenu.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
+     <Compile Include="Assets/Scripts/Platforms/Ladder.cs" />
      <Compile Include="Assets/Scripts/Blocks/ObjectProjection.cs" />
      <Compile Include="Assets/Scripts/Platforms/MoveablePlatform.cs" />
      <Compile Include="Assets/Scripts/Movement/MovementTypeController.cs" />
