@@ -50,6 +50,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         rb.useGravity = false;
         rotationY = transform.eulerAngles.y; // Match the initial rotation of the character
         orientation.rotation = Quaternion.Euler(0, rotationY, 0);
+
+        EventManager.instance.OnPauseGamePlay += HandlePause;
     }
 
     private void FixedUpdate()
@@ -149,6 +151,20 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (other.gameObject.CompareTag("DoorToUnlock"))
         {
             EventManager.instance.UnlockDoor();
+        }
+    }
+
+    private void HandlePause(object sender, bool isPaused)
+    {
+        if (isPaused)
+        {
+            rb.useGravity = false;  // Disable gravity
+            rb.constraints = RigidbodyConstraints.FreezePosition;  // Freeze all position axes
+        }
+        else
+        {
+            rb.useGravity = true;  // Re-enable gravity
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 }

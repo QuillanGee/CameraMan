@@ -364,7 +364,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007398090}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: OnClickLoadScene
         m_Mode: 1
@@ -472,7 +472,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f3f4133c1452f44068560f49ae2ce9b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77fb19d50b7fb40f59af48dc43b3c35e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1321,11 +1321,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1908464157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e421e71b08054ea0be1898a8d84fced, type: 3}
+  m_Script: {fileID: 11500000, guid: 496e52d1f42eb411abeae4320e6a6cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flashPanel: {fileID: 1908464160}
-  flashDuration: 1
+  flashDuration: 0.2
 --- !u!1 &1974776202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2007398088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43288a34cd1404b968f930975385af8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b0bdf554cdbc46759e9634a893b2b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2023371019
@@ -1535,7 +1535,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2007398090}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: OnClickQuit
         m_Mode: 1

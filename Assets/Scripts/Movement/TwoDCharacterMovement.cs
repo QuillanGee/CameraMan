@@ -29,9 +29,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
     private const string PLAYER_IDLE = "Idle";
     private const string PLAYER_RUN = "Run";
     private const string PLAYER_JUMP = "Jump";
-
-
-
+    
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         currentAnimator = GetComponentInChildren<Animator>();
@@ -39,6 +37,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
         
         EventManager.instance.OnHoldingBlock += SwitchToHoldBlockAnimationController;
         EventManager.instance.OnNotHoldingBlock += SwitchToAlanAnimationController;
+        EventManager.instance.OnPauseGamePlay += HandlePause;
     }
 
     void Update() {
@@ -147,6 +146,22 @@ public class TwoDCharacterMovement : MonoBehaviour {
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(groundCheckPosition.position, groundCheckRadius);
+        }
+    }
+    
+    
+    
+    private void HandlePause(object sender, bool isPaused)
+    {
+        if (isPaused)
+        {
+            rb.gravityScale = 0;  // Disable gravity
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;  // Freeze all position axes
+        }
+        else
+        {
+            rb.gravityScale = 2;  // Re-enable gravity
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 }
