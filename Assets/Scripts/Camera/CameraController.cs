@@ -38,8 +38,8 @@ public class CameraController : MonoBehaviour
     {
         if (!isZooming)
         {
+            EventManager.instance.PauseGamePlay(true);  // Pause mechanics
             TransitionToOrthographicZoom();
-            //StartCoroutine(TransitionToFirstPerson());
         }
     }
 
@@ -55,6 +55,7 @@ public class CameraController : MonoBehaviour
     {
         yield return new WaitForSeconds(perspectiveTransitionSpeed);
         TransitionToPerspectiveCamera();
+        EventManager.instance.PauseGamePlay(false);  // Resume mechanics
     }
 
     private void TransitionToPerspectiveCamera()
@@ -68,6 +69,7 @@ public class CameraController : MonoBehaviour
     }
     private void TransitionToOrthographic()
     {
+        EventManager.instance.PauseGamePlay(true);  // Resume mechanics
         brain.m_DefaultBlend.m_Time = orthographicTransitionSpeed;  // Adjust blend duration
         perspectiveCatchCamera.Priority = 1;
         perspectiveCamera.Priority = 0;
@@ -80,5 +82,6 @@ public class CameraController : MonoBehaviour
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
         perspectiveCatchCamera.Priority = 0;
         orthographicCamera.Priority = 1;
+        EventManager.instance.PauseGamePlay(false);  // Resume mechanics
     }
 }

@@ -54,14 +54,17 @@
      <Compile Include="Assets/Scripts/Movement/MovementTypeController.cs" />
      <Compile Include="Assets/Materials/Outline Materials/Scripts/Outline.cs" />
      <Compile Include="Assets/Scripts/Managers/EventManager.cs" />
-     <Compile Include="Assets/Scripts/Platforms/PausingPlatform.cs" />
+     <Compile Include="Assets/Scripts/Key/Door.cs" />
      <Compile Include="Assets/Scripts/Alan.cs" />
+     <Compile Include="Assets/Scripts/Key/Key.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike.cs" />
      <Compile Include="Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" />
      <Compile Include="Assets/Scripts/Alan2D.cs" />
      <Compile Include="Assets/Scripts/Managers/InputManager.cs" />
      <Compile Include="Assets/Scripts/Blocks/PickUpPlaceBlock.cs" />
+     <Compile Include="Assets/Scripts/BouncePad/BouncePad.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraFollow.cs" />
+     <Compile Include="Assets/Scripts/Platforms/Moveable2DPlatform.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />
      <Folder Include="Assets" />
@@ -70,30 +73,34 @@
      <Folder Include="Assets/Materials/Outline Materials/Resources/Materials" />
      <Folder Include="Assets/Scenes" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Lights" />
+     <Folder Include="Assets/Lighting" />
      <Folder Include="Assets/Assets/2D Alan/Animation/Zombie Extra" />
      <Folder Include="Assets/Scripts/Spikes" />
+     <Folder Include="Assets/Assets/Wall Textures/painted_plaster_wall_4k.blend" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Floor" />
      <Folder Include="Assets/Assets/3D Blocks" />
      <Folder Include="Assets/UnityTechnologies/Settings" />
-     <Folder Include="Assets/Assets/Audio" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Props" />
      <None Include="Assets/Materials/GridShader.shader" />
      <Folder Include="Assets/Scripts/Movement" />
      <Folder Include="Assets/Materials/Outline Materials/Samples" />
+     <Folder Include="Assets/Scripts/BouncePad" />
      <None Include="Assets/Materials/Outline Materials/Resources/Shaders/OutlineMask.shader" />
      <Folder Include="Assets/Scripts/Platforms" />
      <Folder Include="Assets/Assets/2D Alan/Prefab" />
      <Folder Include="Assets/Assets" />
      <Folder Include="Assets/Assets/Camera" />
      <Folder Include="Assets/Materials" />
-     <Folder Include="Assets/Audio" />
      <Folder Include="Assets/Assets/Door Texture Pack/Textures" />
      <Folder Include="Assets/Assets/2D Alan/Sprites" />
+     <Folder Include="Assets/Assets/Wall Textures" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Materials" />
      <Folder Include="Assets/Scripts/Blocks" />
      <None Include="Assets/Assets/Door Texture Pack/Readme.txt" />
      <None Include="Assets/Materials/Blured.shader" />
+     <Folder Include="Assets/Assets/Wall Textures/painted_plaster_wall_4k 1.blend" />
+     <Folder Include="Assets/Scenes/Level BouncePad" />
      <Folder Include="Assets/Materials/Outline Materials/Samples/Scenes" />
      <None Include="Assets/Materials/Outline Materials/Readme.txt" />
      <Folder Include="Assets/Assets/2D Alan/Animation" />
@@ -104,9 +111,12 @@
      <Folder Include="Assets/Materials/Outline Materials/Resources/Shaders" />
      <Folder Include="Assets/Prefabs" />
      <Folder Include="Assets/Assets/SONY_A7M4_GM1635_OUTPUT_LOD03" />
+     <Folder Include="Assets/Scripts/Key" />
      <Folder Include="Assets/Materials/Outline Materials/Samples/Materials" />
+     <Folder Include="Assets/Assets/Wall Textures/painted_plaster_wall_4k 1.blend/textures" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Models/Floor" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Walls" />
+     <Folder Include="Assets/Assets/Wall Textures/painted_plaster_wall_4k.blend/textures" />
      <Folder Include="Assets/Assets/Door Texture Pack/Materials" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Models" />
      <Folder Include="Assets/Scripts" />
@@ -117,6 +127,7 @@
      <Folder Include="Assets/Materials/Outline Materials/Scripts" />
      <Folder Include="Assets/Materials/Materials" />
      <Folder Include="Assets/UnityTechnologies" />
+     <Folder Include="Assets/Audio" />
      <Folder Include="Assets/Assets/2D Alan" />
      <Folder Include="Assets/Scripts/Camera" />
      <None Include="Assets/Materials/Outline Materials/Resources/Shaders/OutlineFill.shader" />
@@ -372,13 +383,13 @@
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections.LowLevel.ILSupport">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll</HintPath>
      </Reference>
      <Reference Include="ReportGeneratorMerged">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/PackageCache/com.unity.testtools.codecoverage@1.2.4/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/PackageCache/com.unity.visualscripting@1.8.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -747,163 +758,163 @@
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Runtime">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="com.unity.cinemachine.editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Path.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.Common.Path.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Common.Path.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Sprite.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Collections">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
      </Reference>
      <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.EditorCoroutines.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
      </Reference>
      <Reference Include="PsdPlugin">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Runtime">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEngineBridge.001">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Runtime">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InternalAPIEditorBridge.001">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Psdimporter.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Common.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="Cinemachine">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.Animation.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.2D.IK.Editor">
-     <HintPath>/Users/joaquinmurillo/Desktop/CameraMan/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
