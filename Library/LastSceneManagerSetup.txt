@@ -1,5 +1,13 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/MainMenu.unity
+=======
+<<<<<<< HEAD
+- path: Assets/Scenes/Level Demo.unity
+=======
+- path: Assets/Scenes/Level 6 Moving Platforms.unity
+>>>>>>> a0c7e36eacd51033c046180b3e6be4f77a98711c
+>>>>>>> KeyMechanic
   isLoaded: 1
   isActive: 1
   isSubScene: 0

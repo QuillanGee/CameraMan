@@ -73,7 +73,6 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
 *.obj
 *.iobj
 *.pch
@@ -397,8 +396,6 @@ FodyWeavers.xsd
 *.msp
 
 # JetBrains Rider
-*.sln.iml
-.idea/
 *.iml
 *.ipr
 *.iws
@@ -411,9 +408,6 @@ Logs/
 UserSettings/
 
 # Auto-generated files
-*.csproj
-*.unityproj
-*.sln
 *.pidb
 *.swp
 *.suo
