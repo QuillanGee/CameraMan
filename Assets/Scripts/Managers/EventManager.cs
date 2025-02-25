@@ -22,6 +22,16 @@ public class EventManager : MonoBehaviour
             OnInstantiateGamePlay();
         }
     }
+    
+    public event EventHandler<bool> OnPauseGamePlay;
+
+    public void PauseGamePlay(bool isPaused)
+    {
+        if (OnPauseGamePlay != null)
+        {
+            OnPauseGamePlay(this, isPaused);
+        }
+    }
 
     public event Action OnResetAlan2D;
     public void ResetAlan2D()
@@ -78,6 +88,25 @@ public class EventManager : MonoBehaviour
         if (OnNotHoldingBlock != null)
         {
             OnNotHoldingBlock();
+        }
+    }
+    
+    public event EventHandler<GameObject> OnKeyPickup;
+
+    public void KeyPickup(GameObject key)
+    {
+        if (OnPauseGamePlay != null)
+        {
+            OnPauseGamePlay(this, key);
+        }
+    }
+    public event Action OnUnlockDoor;
+
+    public void UnlockDoor()
+    {
+        if (OnUnlockDoor != null)
+        {
+            OnUnlockDoor();
         }
     }
 }
