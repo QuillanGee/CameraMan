@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+  lastWriteTicks: -8584614268124186180
+=======
+<<<<<<< HEAD
   lastWriteTicks: -8584615023806559342
+>>>>>>> KeyMechanic
   manifestJsonLastWriteTicks: -8584626534361249791
 =======
   lastWriteTicks: 0
