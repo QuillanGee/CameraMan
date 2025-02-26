@@ -156,7 +156,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
         if (isPaused)
         {
             rb.gravityScale = 0;  // Disable gravity
-            rb.constraints = RigidbodyConstraints2D.FreezePosition;  // Freeze all position axes
+            rb.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;  // Freeze all position axes
         }
         else
         {

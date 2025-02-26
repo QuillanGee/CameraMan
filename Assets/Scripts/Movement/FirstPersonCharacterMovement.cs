@@ -159,7 +159,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (isPaused)
         {
             rb.useGravity = false;  // Disable gravity
-            rb.constraints = RigidbodyConstraints.FreezePosition;  // Freeze all position axes
+            rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;  // Freeze all position axes
         }
         else
         {
