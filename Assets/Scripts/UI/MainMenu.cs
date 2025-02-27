@@ -11,8 +11,6 @@ public class MainMenu : MonoBehaviour
         //load the first level
         FindObjectOfType<FlashTransition>().Flash();
 
-
-
     }
 
 

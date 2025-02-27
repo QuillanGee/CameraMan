@@ -12,7 +12,6 @@ public class MovementTypeController : MonoBehaviour
         EventManager.instance.OnToggleFirstPerson += ToggleControlsForFirstPerson;
         EventManager.instance.OnToggleTwoD += ToggleControlsForTwoD;
     }
-
     private void ToggleControlsForTwoD()
     {
         twoDCharacterMovement.enabled = true;

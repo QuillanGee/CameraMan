@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
   - Door
-  - Platform
+  - Ground
+  - Blocks
+  - Walls
   - BouncePad
   - DoorToUnlock
   layers:
@@ -45,7 +46,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Projected
-    uniqueID: 2838533655
     locked: 0
