@@ -40,8 +40,8 @@ public class PickUpPlaceBlock : MonoBehaviour
             // If we hit a block, pick it up
             pickedBlock = hit.collider.gameObject;
             isHolding = true;
-            pickedBlock.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;;
-            pickedBlock.GetComponent<Rigidbody>().isKinematic = true;
+            // pickedBlock.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;;
+            // pickedBlock.GetComponent<Rigidbody>().isKinematic = true;
             pickedBlock.transform.SetParent(holdPosition);
             HoldBlock();
         }
@@ -60,8 +60,8 @@ public class PickUpPlaceBlock : MonoBehaviour
     {
         isHolding = false;
         // Enable physics again for the block
-        pickedBlock.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        pickedBlock.GetComponent<Rigidbody>().isKinematic = false;
+        // pickedBlock.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
+        // pickedBlock.GetComponent<Rigidbody>().isKinematic = false;
         pickedBlock.transform.parent = null;
         pickedBlock = null; // Clear the reference to the block
     }

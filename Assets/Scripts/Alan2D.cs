@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;  // Need this for scene management
 
@@ -7,21 +8,24 @@ public class Alan2D : MonoBehaviour
 {
     [SerializeField] Transform projectedWallTransform;
     [SerializeField] GameObject Alan;
-    [SerializeField] private Transform holdPosition2D;
     private Vector3 alanDefaultScale;
     private Vector3 startingPosition;
-    private ObjectProjection currentHeldObjectProjection;
+    private float initialDistanceFromWall;
+    private float scaleFactor = 1f;
+    
     private Rigidbody2D rb;
+    
+    private float bouncePadForce = 2.5f;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         alanDefaultScale = transform.localScale;
         startingPosition = transform.position;
+        initialDistanceFromWall = Mathf.Abs(Alan.transform.position.z - projectedWallTransform.position.z);
         
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
-        EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
-        EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
     }
     
@@ -55,6 +59,11 @@ public class Alan2D : MonoBehaviour
         {
             transform.SetParent(collision.transform);
         }
+
+        if (collision.gameObject.CompareTag("BouncePad"))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, bouncePadForce);
+        }
     }
     
     private void OnCollisionExit2D(Collision2D collision)
@@ -72,8 +81,8 @@ public class Alan2D : MonoBehaviour
         
         //Scales based on distance from InvisaWall
         float distanceToPlane = projectedWallTransform.position.z - Alan.transform.position.z;
-        float scaleFactor =  3*(1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
-        Vector3 theScale = alanDefaultScale * scaleFactor;
+        float computedScaleFactor =  scaleFactor * initialDistanceFromWall*(1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
+        Vector3 theScale = alanDefaultScale * computedScaleFactor;
         theScale.x *= direction;
         transform.localScale = theScale;
         
@@ -87,24 +96,7 @@ public class Alan2D : MonoBehaviour
         newYPosition.y = Alan.transform.position.y;
         transform.position = newYPosition;
     }
-
-    private void SetObjectionProjectionInstance()
-    {
-        currentHeldObjectProjection = GetComponentInChildren<ObjectProjection>();
-    }
     
-    private void AttachBlockToAlan2D()
-    {
-        // Determine the direction the character is facing
-        float direction = Mathf.Sign(transform.localScale.x);
-
-        // Calculate the new position of the block
-        Vector3 newPosition = transform.position + new Vector3(direction * 0.7f, 1f, 0f);
-        
-        
-        currentHeldObjectProjection.PositionBlockToHoldPosition(holdPosition2D.position);
-        currentHeldObjectProjection.SetBlockParent(transform);
-    }
 
     private void ResetPosition()
     {

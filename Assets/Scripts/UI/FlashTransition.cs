@@ -13,8 +13,7 @@ public class FlashTransition : MonoBehaviour
     {
         flashPanel.alpha = 0; // Make sure it's invisible at the start
     }
-
-
+    
     public void Flash()
     {
         StartCoroutine(FlashEffect());
