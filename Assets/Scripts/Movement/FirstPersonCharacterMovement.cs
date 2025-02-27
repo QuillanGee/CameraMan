@@ -6,10 +6,9 @@ using Cinemachine;
 public class FirstPersonCharacterMovement : MonoBehaviour
 {
     // Player Control Settings
-    public float walkSpeed = 3.0f;            // Movement speed
+    public float walkSpeed = 2.3f;            // Movement speed
     private float gravity = -28.0f;           // Custom gravity force
     private float mouseSensitivity = 200.0f;  // Mouse sensitivity for look around
-    private float groundDrag = 11.0f;
 
     [SerializeField] private Transform orientation;
     private float rotationX = 0.0f;           // Pitch rotation (up-down)
@@ -28,11 +27,11 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     // Jump Parameters
     private float jumpForce = 13.0f;          // Adjusted for balance
     private float jumpCooldown = 0.25f;
-    private float airMultiplier = 0.3f;
+    private float airMultiplier = 0.1f;
     private bool readyToJump = true;
 
     //BouncePad
-    private float bouncePadForce = 30.0f;
+    private float bouncePadForce = 22.0f;
     
     private CinemachineVirtualCamera fpc;
     private Rigidbody rb;
@@ -56,7 +55,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ApplyGravity(); // Custom gravity
+        // ApplyGravity(); // Custom gravity
     }
 
     void Update()
@@ -64,9 +63,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         // Check if grounded
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer) 
                      || Physics.CheckSphere(groundCheck.position, groundDistance, blockLayer);
-
-        rb.drag = isGrounded ? groundDrag : 0;
-
+        
         MyInput();
         SpeedControl();
         MoveCharacter();
@@ -121,11 +118,11 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         }
     }
 
-    private void ApplyGravity()
-    {
-        // Apply a constant downward force
-        rb.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
-    }
+    // private void ApplyGravity()
+    // {
+    //     // Apply a constant downward force
+    //     rb.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
+    // }
 
     private void Jump()
     {
@@ -151,6 +148,21 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (other.gameObject.CompareTag("DoorToUnlock"))
         {
             EventManager.instance.UnlockDoor();
+        }  
+
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(other.transform);
+            rb.isKinematic = true;
+        }
+    }
+    
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            transform.SetParent(null);
+            rb.isKinematic = false;
         }
     }
 

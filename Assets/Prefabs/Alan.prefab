@@ -457,7 +457,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7558560907412150959}
-  m_Material: {fileID: 13400000, guid: 6e459336f603349faa2c18153bc12029, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -552,6 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Alan2D: {fileID: 0}
+  holdPosition2D: {fileID: 0}
 --- !u!1 &7765885919276680502
 GameObject:
   m_ObjectHideFlags: 0

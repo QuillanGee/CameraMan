@@ -117,6 +117,7 @@
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Walls" />
      <Folder Include="Assets/Assets/Wall Textures/painted_plaster_wall_4k.blend/textures" />
      <Folder Include="Assets/Assets/Door Texture Pack/Materials" />
+     <Folder Include="Assets/Assets/Ground Material" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Models" />
      <Folder Include="Assets/Scripts" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Scenes" />

@@ -8,13 +8,11 @@ public class Alan2D : MonoBehaviour
 {
     [SerializeField] Transform projectedWallTransform;
     [SerializeField] GameObject Alan;
-    [SerializeField] private Transform holdPosition2D;
     private Vector3 alanDefaultScale;
     private Vector3 startingPosition;
     private float initialDistanceFromWall;
     private float scaleFactor = 1f;
     
-    private ObjectProjection currentHeldObjectProjection;
     private Rigidbody2D rb;
     
     private float bouncePadForce = 2.5f;
@@ -28,8 +26,6 @@ public class Alan2D : MonoBehaviour
         initialDistanceFromWall = Mathf.Abs(Alan.transform.position.z - projectedWallTransform.position.z);
         
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
-        EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
-        EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
     }
     
@@ -100,23 +96,7 @@ public class Alan2D : MonoBehaviour
         newYPosition.y = Alan.transform.position.y;
         transform.position = newYPosition;
     }
-
-    private void SetObjectionProjectionInstance()
-    {
-        currentHeldObjectProjection = GetComponentInChildren<ObjectProjection>();
-    }
     
-    private void AttachBlockToAlan2D()
-    {
-        // Determine the direction the character is facing
-        float direction = Mathf.Sign(transform.localScale.x);
-
-        // Calculate the new position of the block
-        Vector3 newPosition = transform.position + new Vector3(direction * 0.7f, 1f, 0f);
-        
-        currentHeldObjectProjection.PositionBlockToHoldPosition(holdPosition2D.position);
-        currentHeldObjectProjection.SetBlockParent(transform);
-    }
 
     private void ResetPosition()
     {

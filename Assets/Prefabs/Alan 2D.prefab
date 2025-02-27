@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 6071922347518109154}
   - component: {fileID: 6038644587680399724}
   - component: {fileID: 552585914914533053}
-  - component: {fileID: 2814611547467819697}
   - component: {fileID: 3596954066796572490}
   - component: {fileID: 5754657939547598030}
   m_Layer: 0
@@ -214,51 +213,6 @@ CircleCollider2D:
   m_Offset: {x: 0.0028550625, y: 0.49}
   serializedVersion: 2
   m_Radius: 0.23618466
---- !u!61 &2814611547467819697
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798396313193754910}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 42d86fd932d894698871a3ff72dfe199, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.012066654, y: 0.023508638}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.07114498, y: 0.041092917}
-  m_EdgeRadius: 0
 --- !u!61 &3596954066796572490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -291,7 +245,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011110123, y: 0.43354458}
+  m_Offset: {x: -0.011271801, y: 0.43354458}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -302,7 +256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18167716, y: 0.8516966}
+  m_Size: {x: 0.18575281, y: 0.8516966}
   m_EdgeRadius: 0
 --- !u!114 &5754657939547598030
 MonoBehaviour:
@@ -318,7 +272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectedWallTransform: {fileID: 0}
   Alan: {fileID: 0}
-  holdPosition2D: {fileID: 8962851567322296020}
 --- !u!1001 &199824321706091144
 PrefabInstance:
   m_ObjectHideFlags: 0

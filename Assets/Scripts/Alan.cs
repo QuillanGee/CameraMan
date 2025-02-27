@@ -6,8 +6,11 @@ using UnityEngine;
 public class Alan : MonoBehaviour
 {
     [SerializeField] GameObject Alan2D;
+    [SerializeField] private Transform holdPosition2D;
     private Canvas crossHair;
     private Vector3 startingPosition;
+    private ObjectProjection currentHeldObjectProjection;
+
     
     private void Start()
     {
@@ -19,23 +22,10 @@ public class Alan : MonoBehaviour
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
         EventManager.instance.OnToggleFirstPerson += WaitToEnableCrossHair;
         EventManager.instance.OnResetAlan += ResetPosition;
+        EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
+        EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            transform.SetParent(other.transform);
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            transform.SetParent(null);
-        }
-    }
+    
 
     private void ProjectAlan2DToMoveAlan()
     {
@@ -65,6 +55,17 @@ public class Alan : MonoBehaviour
     {
         yield return new WaitForSeconds(CameraController.perspectiveTransitionSpeed);
         crossHair.enabled = true;
+    }
+    
+    private void SetObjectionProjectionInstance()
+    {
+        currentHeldObjectProjection = GetComponentInChildren<ObjectProjection>();
+    }
+    
+    private void AttachBlockToAlan2D()
+    {
+        currentHeldObjectProjection.PositionBlockToHoldPosition(holdPosition2D.position);
+        currentHeldObjectProjection.SetBlockParent(Alan2D.transform);
     }
 
     private void ResetPosition()
