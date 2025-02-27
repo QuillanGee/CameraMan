@@ -55,7 +55,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // ApplyGravity(); // Custom gravity
+        ApplyGravity(); // Custom gravity
     }
 
     void Update()
@@ -118,11 +118,11 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         }
     }
 
-    // private void ApplyGravity()
-    // {
-    //     // Apply a constant downward force
-    //     rb.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
-    // }
+    private void ApplyGravity()
+    {
+        // Apply a constant downward force
+        rb.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
+    }
 
     private void Jump()
     {
@@ -153,7 +153,6 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             transform.SetParent(other.transform);
-            rb.isKinematic = true;
         }
     }
     
@@ -162,7 +161,6 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             transform.SetParent(null);
-            rb.isKinematic = false;
         }
     }
 
