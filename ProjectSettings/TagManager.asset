@@ -4,15 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
   - Door
-  - Platform
-<<<<<<< HEAD
-  - Ladder
-=======
+  - Ground
+  - Blocks
+  - Walls
   - BouncePad
   - DoorToUnlock
->>>>>>> a0c7e36eacd51033c046180b3e6be4f77a98711c
   layers:
   - Default
   - TransparentFX
@@ -49,7 +46,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Projected
-    uniqueID: 2838533655
     locked: 0
