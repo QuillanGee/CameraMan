@@ -27,6 +27,9 @@ public class Alan2D : MonoBehaviour
         
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
+        EventManager.instance.OnHideLevel += HideAlan2D;
+        EventManager.instance.OnShowLevel += ShowAlan2D;
+
     }
     
     private void OnTriggerStay2D(Collider2D other)
@@ -37,18 +40,46 @@ public class Alan2D : MonoBehaviour
             rb.WakeUp();
             if (Input.GetKeyDown(KeyCode.W))
             {
-                // Get the current scene's build index
-                int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-                // Calculate the next scene index
-                int nextSceneIndex = currentSceneIndex + 1;
-
-                // Check if the next scene index is within the range of available scenes
-                if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+                
+                // check if current scene is Level Demo
+                if (SceneManager.GetActiveScene().name == "Level BouncePad")
                 {
                     // Load the next scene
-                    SceneManager.LoadScene(nextSceneIndex);
+                    SceneManager.LoadScene("MainMenu");
                 }
+                else
+                {
+                    SceneManager.LoadScene("MainMenu");
+                }
+                
+            //     else
+            //     {
+            //         // Get the current scene's build index
+            //         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            //
+            //         // Calculate the next scene index
+            //         int nextSceneIndex = currentSceneIndex + 1;
+            //
+            //         // Check if the next scene index is within the range of available scenes
+            //         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            //         {
+            //             // Load the next scene
+            //             SceneManager.LoadScene(nextSceneIndex);
+            //         }
+            //     }
+            //     
+            //     // Get the current scene's build index
+            //     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            //
+            //     // Calculate the next scene index
+            //     int nextSceneIndex = currentSceneIndex + 1;
+            //
+            //     // Check if the next scene index is within the range of available scenes
+            //     if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            //     {
+            //         // Load the next scene
+            //         SceneManager.LoadScene(nextSceneIndex);
+            //     }
             }
         }
     }
@@ -101,5 +132,21 @@ public class Alan2D : MonoBehaviour
     private void ResetPosition()
     {
         transform.position = startingPosition;
+    }
+    
+    private void HideAlan2D()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void ShowAlan2D()
+    {
+        if (!gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

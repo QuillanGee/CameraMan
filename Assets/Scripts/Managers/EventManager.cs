@@ -109,4 +109,22 @@ public class EventManager : MonoBehaviour
             OnUnlockDoor();
         }
     }
+
+    public event Action OnHideLevel;
+    public void HideLevel()
+    {
+        if (OnHideLevel != null)
+        {
+            OnHideLevel();
+        }
+    }
+    
+    public event Action OnShowLevel;
+    public void ShowLevel()
+    {
+        if (OnShowLevel != null)
+        {
+            OnShowLevel();
+        }
+    }
 }

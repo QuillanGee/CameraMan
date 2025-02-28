@@ -6,7 +6,7 @@ using Cinemachine;
 public class FirstPersonCharacterMovement : MonoBehaviour
 {
     // Player Control Settings
-    public float walkSpeed = 2.3f;            // Movement speed
+    public float walkSpeed = 2.0f;            // Movement speed
     private float gravity = -28.0f;           // Custom gravity force
     private float mouseSensitivity = 200.0f;  // Mouse sensitivity for look around
 
@@ -25,16 +25,20 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private bool isGrounded = true;
 
     // Jump Parameters
-    private float jumpForce = 13.0f;          // Adjusted for balance
+    private float jumpForce = 10f;          // Adjusted for balance
     private float jumpCooldown = 0.25f;
     private float airMultiplier = 0.1f;
     private bool readyToJump = true;
 
     //BouncePad
-    private float bouncePadForce = 22.0f;
+    private float bouncePadForce = 20.0f;
     
     private CinemachineVirtualCamera fpc;
     private Rigidbody rb;
+
+    // Ladder Climbing
+    private bool isOnLadder = false;
+    public float climbSpeed = 3.0f;
 
     void Start()
     {
@@ -55,13 +59,16 @@ public class FirstPersonCharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // ApplyGravity(); // Custom gravity
+        if (!isOnLadder)
+        {
+            ApplyGravity(); // Custom gravity
+        }
     }
 
     void Update()
     {
         // Check if grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer) 
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer)
                      || Physics.CheckSphere(groundCheck.position, groundDistance, blockLayer);
         
         MyInput();
@@ -91,19 +98,28 @@ public class FirstPersonCharacterMovement : MonoBehaviour
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
+        if (isOnLadder)
+        {
+            float climbDirection = Input.GetAxis("Vertical");
+            rb.velocity = new Vector3(0, climbDirection * climbSpeed, 0); // Stop horizontal movement
+        }
     }
 
     private void MoveCharacter()
     {
-        moveDirection = orientation.right * moveX + orientation.forward * moveY;
+        if (!isOnLadder)
+        {
+            moveDirection = orientation.right * moveX + orientation.forward * moveY;
 
-        if (isGrounded)
-        {
-            rb.AddForce(moveDirection.normalized * walkSpeed * 10f, ForceMode.Force);
-        }
-        else
-        {
-            rb.AddForce(moveDirection.normalized * walkSpeed * 10f * airMultiplier, ForceMode.Force);
+            if (isGrounded)
+            {
+                rb.AddForce(moveDirection.normalized * walkSpeed * 10f, ForceMode.Force);
+            }
+            else
+            {
+                rb.AddForce(moveDirection.normalized * walkSpeed * 10f * airMultiplier, ForceMode.Force);
+            }
         }
     }
 
@@ -118,18 +134,17 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         }
     }
 
-    // private void ApplyGravity()
-    // {
-    //     // Apply a constant downward force
-    //     rb.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
-    // }
+    private void ApplyGravity()
+    {
+        // Apply a constant downward force
+        rb.AddForce(Vector3.up * gravity, ForceMode.Acceleration);
+    }
 
     private void Jump()
     {
         // Reset Y velocity to ensure consistent jump height
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
     }
 
     private void ResetJump()
@@ -144,7 +159,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(Vector3.up * bouncePadForce, ForceMode.Impulse);
         }
-        
+
         if (other.gameObject.CompareTag("DoorToUnlock"))
         {
             EventManager.instance.UnlockDoor();
@@ -153,7 +168,6 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             transform.SetParent(other.transform);
-            rb.isKinematic = true;
         }
     }
     
@@ -162,7 +176,6 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             transform.SetParent(null);
-            rb.isKinematic = false;
         }
     }
 
@@ -170,13 +183,17 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     {
         if (isPaused)
         {
-            rb.useGravity = false;  // Disable gravity
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;  // Freeze all position axes
         }
         else
         {
-            rb.useGravity = true;  // Re-enable gravity
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
+    }
+
+    public void SetIsOnLadder(bool value)
+    {
+        isOnLadder = value;
+        rb.useGravity = !value;
     }
 }

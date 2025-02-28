@@ -15,6 +15,7 @@ public class MoveablePlatform : MonoBehaviour
     public float speed = 3f;
     private int targetIndex = 0;
     private bool isPaused = false;
+    private Rigidbody rb;
 
     public delegate void WaypointReachedEvent(bool isParallel);
     public event WaypointReachedEvent OnWaypointReached;
@@ -22,6 +23,7 @@ public class MoveablePlatform : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         EventManager.instance.OnPauseGamePlay += HandlePause;
     }
 
@@ -29,7 +31,7 @@ public class MoveablePlatform : MonoBehaviour
     {
         EventManager.instance.OnPauseGamePlay -= HandlePause;
     }
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         if (isPaused || waypoints.Length == 0) return;
         MovePlatform();
@@ -37,8 +39,10 @@ public class MoveablePlatform : MonoBehaviour
 
     private void MovePlatform()
     {
-        transform.position = Vector3.MoveTowards(transform.position, waypoints[targetIndex].waypoint.position, speed * Time.deltaTime);
+        // transform.position = Vector3.MoveTowards(transform.position, waypoints[targetIndex].waypoint.position, speed * Time.deltaTime);
+        rb.MovePosition(Vector3.MoveTowards(rb.position, waypoints[targetIndex].waypoint.position, speed * Time.deltaTime));
 
+        
         if (Vector3.Distance(transform.position, waypoints[targetIndex].waypoint.position) < 0.1f)
         {
             OnReachWaypoint();

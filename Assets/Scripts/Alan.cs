@@ -20,10 +20,14 @@ public class Alan : MonoBehaviour
         
         EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
-        EventManager.instance.OnToggleFirstPerson += WaitToEnableCrossHair;
+        EventManager.instance.OnHideLevel += WaitToEnableCrossHair;
         EventManager.instance.OnResetAlan += ResetPosition;
         EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
         EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
+        EventManager.instance.OnHideLevel += ShowAlan;
+        EventManager.instance.OnShowLevel += HideAlan;
+        
+        gameObject.SetActive(false);
     }
     
 
@@ -48,7 +52,7 @@ public class Alan : MonoBehaviour
 
     private void WaitToEnableCrossHair()
     {
-        StartCoroutine(WaitToEnableCrossHairCoroutine());
+        crossHair.enabled = true;
     }
     
     private IEnumerator WaitToEnableCrossHairCoroutine()
@@ -71,5 +75,15 @@ public class Alan : MonoBehaviour
     private void ResetPosition()
     {
         transform.position = startingPosition;
+    }
+
+    private void HideAlan()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void ShowAlan()
+    {
+        gameObject.SetActive(true);
     }
 }

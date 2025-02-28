@@ -7,14 +7,14 @@ public class FlashTransition : MonoBehaviour
 {
     public CanvasGroup flashPanel;
     public float flashDuration = 0.2f;
+    public AudioSource audioSource;
 
 
     void Start()
     {
         flashPanel.alpha = 0; // Make sure it's invisible at the start
     }
-
-
+    
     public void Flash()
     {
         StartCoroutine(FlashEffect());
@@ -24,8 +24,9 @@ public class FlashTransition : MonoBehaviour
     IEnumerator FlashEffect()
     {
         flashPanel.alpha = 1;
+        audioSource.Play();
         yield return new WaitForSeconds(flashDuration);
-        SceneManager.LoadScene("Level Demo");
+        SceneManager.LoadScene("Level BouncePad");
         yield return new WaitForSeconds(0.2f);
         flashPanel.alpha = 0;
     }

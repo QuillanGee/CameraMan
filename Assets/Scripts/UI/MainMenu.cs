@@ -11,19 +11,16 @@ public class MainMenu : MonoBehaviour
         //load the first level
         FindObjectOfType<FlashTransition>().Flash();
 
-
-
     }
 
 
     public void OnClickQuit()
     {
-        //uncomment to quit from build
-        // Application.Quit();
-      
-        //comment out after creating build
-        UnityEditor.EditorApplication.isPlaying = false;
-
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;  // Stops play mode in editor
+        #else
+            Application.Quit();  // Quits the built application
+        #endif
 
     }
 }
