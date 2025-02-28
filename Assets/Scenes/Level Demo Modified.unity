@@ -1657,7 +1657,7 @@ PrefabInstance:
       objectReference: {fileID: 1518699310}
     - target: {fileID: 6071922347518109154, guid: 7c1377075c5004f838d86d4bc9dc431b, type: 3}
       propertyPath: speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8259884087431677002, guid: 7c1377075c5004f838d86d4bc9dc431b, type: 3}
       propertyPath: m_LocalScale.x
@@ -2795,7 +2795,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9, y: 10.3}
+  m_Size: {x: 9, y: 10.1}
   m_EdgeRadius: 0
 --- !u!1 &947191588
 GameObject:
@@ -3721,7 +3721,7 @@ Transform:
   m_GameObject: {fileID: 1238640751}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -5, y: 1.75, z: 0}
+  m_LocalPosition: {x: -5, y: 1.739, z: 0}
   m_LocalScale: {x: 0.4, y: 0.015, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4293,7 +4293,7 @@ Transform:
   m_GameObject: {fileID: 1504304019}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.6, y: 1.1, z: 0}
+  m_LocalPosition: {x: 0.6, y: 1, z: 0}
   m_LocalScale: {x: 0.078, y: 0.23, z: 1.21}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4806,7 +4806,7 @@ Transform:
   m_GameObject: {fileID: 1679372856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 1.1, z: -7.3}
+  m_LocalPosition: {x: 0.6, y: 1, z: -7.3}
   m_LocalScale: {x: 0.8, y: 2.5, z: 12}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5574,7 +5574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2032443703339194917, guid: 66d3dc309f6324ca0975a5f9e2de5ab5, type: 3}
       propertyPath: walkSpeed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2032443703339194917, guid: 66d3dc309f6324ca0975a5f9e2de5ab5, type: 3}
       propertyPath: blockLayer.m_Bits
@@ -5724,9 +5724,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 8185055339313980681, guid: 66d3dc309f6324ca0975a5f9e2de5ab5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 6e459336f603349faa2c18153bc12029, type: 2}
+    - target: {fileID: 8346065569585727941, guid: 66d3dc309f6324ca0975a5f9e2de5ab5, type: 3}
+      propertyPath: m_Drag
+      value: 5.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8346065569585727941, guid: 66d3dc309f6324ca0975a5f9e2de5ab5, type: 3}
       propertyPath: m_Mass
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

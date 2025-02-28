@@ -1500,7 +1500,9 @@ MonoBehaviour:
     Jump - Spacebar
 
     Perspective
-    Switch - F key'
+    Switch - F key
+
+    Enter Green Door - W key'
 --- !u!222 &1319215044
 CanvasRenderer:
   m_ObjectHideFlags: 0

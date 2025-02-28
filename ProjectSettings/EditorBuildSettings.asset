@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 1aa16e6e1db38498a9f5aa7c4849b7f2
   - enabled: 1
-    path: Assets/Scenes/Level BouncePad.unity
-    guid: 64643a1600f0c4ba4b61693ef73e0881
-  - enabled: 0
     path: Assets/Scenes/Level Demo Modified.unity
     guid: af550902b6eeb4f8c87c10882cf3be3b
+  - enabled: 1
+    path: Assets/Scenes/Level BouncePad.unity
+    guid: 64643a1600f0c4ba4b61693ef73e0881
   - enabled: 0
     path: Assets/Scenes/Level Demo.unity
     guid: 6f94074f4054a4db6bc1396c15eb9f26
