@@ -7,6 +7,7 @@ public class FlashTransition : MonoBehaviour
 {
     public CanvasGroup flashPanel;
     public float flashDuration = 0.2f;
+    public AudioSource audioSource;
 
 
     void Start()
@@ -23,8 +24,9 @@ public class FlashTransition : MonoBehaviour
     IEnumerator FlashEffect()
     {
         flashPanel.alpha = 1;
+        audioSource.Play();
         yield return new WaitForSeconds(flashDuration);
-        SceneManager.LoadScene("Level Demo");
+        SceneManager.LoadScene("Level Demo Modified");
         yield return new WaitForSeconds(0.2f);
         flashPanel.alpha = 0;
     }
