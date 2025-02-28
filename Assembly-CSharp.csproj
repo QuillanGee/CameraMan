@@ -55,6 +55,7 @@
      <Compile Include="Assets/Materials/Outline Materials/Scripts/Outline.cs" />
      <Compile Include="Assets/Scripts/Managers/EventManager.cs" />
      <Compile Include="Assets/Scripts/Key/Door.cs" />
+     <Compile Include="Assets/Scripts/Platforms/DetectPlayer.cs" />
      <Compile Include="Assets/Scripts/Alan.cs" />
      <Compile Include="Assets/Scripts/Key/Key.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike.cs" />
