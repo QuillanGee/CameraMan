@@ -2,52 +2,60 @@ Shader "Custom/Blured"
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
+        _BlurSize ("Blur Strength", Range(0.001, 0.02)) = 0.005
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        LOD 200
+        Tags { "Queue" = "Transparent" "RenderType"="Transparent" }
 
-        CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows
+        // 🔹 GrabPass MUST be outside of the Pass block
+        GrabPass { "_BackgroundTexture" }
 
-        // Use shader model 3.0 target, to get nicer looking lighting
-        #pragma target 3.0
-
-        sampler2D _MainTex;
-
-        struct Input
+        Pass
         {
-            float2 uv_MainTex;
-        };
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #include "UnityCG.cginc"
 
-        half _Glossiness;
-        half _Metallic;
-        fixed4 _Color;
+            struct appdata_t {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
+            struct v2f {
+                float4 pos : SV_POSITION;
+                float2 uv : TEXCOORD0;
+            };
 
-        void surf (Input IN, inout SurfaceOutputStandard o)
-        {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
-            // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            sampler2D _BackgroundTexture;
+            float _BlurSize;
+
+            v2f vert (appdata_t v)
+            {
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.vertex);
+                o.uv = ComputeGrabScreenPos(o.pos).xy; // Get screen-space UVs
+                return o;
+            }
+
+            fixed4 frag (v2f i) : SV_Target
+            {
+                fixed4 color = fixed4(0, 0, 0, 1);
+                int samples = 5; // More samples = stronger blur
+
+                for (int x = -samples; x <= samples; x++)
+                {
+                    for (int y = -samples; y <= samples; y++)
+                    {
+                        float2 offset = float2(x, y) * _BlurSize;
+                        color += tex2D(_BackgroundTexture, i.uv + offset);
+                    }
+                }
+                color /= (samples * 2 + 1) * (samples * 2 + 1); // Normalize blur
+                return fixed4(color.rgb, 0.5); // Adjust alpha for transparency
+            }
+            ENDCG
         }
-        ENDCG
     }
-    FallBack "Diffuse"
 }

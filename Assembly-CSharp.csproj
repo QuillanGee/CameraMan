@@ -45,6 +45,7 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets/Scripts/Managers/LevelVisibilityManager.cs" />
      <Compile Include="Assets/Scripts/UI/MainMenu.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
@@ -65,7 +66,6 @@
      <Compile Include="Assets/Scripts/Blocks/PickUpPlaceBlock.cs" />
      <Compile Include="Assets/Scripts/BouncePad/BouncePad.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraFollow.cs" />
-     <Compile Include="Assets/Scripts/LevelVisibilityManager.cs" />
      <Compile Include="Assets/Scripts/Platforms/Moveable2DPlatform.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />

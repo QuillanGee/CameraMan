@@ -17,10 +17,10 @@ public class MainMenu : MonoBehaviour
     public void OnClickQuit()
     {
         //uncomment to quit from build
-        // Application.Quit();
+        Application.Quit();
       
         //comment out after creating build
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
 
 
     }
