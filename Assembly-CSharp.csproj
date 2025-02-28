@@ -55,6 +55,7 @@
      <Compile Include="Assets/Materials/Outline Materials/Scripts/Outline.cs" />
      <Compile Include="Assets/Scripts/Managers/EventManager.cs" />
      <Compile Include="Assets/Scripts/Key/Door.cs" />
+     <Compile Include="Assets/Scripts/Platforms/DetectPlayer.cs" />
      <Compile Include="Assets/Scripts/Alan.cs" />
      <Compile Include="Assets/Scripts/Key/Key.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike.cs" />
@@ -78,8 +79,16 @@
      <Folder Include="Assets/Scripts/Spikes" />
      <Folder Include="Assets/Assets/Wall Textures/painted_plaster_wall_4k.blend" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Floor" />
+<<<<<<< Updated upstream
      <Folder Include="Assets/Assets/3D Blocks" />
      <Folder Include="Assets/UnityTechnologies/Settings" />
+=======
+     <Folder Include="Assets/Studio Assets/Textures/Container" />
+     <Folder Include="Assets/Assets/3D Blocks" />
+     <Folder Include="Assets/Studio Assets/Textures/Shelve" />
+     <Folder Include="Assets/UnityTechnologies/Settings" />
+     <Folder Include="Assets/Studio Assets/Textures/Walls Dirty" />
+>>>>>>> Stashed changes
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Props" />
      <None Include="Assets/Materials/GridShader.shader" />
      <Folder Include="Assets/Scripts/Movement" />
@@ -92,20 +101,33 @@
      <Folder Include="Assets/Assets/Camera" />
      <Folder Include="Assets/Materials" />
      <Folder Include="Assets/Assets/Door Texture Pack/Textures" />
+     <Folder Include="Assets/Studio Assets/Meshes" />
      <Folder Include="Assets/Assets/2D Alan/Sprites" />
      <Folder Include="Assets/Assets/Wall Textures" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs" />
+<<<<<<< Updated upstream
+=======
+     <Folder Include="Assets/Studio Assets/Textures/Crate" />
+     <Folder Include="Assets/Studio Assets/Textures/Box Sealed" />
+     <Folder Include="Assets/Studio Assets/Prefabs" />
+>>>>>>> Stashed changes
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Materials" />
      <Folder Include="Assets/Scripts/Blocks" />
      <None Include="Assets/Assets/Door Texture Pack/Readme.txt" />
      <None Include="Assets/Materials/Blured.shader" />
      <Folder Include="Assets/Free SteelLadder Pack/Textures" />
+     <Folder Include="Assets/Studio Assets/Materials" />
      <Folder Include="Assets/Free SteelLadder Pack/Materials" />
      <Folder Include="Assets/Assets/Wall Textures/painted_plaster_wall_4k 1.blend" />
      <Folder Include="Assets/Free SteelLadder Pack/Prefabs/LowPoly" />
      <Folder Include="Assets/Scenes/Level BouncePad" />
      <Folder Include="Assets/Materials/Outline Materials/Samples/Scenes" />
+     <Folder Include="Assets/Studio Assets" />
      <None Include="Assets/Materials/Outline Materials/Readme.txt" />
+<<<<<<< Updated upstream
+=======
+     <Folder Include="Assets/Custom Camera Blends" />
+>>>>>>> Stashed changes
      <Folder Include="Assets/Assets/2D Alan/Animation" />
      <Folder Include="Assets/Scripts/Managers" />
      <Folder Include="Assets/Assets/3D Alan" />
@@ -135,11 +157,19 @@
      <Folder Include="Assets/Materials/Materials" />
      <Folder Include="Assets/UnityTechnologies" />
      <Folder Include="Assets/Audio" />
+<<<<<<< Updated upstream
+=======
+     <Folder Include="Assets/Studio CyFi" />
+>>>>>>> Stashed changes
      <Folder Include="Assets/Assets/2D Alan" />
      <Folder Include="Assets/Scripts/Camera" />
      <None Include="Assets/Materials/Outline Materials/Resources/Shaders/OutlineFill.shader" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Models/Walls" />
      <Folder Include="Assets/Assets/Door Texture Pack" />
+<<<<<<< Updated upstream
+=======
+     <Folder Include="Assets/Studio Assets/Textures" />
+>>>>>>> Stashed changes
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.7f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
      </Reference>
