@@ -27,6 +27,9 @@ public class Alan2D : MonoBehaviour
         
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
+        EventManager.instance.OnHideLevel += HideAlan2D;
+        EventManager.instance.OnShowLevel += ShowAlan2D;
+
     }
     
     private void OnTriggerStay2D(Collider2D other)
@@ -101,5 +104,15 @@ public class Alan2D : MonoBehaviour
     private void ResetPosition()
     {
         transform.position = startingPosition;
+    }
+    
+    private void HideAlan2D()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void ShowAlan2D()
+    {
+        gameObject.SetActive(true);
     }
 }

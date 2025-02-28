@@ -54,6 +54,7 @@ public class CameraController : MonoBehaviour
 
     private void TransitionToPerspectiveCamera()
     {
+        EventManager.instance.HideLevel();
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
         orthographicZoom.Priority = 0;
         // Set the second perspective camera as active to start blending between both
@@ -72,6 +73,7 @@ public class CameraController : MonoBehaviour
     private IEnumerator WaitToTransitionToOrthographic()
     {
         yield return new WaitForSeconds(orthographicTransitionSpeed);
+        EventManager.instance.ShowLevel();
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
         // brain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut,0f);
         perspectiveCatchCamera.Priority = 0;
