@@ -141,11 +141,17 @@ public class Alan2D : MonoBehaviour
     
     private void HideAlan2D()
     {
-        gameObject.SetActive(false);
+        if (gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void ShowAlan2D()
     {
-        gameObject.SetActive(true);
+        if (!gameObject.activeInHierarchy)
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

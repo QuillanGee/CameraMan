@@ -25,13 +25,13 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private bool isGrounded = true;
 
     // Jump Parameters
-    private float jumpForce = 13.0f;          // Adjusted for balance
+    private float jumpForce = 10f;          // Adjusted for balance
     private float jumpCooldown = 0.25f;
     private float airMultiplier = 0.1f;
     private bool readyToJump = true;
 
     //BouncePad
-    private float bouncePadForce = 22.0f;
+    private float bouncePadForce = 20.0f;
     
     private CinemachineVirtualCamera fpc;
     private Rigidbody rb;
@@ -183,12 +183,10 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     {
         if (isPaused)
         {
-            rb.useGravity = false;  // Disable gravity
             rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;  // Freeze all position axes
         }
         else
         {
-            rb.useGravity = true;  // Re-enable gravity
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
