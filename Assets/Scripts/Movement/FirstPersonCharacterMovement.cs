@@ -6,7 +6,7 @@ using Cinemachine;
 public class FirstPersonCharacterMovement : MonoBehaviour
 {
     // Player Control Settings
-    public float walkSpeed = 2.3f;            // Movement speed
+    public float walkSpeed = 2.0f;            // Movement speed
     private float gravity = -28.0f;           // Custom gravity force
     private float mouseSensitivity = 200.0f;  // Mouse sensitivity for look around
 

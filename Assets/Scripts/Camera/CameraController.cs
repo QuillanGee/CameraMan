@@ -12,7 +12,6 @@ public class CameraController : MonoBehaviour
     public CinemachineVirtualCamera perspectiveCamera;
     public CinemachineVirtualCamera perspectiveCatchCamera;
 
-    public Transform zoomTarget; // The point to zoom to
     public static float perspectiveTransitionSpeed = 1f; // To perspective
     private float orthographicTransitionSpeed = 1f; //to orthographic
     private float initialOrthographicSize;
@@ -74,6 +73,7 @@ public class CameraController : MonoBehaviour
     {
         yield return new WaitForSeconds(orthographicTransitionSpeed);
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
+        // brain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut,0f);
         perspectiveCatchCamera.Priority = 0;
         orthographicCamera.Priority = 1;
         EventManager.instance.PauseGamePlay(false);  // Resume mechanics

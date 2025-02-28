@@ -5,45 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51aa6a0a-37ec-4f73-a2b8-af280ca4232b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder A.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder A.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder B.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Materials/SteelLadder B.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Models.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Models/Free_SteelLadder.FBX" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Models/Free_SteelLadder.FBX.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Prefabs/LowPoly.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Prefabs/LowPoly/SteelLadder LP B.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Prefabs/LowPoly/SteelLadder LP B.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Textures.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Textures/SteelLadder_A_Stainless.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Textures/SteelLadder_A_Stainless.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Textures/SteelLadder_B_Stainless.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Free SteelLadder Pack/Textures/SteelLadder_B_Stainless.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level Demo Modified.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Level Demo Modified.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Platforms/Ladder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Platforms/Ladder.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CameraMan/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CameraMan/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CameraMan/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CameraMan/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level Demo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level BouncePad.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level BouncePad.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement/MovementTypeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement/MovementTypeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/FlashTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/FlashTransition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_BeigeStripes.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_BeigeStripes.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanks.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanks.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanksWhitewash.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/Floor_WoodPlanksWhitewash.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/SmallProps.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/SmallProps.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/WallGreen.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/Basic Asset Pack Interior/Textures/WallGreen.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache" afterDir="false" />
@@ -69,9 +36,21 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Alan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Alan2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Blocks/ObjectProjection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Blocks/PickUpPlaceBlock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BouncePad/BouncePad.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Key/Door.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Key/Key.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Managers/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/quillangee/Desktop/Unity Projects/CameraMan/Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/quillangee/Desktop/Unity Projects/CameraMan/Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement/TwoDCharacterMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Platforms/MoveablePlatform.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -81,20 +60,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging MergeBranch",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MergeBranch&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../CameraMan Milestone Final Build.app/Contents/MacOS/Cameraman Mechanic Test" />
@@ -163,6 +142,8 @@
       <workItem from="1740183325257" duration="3219000" />
       <workItem from="1740603907076" duration="2621000" />
       <workItem from="1740614641752" duration="1984000" />
+      <workItem from="1740683275906" duration="376000" />
+      <workItem from="1740690054685" duration="4255000" />
     </task>
     <servers />
   </component>
