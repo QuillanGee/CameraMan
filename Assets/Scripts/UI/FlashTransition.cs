@@ -26,7 +26,7 @@ public class FlashTransition : MonoBehaviour
         flashPanel.alpha = 1;
         audioSource.Play();
         yield return new WaitForSeconds(flashDuration);
-        SceneManager.LoadScene("Level Demo Modified");
+        SceneManager.LoadScene("Level BouncePad");
         yield return new WaitForSeconds(0.2f);
         flashPanel.alpha = 0;
     }

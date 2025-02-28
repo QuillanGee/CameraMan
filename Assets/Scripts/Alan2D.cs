@@ -42,10 +42,10 @@ public class Alan2D : MonoBehaviour
             {
                 
                 // check if current scene is Level Demo
-                if (SceneManager.GetActiveScene().name == "Level Demo Modified")
+                if (SceneManager.GetActiveScene().name == "Level BouncePad")
                 {
                     // Load the next scene
-                    SceneManager.LoadScene("Level BouncePad");
+                    SceneManager.LoadScene("MainMenu");
                 }
                 else
                 {

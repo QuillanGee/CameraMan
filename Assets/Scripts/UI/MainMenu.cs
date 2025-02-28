@@ -6,6 +6,13 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+    
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+        Cursor.visible = true; // Make the cursor visible
+    }
+
     public void OnClickLoadScene()
     {
         //load the first level
