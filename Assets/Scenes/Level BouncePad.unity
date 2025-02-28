@@ -5111,6 +5111,7 @@ MonoBehaviour:
   orthographicZoom: {fileID: 543159915}
   perspectiveCamera: {fileID: 473005284}
   perspectiveCatchCamera: {fileID: 331615986}
+  zoomTarget: {fileID: 0}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0

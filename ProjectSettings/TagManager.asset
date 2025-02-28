@@ -10,6 +10,7 @@ TagManager:
   - Walls
   - BouncePad
   - DoorToUnlock
+  - Platform
   layers:
   - Default
   - TransparentFX
