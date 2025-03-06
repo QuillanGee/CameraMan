@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
     
     //keep this for logic purposes
     [SerializeField] private PickUpPlaceBlock pickUpPlaceBlock;
-    private bool isTwoD = true;
+    private bool isTwoD = false;
 
     void Start()
     {

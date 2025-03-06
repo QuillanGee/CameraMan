@@ -33,7 +33,9 @@ public class CameraController : MonoBehaviour
         if (!isZooming)
         {
             EventManager.instance.PauseGamePlay(true);  // Pause mechanics
-            TransitionToOrthographicZoom();
+            // TransitionToOrthographicZoom();
+            StartCoroutine(WaitForOrthographicZoom());
+
         }
     }
 
@@ -54,9 +56,10 @@ public class CameraController : MonoBehaviour
 
     private void TransitionToPerspectiveCamera()
     {
-        EventManager.instance.HideLevel();
+        EventManager.instance.PostToggleFirstPerson();
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
-        orthographicZoom.Priority = 0;
+        // orthographicZoom.Priority = 0;
+        orthographicCamera.Priority = 0;
         // Set the second perspective camera as active to start blending between both
         perspectiveCamera.Priority = 1;
         orthographicCamera.m_Lens.OrthographicSize = initialOrthographicSize;
@@ -65,18 +68,19 @@ public class CameraController : MonoBehaviour
     {
         EventManager.instance.PauseGamePlay(true);  // Resume mechanics
         brain.m_DefaultBlend.m_Time = orthographicTransitionSpeed;  // Adjust blend duration
-        perspectiveCatchCamera.Priority = 1;
-        perspectiveCamera.Priority = 0;
+        // perspectiveCatchCamera.Priority = 1;
+        // perspectiveCamera.Priority = 0;
         StartCoroutine(WaitToTransitionToOrthographic());
     }
 
     private IEnumerator WaitToTransitionToOrthographic()
     {
         yield return new WaitForSeconds(orthographicTransitionSpeed);
-        EventManager.instance.ShowLevel();
+        EventManager.instance.PostToggleTwoD();
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
-        // brain.m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut,0f);
-        perspectiveCatchCamera.Priority = 0;
+        
+        // perspectiveCatchCamera.Priority = 0;
+        perspectiveCamera.Priority = 0;
         orthographicCamera.Priority = 1;
         EventManager.instance.PauseGamePlay(false);  // Resume mechanics
     }

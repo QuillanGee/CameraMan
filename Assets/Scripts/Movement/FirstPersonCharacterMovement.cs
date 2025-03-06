@@ -55,6 +55,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         orientation.rotation = Quaternion.Euler(0, rotationY, 0);
 
         EventManager.instance.OnPauseGamePlay += HandlePause;
+        EventManager.instance.OnPostToggleFirstPerson += EnableControls;
+        EventManager.instance.OnPostToggleTwoD += DisableControls;
     }
 
     private void FixedUpdate()
@@ -159,12 +161,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(Vector3.up * bouncePadForce, ForceMode.Impulse);
         }
-
-        if (other.gameObject.CompareTag("DoorToUnlock"))
-        {
-            EventManager.instance.UnlockDoor();
-        }  
-
+        
         if (other.gameObject.CompareTag("Platform"))
         {
             transform.SetParent(other.transform);
@@ -177,6 +174,23 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         {
             transform.SetParent(null);
         }
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("DoorToUnlock"))
+        {
+            EventManager.instance.UnlockDoor();
+        }  
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("DoorToUnlock"))
+        {
+            EventManager.instance.CloseDoor();
+        }          
     }
 
     private void HandlePause(object sender, bool isPaused)
@@ -195,5 +209,14 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     {
         isOnLadder = value;
         rb.useGravity = !value;
+    }
+
+    private void DisableControls()
+    {
+        this.enabled = false;
+    }
+    private void EnableControls()
+    {
+        this.enabled = true;
     }
 }

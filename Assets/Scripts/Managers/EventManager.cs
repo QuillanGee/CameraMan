@@ -109,22 +109,32 @@ public class EventManager : MonoBehaviour
             OnUnlockDoor();
         }
     }
+    
+    public event Action OnCloseDoor;
 
-    public event Action OnHideLevel;
-    public void HideLevel()
+    public void CloseDoor()
     {
-        if (OnHideLevel != null)
+        if (OnCloseDoor != null)
         {
-            OnHideLevel();
+            OnCloseDoor();
+        }
+    }
+
+    public event Action OnPostToggleFirstPerson;
+    public void PostToggleFirstPerson()
+    {
+        if (OnPostToggleFirstPerson != null)
+        {
+            OnPostToggleFirstPerson();
         }
     }
     
-    public event Action OnShowLevel;
-    public void ShowLevel()
+    public event Action OnPostToggleTwoD;
+    public void PostToggleTwoD()
     {
-        if (OnShowLevel != null)
+        if (OnPostToggleTwoD != null)
         {
-            OnShowLevel();
+            OnPostToggleTwoD();
         }
     }
 }

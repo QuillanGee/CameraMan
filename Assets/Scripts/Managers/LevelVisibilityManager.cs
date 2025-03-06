@@ -7,16 +7,16 @@ public class LevelVisibilityManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.instance.OnHideLevel += HideLevel;
-        EventManager.instance.OnShowLevel += ShowLevel;
+        EventManager.instance.OnPostToggleFirstPerson += PostToggleFirstPerson;
+        EventManager.instance.OnPostToggleTwoD += PostToggleTwoD;
     }
 
-    private void HideLevel()
+    private void PostToggleFirstPerson()
     {
         gameObject.SetActive(false);
     }
 
-    private void ShowLevel()
+    private void PostToggleTwoD()
     {
         gameObject.SetActive(true);
     }

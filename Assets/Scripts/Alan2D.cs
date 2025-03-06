@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;  // Need this for scene management
 public class Alan2D : MonoBehaviour
 {
     [SerializeField] Transform projectedWallTransform;
-    [SerializeField] GameObject Alan;
+    [SerializeField] Transform Alan;
     private Vector3 alanDefaultScale;
     private Vector3 startingPosition;
     private float initialDistanceFromWall;
@@ -27,8 +27,9 @@ public class Alan2D : MonoBehaviour
         
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
-        EventManager.instance.OnHideLevel += HideAlan2D;
-        EventManager.instance.OnShowLevel += ShowAlan2D;
+        EventManager.instance.OnPostToggleFirstPerson += HideAlan2D;
+        EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
+        gameObject.SetActive(false);
 
     }
     
@@ -56,35 +57,6 @@ public class Alan2D : MonoBehaviour
                 {
                     SceneManager.LoadScene("MainMenu");
                 }
-                
-            //     else
-            //     {
-            //         // Get the current scene's build index
-            //         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            //
-            //         // Calculate the next scene index
-            //         int nextSceneIndex = currentSceneIndex + 1;
-            //
-            //         // Check if the next scene index is within the range of available scenes
-            //         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            //         {
-            //             // Load the next scene
-            //             SceneManager.LoadScene(nextSceneIndex);
-            //         }
-            //     }
-            //     
-            //     // Get the current scene's build index
-            //     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            //
-            //     // Calculate the next scene index
-            //     int nextSceneIndex = currentSceneIndex + 1;
-            //
-            //     // Check if the next scene index is within the range of available scenes
-            //     if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            //     {
-            //         // Load the next scene
-            //         SceneManager.LoadScene(nextSceneIndex);
-            //     }
             }
         }
     }
@@ -110,13 +82,13 @@ public class Alan2D : MonoBehaviour
         }
     }
     
-    public void ProjectAlanToMoveAlan2D()
+    private void ProjectAlanToMoveAlan2D()
     {
         //gets 2D Alan's direction
         int direction = transform.localScale.x > 0 ? 1 : -1;
         
         //Scales based on distance from InvisaWall
-        float distanceToPlane = projectedWallTransform.position.z - Alan.transform.position.z;
+        float distanceToPlane = projectedWallTransform.position.z - Alan.position.z;
         float computedScaleFactor =  scaleFactor * initialDistanceFromWall*(1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
         Vector3 theScale = alanDefaultScale * computedScaleFactor;
         theScale.x *= direction;
@@ -124,13 +96,15 @@ public class Alan2D : MonoBehaviour
         
         //Moves to corresponding X position
         Vector3 newXPosition = transform.position;
-        newXPosition.x = Alan.transform.position.x;
+        newXPosition.x = Alan.position.x;
         transform.position = newXPosition;
         
         //Moves to corresponding Y position
         Vector3 newYPosition = transform.position;
-        newYPosition.y = Alan.transform.position.y;
+        newYPosition.y = Alan.position.y;
         transform.position = newYPosition;
+        
+        //parent the capsule to 2D Alan
     }
     
 

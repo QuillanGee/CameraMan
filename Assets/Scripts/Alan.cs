@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Alan : MonoBehaviour
 {
-    [SerializeField] GameObject Alan2D;
+    [SerializeField] Transform Alan2D;
     [SerializeField] private Transform holdPosition2D;
     private Canvas crossHair;
     private Vector3 startingPosition;
     private ObjectProjection currentHeldObjectProjection;
-
+    [SerializeField] private Transform AlanMesh;
     
     private void Start()
     {
@@ -20,14 +20,12 @@ public class Alan : MonoBehaviour
         
         EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
-        EventManager.instance.OnHideLevel += WaitToEnableCrossHair;
+        EventManager.instance.OnPostToggleFirstPerson += EnableCrossHair;
+        EventManager.instance.OnPostToggleFirstPerson += ParentMeshToAlan;
+        EventManager.instance.OnPostToggleTwoD += ParentMeshToAlan2D;
         EventManager.instance.OnResetAlan += ResetPosition;
         EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
         EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
-        EventManager.instance.OnHideLevel += ShowAlan;
-        EventManager.instance.OnShowLevel += HideAlan;
-        
-        gameObject.SetActive(false);
     }
     
 
@@ -35,14 +33,13 @@ public class Alan : MonoBehaviour
     {
         //Moves to corresponding X position
         Vector3 newPositionX = transform.position;
-        newPositionX.x = Alan2D.transform.position.x;
+        newPositionX.x = Alan2D.position.x;
         transform.position = newPositionX;
         
         //Moves to corresponding X position
         Vector3 newPositionY = transform.position;
-        newPositionY.y = Alan2D.transform.position.y;
+        newPositionY.y = Alan2D.position.y;
         transform.position = newPositionY;
-        
     }
     
     private void DisableCrossHair()
@@ -50,14 +47,8 @@ public class Alan : MonoBehaviour
         crossHair.enabled = false;
     }
 
-    private void WaitToEnableCrossHair()
+    private void EnableCrossHair()
     {
-        crossHair.enabled = true;
-    }
-    
-    private IEnumerator WaitToEnableCrossHairCoroutine()
-    {
-        yield return new WaitForSeconds(CameraController.perspectiveTransitionSpeed);
         crossHair.enabled = true;
     }
     
@@ -69,7 +60,7 @@ public class Alan : MonoBehaviour
     private void AttachBlockToAlan2D()
     {
         currentHeldObjectProjection.PositionBlockToHoldPosition(holdPosition2D.position);
-        currentHeldObjectProjection.SetBlockParent(Alan2D.transform);
+        currentHeldObjectProjection.SetBlockParent(Alan2D);
     }
 
     private void ResetPosition()
@@ -77,13 +68,14 @@ public class Alan : MonoBehaviour
         transform.position = startingPosition;
     }
 
-    private void HideAlan()
+    private void ParentMeshToAlan()
     {
-        gameObject.SetActive(false);
+        //set the parent of mesh back to this 
+        AlanMesh.SetParent(gameObject.transform);
     }
-
-    private void ShowAlan()
+    private void ParentMeshToAlan2D()
     {
-        gameObject.SetActive(true);
+        //set the parent of mesh back to this 
+        AlanMesh.SetParent(Alan2D);
     }
 }

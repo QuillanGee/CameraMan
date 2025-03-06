@@ -6,16 +6,25 @@ public class Door : MonoBehaviour
 {
     public bool isUnlocked = false;
     [SerializeField] private GameObject door2D;
+    private Animator doorAnimator;
 
     private void Start()
     {
-        EventManager.instance.OnUnlockDoor += OpenDoor;
+        EventManager.instance.OnUnlockDoor += UnlockDoor;
+        EventManager.instance.OnCloseDoor += LockDoor;
+        doorAnimator = GetComponent<Animator>();
     }
     
     public void UnlockDoor()
     {
         isUnlocked = true;
-        Debug.Log(gameObject.name + " is now unlocked!");
+        doorAnimator.SetBool("OpenRight", true);
+    }
+    
+    private void LockDoor()
+    {
+        isUnlocked = true;
+        doorAnimator.SetBool("OpenRight", false);
     }
 
     private void OpenDoor()
