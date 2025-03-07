@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Assets/Scenes/Wake Up.unity.meta
 guid: 76cf49919f6bf46a5bc4f9350c7da398
 DefaultImporter:
+========
+guid: 5afae2a251de07643bbb196f5154e28b
+PrefabImporter:
+>>>>>>>> Stashed changes:Assets/Studio Assets/Prefabs/Ceiling Panel Light Block.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

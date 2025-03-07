@@ -91,32 +91,23 @@ public class EventManager : MonoBehaviour
         }
     }
     
-    public event EventHandler<GameObject> OnKeyPickup;
+    public event EventHandler<GameObject> OnUnlockDoor;
 
-    public void KeyPickup(GameObject key)
-    {
-        if (OnPauseGamePlay != null)
-        {
-            OnPauseGamePlay(this, key);
-        }
-    }
-    public event Action OnUnlockDoor;
-
-    public void UnlockDoor()
+    public void UnlockDoor(GameObject door)
     {
         if (OnUnlockDoor != null)
         {
-            OnUnlockDoor();
+            OnUnlockDoor(this, door);
         }
     }
     
-    public event Action OnCloseDoor;
+    public event EventHandler<GameObject> OnCloseDoor;
 
-    public void CloseDoor()
+    public void CloseDoor(GameObject door)
     {
         if (OnCloseDoor != null)
         {
-            OnCloseDoor();
+            OnCloseDoor(this, door);
         }
     }
 

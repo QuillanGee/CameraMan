@@ -10,9 +10,24 @@ public class Door : MonoBehaviour
 
     private void Start()
     {
-        EventManager.instance.OnUnlockDoor += UnlockDoor;
-        EventManager.instance.OnCloseDoor += LockDoor;
+        // EventManager.instance.OnUnlockDoor += UnlockDoor;
+        // EventManager.instance.OnCloseDoor += LockDoor;
         doorAnimator = GetComponent<Animator>();
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            UnlockDoor();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            LockDoor();
+        }
     }
     
     public void UnlockDoor()
@@ -23,8 +38,9 @@ public class Door : MonoBehaviour
     
     private void LockDoor()
     {
-        isUnlocked = true;
-        doorAnimator.SetBool("OpenRight", false);
+        
+            isUnlocked = true;
+            doorAnimator.SetBool("OpenRight", false);
     }
 
     private void OpenDoor()

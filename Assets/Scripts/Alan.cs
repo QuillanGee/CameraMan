@@ -11,12 +11,12 @@ public class Alan : MonoBehaviour
     private Vector3 startingPosition;
     private ObjectProjection currentHeldObjectProjection;
     [SerializeField] private Transform AlanMesh;
+    [SerializeField] private Transform CapsuleHolder;
     
     private void Start()
     {
         crossHair = GetComponentInChildren<Canvas>();
         startingPosition = transform.position;
-        
         
         EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
@@ -71,7 +71,7 @@ public class Alan : MonoBehaviour
     private void ParentMeshToAlan()
     {
         //set the parent of mesh back to this 
-        AlanMesh.SetParent(gameObject.transform);
+        AlanMesh.SetParent(CapsuleHolder);
     }
     private void ParentMeshToAlan2D()
     {

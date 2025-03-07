@@ -177,22 +177,6 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("DoorToUnlock"))
-        {
-            EventManager.instance.UnlockDoor();
-        }  
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("DoorToUnlock"))
-        {
-            EventManager.instance.CloseDoor();
-        }          
-    }
-
     private void HandlePause(object sender, bool isPaused)
     {
         if (isPaused)

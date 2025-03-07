@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class GlitchEffect : MonoBehaviour
 {
     [SerializeField] Material glitchMaterial;
