@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
     public bool isUnlocked = false;
     [SerializeField] private GameObject door2D;
     private Animator doorAnimator;
+    [SerializeField] private string animationBoolName;
 
     private void Start()
     {
@@ -33,14 +34,14 @@ public class Door : MonoBehaviour
     public void UnlockDoor()
     {
         isUnlocked = true;
-        doorAnimator.SetBool("OpenRight", true);
+        doorAnimator.SetBool(animationBoolName, true);
     }
     
     private void LockDoor()
     {
         
             isUnlocked = true;
-            doorAnimator.SetBool("OpenRight", false);
+            doorAnimator.SetBool(animationBoolName, false);
     }
 
     private void OpenDoor()

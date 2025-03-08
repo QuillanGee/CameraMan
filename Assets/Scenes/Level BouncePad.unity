@@ -724,7 +724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &75045799
 Transform:
   m_ObjectHideFlags: 0
@@ -1618,7 +1618,7 @@ SpriteRenderer:
   m_Size: {x: 5.78, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &214641367
@@ -2125,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4208539a144d6d92672cf7fa6f0118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVisibleOnStart: 1
 --- !u!1001 &283515592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4708,7 +4709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &759205722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8669,7 +8670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1318447673
 Transform:
   m_ObjectHideFlags: 0

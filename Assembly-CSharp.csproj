@@ -48,6 +48,7 @@
      <Compile Include="Assets/Scripts/Managers/LevelVisibilityManager.cs" />
      <Compile Include="Assets/Scripts/Camera/GlitchEffect.cs" />
      <Compile Include="Assets/Scripts/UI/MainMenu.cs" />
+     <Compile Include="Assets/Scripts/SceneManagement/SceneLoader.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
      <Compile Include="Assets/Scripts/Platforms/Ladder.cs" />
@@ -71,6 +72,7 @@
      <Compile Include="Assets/Scripts/Platforms/Moveable2DPlatform.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />
+     <Compile Include="Assets/Scripts/SceneManagement/SceneTrigger.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Furniture" />
      <None Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/READ ME.txt" />
@@ -78,10 +80,12 @@
      <Folder Include="Assets/Scenes" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Lights" />
      <Folder Include="Assets/Lighting" />
+     <Folder Include="Assets/Prefabs/Mechanics" />
      <Folder Include="Assets/Assets/2D Alan/Animation/Zombie Extra" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Pipes and Ducts" />
      <Folder Include="Assets/Scripts/Spikes" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Electrical" />
+     <Folder Include="Assets/Scripts/SceneManagement" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Floor" />
      <Folder Include="Assets/Studio Assets/Textures/Container" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Desk Electronics" />
@@ -98,17 +102,21 @@
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Office Storage" />
      <Folder Include="Assets/Scripts/Platforms" />
      <Folder Include="Assets/Assets/2D Alan/Prefab" />
+     <Folder Include="Assets/Assets/security-camera/source/model/textures" />
      <Folder Include="Assets/Assets" />
      <Folder Include="Assets/Assets/Camera" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors" />
+     <Folder Include="Assets/Assets/security-camera/textures" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Crates" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Animations" />
      <Folder Include="Assets/Materials" />
+     <Folder Include="Assets/Assets/security-camera/source" />
      <Folder Include="Assets/Studio Assets/Meshes" />
      <Folder Include="Assets/Assets/2D Alan/Sprites" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs" />
      <Folder Include="Assets/Studio Assets/Textures/Crate" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs" />
+     <Folder Include="Assets/Assets/security-camera" />
      <Folder Include="Assets/Studio Assets/Textures/Box Sealed" />
      <Folder Include="Assets/Studio Assets/Prefabs" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Materials" />
@@ -153,6 +161,7 @@
      <Folder Include="Assets/UnityTechnologies" />
      <Folder Include="Assets/Audio" />
      <Folder Include="Assets/Studio CyFi" />
+     <Folder Include="Assets/Assets/security-camera/source/model" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Props" />
      <Folder Include="Assets/Assets/2D Alan" />
@@ -164,6 +173,7 @@
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Models/Walls" />
      <Folder Include="Assets/Studio Assets/Textures" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Seating" />
+     <Folder Include="Assets/Prefabs/Assets" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Materials" />
      <Folder Include="Assets/Assets/Camera/Materials" />
      <Reference Include="UnityEngine">
@@ -811,6 +821,9 @@
      <Reference Include="Unity.2D.Sprite.Editor">
      <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.Formats.Fbx.Runtime">
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Formats.Fbx.Runtime.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
      <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
@@ -834,6 +847,9 @@
      </Reference>
      <Reference Include="Unity.Collections">
      <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.Formats.Fbx.Editor">
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Formats.Fbx.Editor.dll</HintPath>
      </Reference>
      <Reference Include="PPv2URPConverters">
      <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
@@ -919,8 +935,14 @@
      <Reference Include="Unity.2D.Psdimporter.Editor">
      <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
      </Reference>
+     <Reference Include="Autodesk.Fbx">
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Autodesk.Fbx.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
      <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Autodesk.Fbx.Editor">
+     <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Autodesk.Fbx.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
      <HintPath>/Users/quillangee/Desktop/Unity Projects/CameraMan/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>

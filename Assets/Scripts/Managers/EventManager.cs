@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public event Action OnInstantiateGamePlay;
@@ -126,6 +127,25 @@ public class EventManager : MonoBehaviour
         if (OnPostToggleTwoD != null)
         {
             OnPostToggleTwoD();
+        }
+    }
+    
+    public event EventHandler<string> OnLoadScene;
+
+    public void LoadScene(string sceneName)
+    {
+        if (OnLoadScene != null)
+        {
+            OnLoadScene(this, sceneName);
+        }
+    }
+    public event EventHandler<string> OnUnloadScene;
+
+    public void UnloadScene(string sceneName)
+    {
+        if (OnUnloadScene != null)
+        {
+            OnUnloadScene(this, sceneName);
         }
     }
 }

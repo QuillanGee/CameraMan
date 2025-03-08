@@ -12,7 +12,12 @@ public class Alan : MonoBehaviour
     private ObjectProjection currentHeldObjectProjection;
     [SerializeField] private Transform AlanMesh;
     [SerializeField] private Transform CapsuleHolder;
-    
+
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         crossHair = GetComponentInChildren<Canvas>();

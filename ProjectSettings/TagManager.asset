@@ -11,6 +11,7 @@ TagManager:
   - BouncePad
   - DoorToUnlock
   - Platform
+  - SceneTrigger
   layers:
   - Default
   - TransparentFX

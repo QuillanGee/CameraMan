@@ -17,7 +17,11 @@ public class Alan2D : MonoBehaviour
     
     private float bouncePadForce = 2.5f;
 
-
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

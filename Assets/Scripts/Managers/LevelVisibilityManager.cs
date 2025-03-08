@@ -9,6 +9,7 @@ public class LevelVisibilityManager : MonoBehaviour
     {
         EventManager.instance.OnPostToggleFirstPerson += PostToggleFirstPerson;
         EventManager.instance.OnPostToggleTwoD += PostToggleTwoD;
+        gameObject.SetActive(false);
     }
 
     private void PostToggleFirstPerson()
