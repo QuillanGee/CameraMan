@@ -63,6 +63,7 @@
      <Compile Include="Assets/Scripts/Key/Key.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike.cs" />
      <Compile Include="Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" />
+     <Compile Include="Assets/Scripts/AlanProjection.cs" />
      <Compile Include="Assets/Scripts/Alan2D.cs" />
      <Compile Include="Assets/Scripts/Managers/InputManager.cs" />
      <Compile Include="Assets/Scripts/Blocks/PickUpPlaceBlock.cs" />
@@ -114,6 +115,7 @@
      <Folder Include="Assets/Studio Assets/Meshes" />
      <Folder Include="Assets/Assets/2D Alan/Sprites" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs" />
+     <Folder Include="Assets/Scenes/Level Demo Modified" />
      <Folder Include="Assets/Studio Assets/Textures/Crate" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs" />
      <Folder Include="Assets/Assets/security-camera" />
