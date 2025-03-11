@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,27 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
+        EventManager.instance.OnLoadScene += AttachAlanTransform;
+        if (alanTransform != null)
+        {
+            offset = alanTransform.position;
+        }
+        else
+        {
+            print("Alan transform is null");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.OnLoadScene -= AttachAlanTransform;
+    }
+
+    private void AttachAlanTransform()
+    {
+        alanTransform = GameObject.FindWithTag("Player2D").transform;
         offset = alanTransform.position;
+
     }
 
     void LateUpdate()

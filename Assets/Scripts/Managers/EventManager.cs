@@ -130,22 +130,13 @@ public class EventManager : MonoBehaviour
         }
     }
     
-    public event EventHandler<string> OnLoadScene;
+    public event Action OnLoadScene;
 
-    public void LoadScene(string sceneName)
+    public void LoadScene()
     {
         if (OnLoadScene != null)
         {
-            OnLoadScene(this, sceneName);
-        }
-    }
-    public event EventHandler<string> OnUnloadScene;
-
-    public void UnloadScene(string sceneName)
-    {
-        if (OnUnloadScene != null)
-        {
-            OnUnloadScene(this, sceneName);
+            OnLoadScene();
         }
     }
 }

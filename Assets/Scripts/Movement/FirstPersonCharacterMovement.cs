@@ -33,7 +33,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     //BouncePad
     private float bouncePadForce = 20.0f;
     
-    private CinemachineVirtualCamera fpc;
+    [SerializeField] private CinemachineVirtualCamera fpc;
     private Rigidbody rb;
 
     // Ladder Climbing

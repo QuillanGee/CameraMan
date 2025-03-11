@@ -7,15 +7,22 @@ public class AlanProjection : MonoBehaviour
     private Vector3 alanDefaultScale;
     private float initialDistanceFromWall;
     
-    [SerializeField] Transform projectedWallTransform;
+    private Transform projectedWallTransform;
 
     void Start()
     {
         alanDefaultScale = transform.localScale;
-        initialDistanceFromWall = Mathf.Abs(transform.position.z - projectedWallTransform.position.z);
+        EventManager.instance.OnInstantiateGamePlay += AttachProjectedWallTransform;
+        EventManager.instance.OnLoadScene += AttachProjectedWallTransform;
         EventManager.instance.OnToggleTwoD += ScaleObject;
     }
 
+    private void AttachProjectedWallTransform()
+    {
+        projectedWallTransform = GameObject.FindWithTag("ProjectedWallTransform").transform;
+        initialDistanceFromWall = Mathf.Abs(transform.position.z - projectedWallTransform.position.z);
+    }
+    
     void StartScaling()
     {
         if (scaleCoroutine != null)

@@ -5,8 +5,7 @@ public class SceneLoader : MonoBehaviour
 {
     private void Start()
     {
-        EventManager.instance.OnLoadScene += LoadSceneFromString;
-        EventManager.instance.OnUnloadScene += UnloadSceneFromString;
+
     }
     
     private void LoadSceneFromString(object sender, string sceneName)

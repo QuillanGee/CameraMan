@@ -4,6 +4,11 @@ public class GlitchEffect : MonoBehaviour
 {
     [SerializeField] Material glitchMaterial;
     private bool isGlitchAlive = false;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     
     private void Start()
     {

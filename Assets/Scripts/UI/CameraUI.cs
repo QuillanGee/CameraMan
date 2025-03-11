@@ -13,6 +13,12 @@ public class CameraUI : MonoBehaviour
         gameObject.SetActive(isVisibleOnStart);
     }
 
+    private void OnDestroy()
+    {
+        EventManager.instance.OnPostToggleFirstPerson -= HideCameraUI;
+        EventManager.instance.OnPostToggleTwoD -= ShowCameraUI;
+    }
+
     // Update is called once per frame
     private void ShowCameraUI()
     {

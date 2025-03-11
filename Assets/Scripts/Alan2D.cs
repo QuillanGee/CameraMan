@@ -27,21 +27,24 @@ public class Alan2D : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         alanDefaultScale = transform.localScale;
         startingPosition = transform.position;
-        initialDistanceFromWall = Mathf.Abs(Alan.transform.position.z - projectedWallTransform.position.z);
-        
-        
+        EventManager.instance.OnInstantiateGamePlay += AttachProjectedWallTransform;
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
-        EventManager.instance.OnPostToggleFirstPerson += HideAlan2D;
-        EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
+        // EventManager.instance.OnPostToggleFirstPerson += HideAlan2D;
+        // EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
         EventManager.instance.OnLoadScene += AttachProjectedWallTransform;
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
 
     }
 
-    private void AttachProjectedWallTransform(object sender, string unused)
+    private void AttachProjectedWallTransform()
     {
         projectedWallTransform = GameObject.FindWithTag("ProjectedWallTransform").transform;
+        // if (projectedWallTransform != null)
+        // {
+        //     print("Not connected");
+        // }
+        initialDistanceFromWall = Mathf.Abs(Alan.transform.position.z - projectedWallTransform.position.z);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,15 +15,23 @@ public class SceneTrigger : MonoBehaviour
             // Check if the scene is already loaded before loading
             if (!IsSceneLoaded(sceneToLoad))
             {
-                EventManager.instance.LoadScene(sceneToLoad);
+                SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+                StartCoroutine(DelayedEventCallForSceneLoading());
             }
 
             // Check if the scene is loaded before unloading
             if (IsSceneLoaded(sceneToUnload))
             {
-                EventManager.instance.UnloadScene(sceneToUnload);
+                SceneManager.UnloadSceneAsync(sceneToUnload);
             }
         }
+    }
+
+    private IEnumerator DelayedEventCallForSceneLoading()
+    {
+        // yield return new WaitUntil(() => SceneManager.GetSceneByName(sceneToLoad).isLoaded);
+        yield return new WaitForSeconds(1f);
+        EventManager.instance.LoadScene();
     }
 
     private bool IsSceneLoaded(string sceneName)
