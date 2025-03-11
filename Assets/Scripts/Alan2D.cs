@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;  // Need this for scene management
 
 public class Alan2D : MonoBehaviour
 {
-    [SerializeField] Transform projectedWallTransform;
+    private Transform projectedWallTransform;
     [SerializeField] Transform Alan;
     private Vector3 alanDefaultScale;
     private Vector3 startingPosition;
@@ -29,40 +29,19 @@ public class Alan2D : MonoBehaviour
         startingPosition = transform.position;
         initialDistanceFromWall = Mathf.Abs(Alan.transform.position.z - projectedWallTransform.position.z);
         
+        
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
         EventManager.instance.OnPostToggleFirstPerson += HideAlan2D;
         EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
+        EventManager.instance.OnLoadScene += AttachProjectedWallTransform;
         gameObject.SetActive(false);
 
     }
-    
-    private void OnTriggerStay2D(Collider2D other)
+
+    private void AttachProjectedWallTransform(object sender, string unused)
     {
-        if (other.gameObject.CompareTag("Door"))
-        {
-            //to make sure rb doesn't go to sleep when character is staying still
-            rb.WakeUp();
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                
-                // check if current scene is Level Demo
-                if (SceneManager.GetActiveScene().name == "Level Demo Modified")
-                {
-                    // Load the next scene
-                    SceneManager.LoadScene("MainMenu");
-                }
-                else if (SceneManager.GetActiveScene().name == "Level BouncePad")
-                {
-                    // Load the next scene
-                    SceneManager.LoadScene("MainMenu");
-                }
-                else
-                {
-                    SceneManager.LoadScene("MainMenu");
-                }
-            }
-        }
+        projectedWallTransform = GameObject.FindWithTag("ProjectedWallTransform").transform;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -513,6 +513,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6293424343500581014, guid: a22375df5b9434542ad324566fae0e78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6664833419625227103, guid: a22375df5b9434542ad324566fae0e78, type: 3}
       propertyPath: m_Name
       value: Corridor Stairs Warehouse
@@ -734,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efa7367dde0241fd8895918e1c93cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Level Demo Modified
+  sceneToLoad: WarehouseLevel1
   sceneToUnload: Wake Up
 --- !u!1001 &1270009253
 PrefabInstance:
