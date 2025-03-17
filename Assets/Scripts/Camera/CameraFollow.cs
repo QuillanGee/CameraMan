@@ -11,19 +11,10 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform minBottom; // Minimum bottom limit
     [SerializeField] private Transform maxTop; // Maximum top limit
     public float smoothSpeed = 0.125f;  // Speed of the camera smoothing
-    private Vector3 offset;
 
     void Start()
     {
         EventManager.instance.OnLoadScene += AttachAlanTransform;
-        if (alanTransform != null)
-        {
-            offset = alanTransform.position;
-        }
-        else
-        {
-            print("Alan transform is null");
-        }
     }
 
     private void OnDestroy()
@@ -34,8 +25,6 @@ public class CameraFollow : MonoBehaviour
     private void AttachAlanTransform()
     {
         alanTransform = GameObject.FindWithTag("Player2D").transform;
-        offset = alanTransform.position;
-
     }
 
     void LateUpdate()

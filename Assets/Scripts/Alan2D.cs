@@ -8,10 +8,13 @@ public class Alan2D : MonoBehaviour
 {
     private Transform projectedWallTransform;
     [SerializeField] Transform Alan;
+    [SerializeField] private GameObject AlanMesh;
     private Vector3 alanDefaultScale;
     private Vector3 startingPosition;
-    private float initialDistanceFromWall;
     private float scaleFactor = 1f;
+    [SerializeField] private Transform zAxisFor2Dlevel;
+    float minScale = 0.5f;  // Example minimum scale
+    float maxScale = 1.5f;  // Example maximum scale
     
     private Rigidbody2D rb;
     
@@ -21,30 +24,28 @@ public class Alan2D : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         alanDefaultScale = transform.localScale;
         startingPosition = transform.position;
-        EventManager.instance.OnInstantiateGamePlay += AttachProjectedWallTransform;
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
-        // EventManager.instance.OnPostToggleFirstPerson += HideAlan2D;
-        // EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
-        EventManager.instance.OnLoadScene += AttachProjectedWallTransform;
-        // gameObject.SetActive(false);
+        
+        EventManager.instance.OnPostToggleFirstPerson += HideAlan2D;
+        EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
 
+        EventManager.instance.OnLoadScene += SetZAxisFor2D;
     }
 
-    private void AttachProjectedWallTransform()
+    private void SetZAxisFor2D()
     {
-        projectedWallTransform = GameObject.FindWithTag("ProjectedWallTransform").transform;
-        // if (projectedWallTransform != null)
-        // {
-        //     print("Not connected");
-        // }
-        initialDistanceFromWall = Mathf.Abs(Alan.transform.position.z - projectedWallTransform.position.z);
+        zAxisFor2Dlevel = GameObject.FindWithTag("zAxisFor2DLevel").transform;
+        if (zAxisFor2Dlevel != null)
+        {
+            print("Couldn't find zAxis");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -70,29 +71,24 @@ public class Alan2D : MonoBehaviour
     
     private void ProjectAlanToMoveAlan2D()
     {
-        //gets 2D Alan's direction
-        int direction = transform.localScale.x > 0 ? 1 : -1;
-        
-        //Scales based on distance from InvisaWall
-        float distanceToPlane = projectedWallTransform.position.z - Alan.position.z;
-        float computedScaleFactor =  scaleFactor * initialDistanceFromWall*(1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
-        Vector3 theScale = alanDefaultScale * computedScaleFactor;
-        theScale.x *= direction;
-        transform.localScale = theScale;
-        
+        ScaleAlan();
         //Moves to corresponding X position
-        Vector3 newXPosition = transform.position;
-        newXPosition.x = Alan.position.x;
-        transform.position = newXPosition;
-        
-        //Moves to corresponding Y position
-        Vector3 newYPosition = transform.position;
-        newYPosition.y = Alan.position.y;
-        transform.position = newYPosition;
-        
-        //parent the capsule to 2D Alan
+        Vector3 newPosition = new Vector3(Alan.position.x, Alan.position.y, zAxisFor2Dlevel.position.z);
+        transform.position = newPosition;
     }
     
+    private void ScaleAlan()
+    {
+        float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
+        float computedScaleFactor = scaleFactor * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane)));
+        int direction = transform.localScale.x > 0 ? 1 : -1;
+        Vector3 theScale = alanDefaultScale * computedScaleFactor;
+        theScale.x = Mathf.Clamp(theScale.x, minScale, maxScale);
+        theScale.y = Mathf.Clamp(theScale.y, minScale, maxScale);
+        theScale.z = Mathf.Clamp(theScale.z, minScale, maxScale);
+        theScale.x *= direction;
+        transform.localScale = theScale;
+    }
 
     private void ResetPosition()
     {
@@ -101,17 +97,17 @@ public class Alan2D : MonoBehaviour
     
     private void HideAlan2D()
     {
-        if (gameObject.activeInHierarchy)
+        if (AlanMesh.activeInHierarchy)
         {
-            gameObject.SetActive(false);
+            AlanMesh.SetActive(false);
         }
     }
 
     private void ShowAlan2D()
     {
-        if (!gameObject.activeInHierarchy)
+        if (!AlanMesh.activeInHierarchy)
         {
-            gameObject.SetActive(true);
+            AlanMesh.SetActive(true);
         }
     }
 }

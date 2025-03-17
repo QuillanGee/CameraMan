@@ -8,12 +8,12 @@ public class Alan : MonoBehaviour
     [SerializeField] Transform Alan2D;
     [SerializeField] private Transform holdPosition2D;
     private Canvas crossHair;
-    private Vector3 startingPosition;
+    [SerializeField] Transform resetPosition;
     private ObjectProjection currentHeldObjectProjection;
-    [SerializeField] private Transform AlanMesh;
+    [SerializeField] private GameObject AlanMesh;
     [SerializeField] private Transform CapsuleHolder;
-
-
+    private float zAxisToProjectAlan;
+    
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -21,30 +21,40 @@ public class Alan : MonoBehaviour
     private void Start()
     {
         crossHair = GetComponentInChildren<Canvas>();
-        startingPosition = transform.position;
-        
-        EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
+        EventManager.instance.OnPostToggleFirstPerson += ProjectAlan2DToMoveAlan;
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
         EventManager.instance.OnPostToggleFirstPerson += EnableCrossHair;
-        EventManager.instance.OnPostToggleFirstPerson += ParentMeshToAlan;
-        EventManager.instance.OnPostToggleTwoD += ParentMeshToAlan2D;
         EventManager.instance.OnResetAlan += ResetPosition;
         EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
         EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
+        EventManager.instance.OnLoadScene += AttachResetPosition;
+        EventManager.instance.OnPostToggleFirstPerson += ShowAlan;
+        EventManager.instance.OnPostToggleTwoD += HideAlan;
+        
+        EventManager.instance.OnSendZAxis += SetZAxisToProjectAlan;
+    }
+
+    private void AttachResetPosition()
+    {
+        resetPosition = GameObject.FindWithTag("ResetPosition").transform;
     }
     
-
     private void ProjectAlan2DToMoveAlan()
     {
-        //Moves to corresponding X position
-        Vector3 newPositionX = transform.position;
-        newPositionX.x = Alan2D.position.x;
-        transform.position = newPositionX;
-        
-        //Moves to corresponding X position
-        Vector3 newPositionY = transform.position;
-        newPositionY.y = Alan2D.position.y;
-        transform.position = newPositionY;
+        Vector3 newPosition = new Vector3(Alan2D.position.x, Alan2D.position.y, zAxisToProjectAlan);
+        transform.position = newPosition;
+    }
+
+    private void SetZAxisToProjectAlan(object sender, ZAxisEventArgs args)
+    {
+        if (args.IsOnPlatform)
+        {
+            zAxisToProjectAlan = args.ZAxis;
+        }
+        else
+        {
+            zAxisToProjectAlan = transform.position.z;
+        }
     }
     
     private void DisableCrossHair()
@@ -70,17 +80,22 @@ public class Alan : MonoBehaviour
 
     private void ResetPosition()
     {
-        transform.position = startingPosition;
+        transform.position = resetPosition.position;
+    }
+    
+    private void HideAlan()
+    {
+        if (AlanMesh.activeInHierarchy)
+        {
+            AlanMesh.SetActive(false);
+        }
     }
 
-    private void ParentMeshToAlan()
+    private void ShowAlan()
     {
-        //set the parent of mesh back to this 
-        AlanMesh.SetParent(CapsuleHolder);
-    }
-    private void ParentMeshToAlan2D()
-    {
-        //set the parent of mesh back to this 
-        AlanMesh.SetParent(Alan2D);
+        if (!AlanMesh.activeInHierarchy)
+        {
+            AlanMesh.SetActive(true);
+        }
     }
 }

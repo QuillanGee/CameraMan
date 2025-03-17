@@ -6,6 +6,7 @@ public class CameraUI : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool isVisibleOnStart = true;
+    
     void Start()
     {
         EventManager.instance.OnPostToggleFirstPerson += HideCameraUI;
@@ -13,7 +14,7 @@ public class CameraUI : MonoBehaviour
         gameObject.SetActive(isVisibleOnStart);
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
         EventManager.instance.OnPostToggleFirstPerson -= HideCameraUI;
         EventManager.instance.OnPostToggleTwoD -= ShowCameraUI;

@@ -6,7 +6,7 @@ using Cinemachine;
 public class FirstPersonCharacterMovement : MonoBehaviour
 {
     // Player Control Settings
-    public float walkSpeed = 2.0f;            // Movement speed
+    public float walkSpeed = 3.0f;            // Movement speed
     private float gravity = -28.0f;           // Custom gravity force
     private float mouseSensitivity = 200.0f;  // Mouse sensitivity for look around
 
@@ -35,6 +35,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     
     [SerializeField] private CinemachineVirtualCamera fpc;
     private Rigidbody rb;
+    [SerializeField] private GameObject characterMesh;
 
     // Ladder Climbing
     private bool isOnLadder = false;
@@ -87,6 +88,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         rotationX = Mathf.Clamp(rotationX, -90f, 90f);
         fpc.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
         orientation.rotation = Quaternion.Euler(0, rotationY, 0);
+        
+        characterMesh.transform.rotation = Quaternion.Euler(0, rotationY, 0);
     }
 
     private void MyInput()

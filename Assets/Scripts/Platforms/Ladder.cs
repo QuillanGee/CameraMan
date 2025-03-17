@@ -22,7 +22,12 @@ public class Ladder : MonoBehaviour
             if (playerController != null)
             {
                 playerController.SetIsOnLadder(false);
+
+                // Move the player slightly upward to avoid re-triggering the ladder
+                Vector3 pushDirection = transform.up * 1.0f; // Adjust push force as needed
+                other.transform.position += pushDirection;
             }
         }
     }
 }
+    

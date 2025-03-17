@@ -23,6 +23,7 @@ public class SceneTrigger : MonoBehaviour
             if (IsSceneLoaded(sceneToUnload))
             {
                 SceneManager.UnloadSceneAsync(sceneToUnload);
+                EventManager.instance.LoadScene();
             }
         }
     }
@@ -30,7 +31,7 @@ public class SceneTrigger : MonoBehaviour
     private IEnumerator DelayedEventCallForSceneLoading()
     {
         // yield return new WaitUntil(() => SceneManager.GetSceneByName(sceneToLoad).isLoaded);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         EventManager.instance.LoadScene();
     }
 

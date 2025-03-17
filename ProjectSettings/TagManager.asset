@@ -15,6 +15,9 @@ TagManager:
   - OrthographicCamera
   - Door
   - Player2D
+  - ResetPosition
+  - zAxisFor2DLevel
+  - PickUp
   layers:
   - Default
   - TransparentFX

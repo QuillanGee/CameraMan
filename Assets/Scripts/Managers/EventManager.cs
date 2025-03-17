@@ -139,4 +139,27 @@ public class EventManager : MonoBehaviour
             OnLoadScene();
         }
     }
+    
+    
+    public event EventHandler<ZAxisEventArgs> OnSendZAxis;
+
+    public void SendZAxis(float zAxis, bool isOnPlatform)
+    {
+        if (OnSendZAxis != null)
+        {
+            OnSendZAxis(this,new (zAxis,isOnPlatform));
+        }
+    }
+}
+
+public class ZAxisEventArgs : EventArgs
+{
+    public float ZAxis { get; }
+    public bool IsOnPlatform { get; }
+
+    public ZAxisEventArgs(float zAxis, bool isOnPlatform)
+    {
+        ZAxis = zAxis;
+        IsOnPlatform = isOnPlatform;
+    }
 }

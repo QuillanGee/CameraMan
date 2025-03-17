@@ -27,13 +27,20 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnToggleFirstPerson += StartZoomInOutTransition;
         EventManager.instance.OnToggleTwoD += TransitionToOrthographic;
         EventManager.instance.OnLoadScene += AttachOrthographicCamera;
-        // orthographicCamera = GameObject.FindWithTag("OrthographicCamera");
-        // orthographicCamera = orthographicCameraInScene.GetComponent<CinemachineVirtualCamera>();
+        AttachOrthographicCamera();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.OnToggleFirstPerson -= StartZoomInOutTransition;
+        EventManager.instance.OnToggleTwoD -= TransitionToOrthographic;
+        EventManager.instance.OnLoadScene -= AttachOrthographicCamera;
     }
 
     private void AttachOrthographicCamera()
     {
         orthographicCamera = GameObject.FindWithTag("OrthographicCamera").GetComponent<CinemachineVirtualCamera>();
+        
     }
 
     private void StartZoomInOutTransition()

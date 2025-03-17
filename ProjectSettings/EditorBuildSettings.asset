@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Demo Modified.unity
     guid: af550902b6eeb4f8c87c10882cf3be3b
   - enabled: 0
-    path: Assets/Scenes/Level BouncePad.unity
+    path: Assets/Scenes/Unused Scenes/Level BouncePad.unity
     guid: 64643a1600f0c4ba4b61693ef73e0881
   - enabled: 0
     path: Assets/Scenes/Level Demo.unity
@@ -45,6 +45,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WarehouseLevel1.unity
     guid: e575fdd1bbeb5435499422f3aa028860
   - enabled: 1
-    path: Assets/Scenes/Level Matthew.unity
+    path: Assets/Scenes/Unused Scenes/Level Matthew.unity
     guid: c4d399f0093a1e44b9cdb7130237a92e
+  - enabled: 1
+    path: Assets/Scenes/WarehouseLevel1 1.unity
+    guid: 24d97466f2dd845bbb4a7c1b4a21a9d9
   m_configObjects: {}
