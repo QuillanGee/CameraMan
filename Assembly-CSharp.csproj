@@ -51,6 +51,7 @@
      <Compile Include="Assets/Scripts/SceneManagement/SceneLoader.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
+     <Compile Include="Assets/Scripts/UI/KeepSelected.cs" />
      <Compile Include="Assets/Scripts/Platforms/Ladder.cs" />
      <Compile Include="Assets/Scripts/ProjectedWallTransform/StaticProjectedWallTransform.cs" />
      <Compile Include="Assets/Scripts/Blocks/ObjectProjection.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets/Scripts/PerspectiveConnector.cs" />
      <Compile Include="Assets/Scripts/Platforms/DetectPlayer.cs" />
      <Compile Include="Assets/Scripts/Alan.cs" />
+     <Compile Include="Assets/Scripts/UI/PanelManager.cs" />
      <Compile Include="Assets/Scripts/Key/Key.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike.cs" />
      <Compile Include="Assets/Scripts/Movement/FirstPersonCharacterMovement.cs" />
@@ -70,6 +72,7 @@
      <Compile Include="Assets/Scripts/Blocks/PickUpPlaceBlock.cs" />
      <Compile Include="Assets/Scripts/BouncePad/BouncePad.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraFollow.cs" />
+     <Compile Include="Assets/Scripts/UI/ButtonSelectionHandler.cs" />
      <Compile Include="Assets/Scripts/UI/CameraUI.cs" />
      <Compile Include="Assets/Scripts/Platforms/Moveable2DPlatform.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
@@ -82,11 +85,13 @@
      <None Include="Assets/BasicToonWaterShader/Shader/BasicToonWater.shader" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Scenes/Industrial Sample Scene" />
      <Folder Include="Assets/Scenes" />
+     <Folder Include="Assets/Next-gen Camera" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Prefabs/Lights" />
      <Folder Include="Assets/Free_Barrel/Textures" />
      <Folder Include="Assets/Free_Barrel" />
      <Folder Include="Assets/Lighting" />
      <Folder Include="Assets/Studio Assets/Textures/Dividers Trans" />
+     <Folder Include="Assets/Studio Assets/Textures/Desk White" />
      <Folder Include="Assets/Prefabs/Mechanics" />
      <Folder Include="Assets/Assets/2D Alan/Animation/Zombie Extra" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Pipes and Ducts" />
@@ -120,6 +125,7 @@
      <Folder Include="Assets/Assets/security-camera/textures" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Crates" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Animations" />
+     <Folder Include="Assets/Next-gen Camera/Textures" />
      <Folder Include="Assets/Materials" />
      <Folder Include="Assets/Assets/security-camera/source" />
      <Folder Include="Assets/Studio Assets/Meshes" />
@@ -150,6 +156,7 @@
      <Folder Include="Assets/Studio Assets/Textures/Wall Clean" />
      <Folder Include="Assets/BasicToonWaterShader" />
      <Folder Include="Assets/BasicToonWaterShader/Texture" />
+     <Folder Include="Assets/Studio Assets/Textures/Seating BLue" />
      <Folder Include="Assets/Assets/2D Alan/Animation" />
      <Folder Include="Assets/BasicToonWaterShader/Material/WaterToon" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Furniture" />
@@ -183,6 +190,7 @@
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Pipes" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Modular Office" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Textures" />
+     <Folder Include="Assets/Next-gen Camera/Materials" />
      <Folder Include="Assets/UnityTechnologies" />
      <Folder Include="Assets/Audio" />
      <Folder Include="Assets/Studio CyFi" />
