@@ -52,6 +52,7 @@
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
      <Compile Include="Assets/Scripts/UI/KeepSelected.cs" />
      <Compile Include="Assets/Scripts/Platforms/Ladder.cs" />
+     <Compile Include="Assets/Scripts/DisableSwitch.cs" />
      <Compile Include="Assets/Scripts/ProjectedWallTransform/StaticProjectedWallTransform.cs" />
      <Compile Include="Assets/Scripts/Blocks/ObjectProjection.cs" />
      <Compile Include="Assets/Scripts/DynamicScaling.cs" />

@@ -25,6 +25,7 @@ public class SceneTrigger : MonoBehaviour
                 SceneManager.UnloadSceneAsync(sceneToUnload);
                 StartCoroutine(DelayedEventCallForSceneLoading());
             }
+            
         }
     }
 
