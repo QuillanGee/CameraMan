@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WarehouseLevel1 1.unity
     guid: 24d97466f2dd845bbb4a7c1b4a21a9d9
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 26895f8a9596340f9a794e5a8dbe258c
   m_configObjects: {}

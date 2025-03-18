@@ -138,6 +138,7 @@
      <Folder Include="Assets/Concrete textures pack" />
      <Folder Include="Assets/Assets/security-camera" />
      <Folder Include="Assets/BasicToonWaterShader/Shader" />
+     <Folder Include="Assets/Assets/Art" />
      <Folder Include="Assets/Studio Assets/Textures/Box Sealed" />
      <Folder Include="Assets/Studio Assets/Prefabs" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Materials" />
