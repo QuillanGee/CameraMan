@@ -13,17 +13,17 @@ public class SceneTrigger : MonoBehaviour
         if (other.CompareTag("Player"))  // Ensure your player has the "Player" tag
         {
             // Check if the scene is already loaded before loading
-            if (!IsSceneLoaded(sceneToLoad))
-            {
-                SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
-                StartCoroutine(DelayedEventCallForSceneLoading());
-            }
+            // if (!IsSceneLoaded(sceneToLoad))
+            // {
+            //     SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
+            //     StartCoroutine(DelayedEventCallForSceneLoading());
+            // }
 
             // Check if the scene is loaded before unloading
             if (IsSceneLoaded(sceneToUnload))
             {
                 SceneManager.UnloadSceneAsync(sceneToUnload);
-                EventManager.instance.LoadScene();
+                StartCoroutine(DelayedEventCallForSceneLoading());
             }
         }
     }

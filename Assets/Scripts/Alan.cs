@@ -30,7 +30,6 @@ public class Alan : MonoBehaviour
         EventManager.instance.OnLoadScene += AttachResetPosition;
         EventManager.instance.OnPostToggleFirstPerson += ShowAlan;
         EventManager.instance.OnPostToggleTwoD += HideAlan;
-        
         EventManager.instance.OnSendZAxis += SetZAxisToProjectAlan;
     }
 

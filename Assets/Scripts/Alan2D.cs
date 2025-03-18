@@ -10,7 +10,7 @@ public class Alan2D : MonoBehaviour
     [SerializeField] Transform Alan;
     [SerializeField] private GameObject AlanMesh;
     private Vector3 alanDefaultScale;
-    private Vector3 startingPosition;
+    [SerializeField] Transform resetPosition;
     private float scaleFactor = 1f;
     [SerializeField] private Transform zAxisFor2Dlevel;
     float minScale = 0.5f;  // Example minimum scale
@@ -29,7 +29,6 @@ public class Alan2D : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         alanDefaultScale = transform.localScale;
-        startingPosition = transform.position;
         EventManager.instance.OnToggleTwoD += ProjectAlanToMoveAlan2D;
         EventManager.instance.OnResetAlan2D += ResetPosition;
         
@@ -37,6 +36,8 @@ public class Alan2D : MonoBehaviour
         EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
 
         EventManager.instance.OnLoadScene += SetZAxisFor2D;
+        EventManager.instance.OnLoadScene += AttachResetPosition;
+        EventManager.instance.OnResetAlan2D += ResetPosition;
     }
 
     private void SetZAxisFor2D()
@@ -47,13 +48,18 @@ public class Alan2D : MonoBehaviour
             print("Couldn't find zAxis");
         }
     }
+    
+    private void AttachResetPosition()
+    {
+        resetPosition = GameObject.FindWithTag("ResetPosition2D").transform;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            transform.SetParent(collision.transform);
-        }
+        // if (collision.gameObject.CompareTag("Platform"))
+        // {
+        //     transform.SetParent(collision.transform);
+        // }
 
         if (collision.gameObject.CompareTag("BouncePad"))
         {
@@ -63,10 +69,10 @@ public class Alan2D : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            transform.SetParent(null);
-        }
+        // if (collision.gameObject.CompareTag("Platform"))
+        // {
+        //     transform.SetParent(null);
+        // }
     }
     
     private void ProjectAlanToMoveAlan2D()
@@ -92,7 +98,7 @@ public class Alan2D : MonoBehaviour
 
     private void ResetPosition()
     {
-        transform.position = startingPosition;
+        transform.position = resetPosition.position;
     }
     
     private void HideAlan2D()

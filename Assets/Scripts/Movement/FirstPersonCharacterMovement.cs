@@ -6,7 +6,7 @@ using Cinemachine;
 public class FirstPersonCharacterMovement : MonoBehaviour
 {
     // Player Control Settings
-    public float walkSpeed = 3.0f;            // Movement speed
+    [SerializeField] private float walkSpeed = 3.0f;            // Movement speed
     private float gravity = -28.0f;           // Custom gravity force
     private float mouseSensitivity = 200.0f;  // Mouse sensitivity for look around
 
@@ -18,14 +18,14 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero; // Direction of player movement
 
     // Ground Check
-    public Transform groundCheck;
+    [SerializeField] private Transform groundCheck;
     private float groundDistance = 0.3f;
     public LayerMask groundLayer;
     public LayerMask blockLayer;
     private bool isGrounded = true;
 
     // Jump Parameters
-    private float jumpForce = 10f;          // Adjusted for balance
+    [SerializeField] private float jumpForce = 8f;          // Adjusted for balance
     private float jumpCooldown = 0.25f;
     private float airMultiplier = 0.1f;
     private bool readyToJump = true;
@@ -165,18 +165,18 @@ public class FirstPersonCharacterMovement : MonoBehaviour
             rb.AddForce(Vector3.up * bouncePadForce, ForceMode.Impulse);
         }
         
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            transform.SetParent(other.transform);
-        }
+        // if (other.gameObject.CompareTag("Platform"))
+        // {
+        //     transform.SetParent(other.transform);
+        // }
     }
     
     private void OnCollisionExit(Collision other)
     {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            transform.SetParent(null);
-        }
+        // if (other.gameObject.CompareTag("Platform"))
+        // {
+        //     transform.SetParent(null);
+        // }
         
     }
 

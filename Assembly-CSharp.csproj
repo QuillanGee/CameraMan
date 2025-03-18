@@ -48,7 +48,6 @@
      <Compile Include="Assets/Scripts/Managers/LevelVisibilityManager.cs" />
      <Compile Include="Assets/Scripts/Camera/GlitchEffect.cs" />
      <Compile Include="Assets/Scripts/UI/MainMenu.cs" />
-     <Compile Include="Assets/Scripts/SceneManagement/SceneLoader.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
      <Compile Include="Assets/Scripts/UI/KeepSelected.cs" />
@@ -113,6 +112,7 @@
      <Folder Include="Assets/Scripts/Movement" />
      <Folder Include="Assets/Concrete textures pack/pattern 03" />
      <Folder Include="Assets/Concrete textures pack/pattern 08" />
+     <Folder Include="Assets/Studio Assets/Animation" />
      <Folder Include="Assets/Scripts/BouncePad" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Dividers" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Office Storage" />

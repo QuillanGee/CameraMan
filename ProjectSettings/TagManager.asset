@@ -7,17 +7,17 @@ TagManager:
   - Ground
   - Blocks
   - BouncePad
-  - DoorToUnlock
-  - Platform
   - SceneTrigger
   - DynamicScaleBox
   - ProjectedWallTransform
   - OrthographicCamera
-  - Door
   - Player2D
   - ResetPosition
   - zAxisFor2DLevel
   - PickUp
+  - Walls
+  - Ladder
+  - ResetPosition2D
   layers:
   - Default
   - TransparentFX
