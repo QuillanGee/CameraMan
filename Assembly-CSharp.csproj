@@ -76,6 +76,7 @@
      <Compile Include="Assets/Scripts/UI/CameraUI.cs" />
      <Compile Include="Assets/Scripts/Platforms/Moveable2DPlatform.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
+     <Compile Include="Assets/Scripts/BlurControl.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />
      <Compile Include="Assets/Scripts/SceneManagement/SceneTrigger.cs" />
      <Folder Include="Assets" />
@@ -95,6 +96,7 @@
      <Folder Include="Assets/Prefabs/Mechanics" />
      <Folder Include="Assets/Assets/2D Alan/Animation/Zombie Extra" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Pipes and Ducts" />
+     <None Include="Assets/Materials/SelectiveBlur.shader" />
      <Folder Include="Assets/Scripts/Spikes" />
      <Folder Include="Assets/Studio Assets/Textures/Storage" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Electrical" />
@@ -127,6 +129,7 @@
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Crates" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Animations" />
      <Folder Include="Assets/Next-gen Camera/Textures" />
+     <None Include="Assets/Materials/AlwaysOnTop.shader" />
      <Folder Include="Assets/Materials" />
      <Folder Include="Assets/Assets/security-camera/source" />
      <Folder Include="Assets/Studio Assets/Meshes" />

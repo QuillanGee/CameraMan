@@ -23,9 +23,7 @@ public class ObjectProjection : MonoBehaviour
    private PolygonCollider2D polygonCollider;
    public Material projectedMaterial;
    public LayerMask groundLayer;
-  
-   //What z to project onto
-   private float projectedWallTransform = 12f;
+   
 
 
    void Awake()
@@ -79,11 +77,11 @@ public class ObjectProjection : MonoBehaviour
        Vector3[] projectedVerticesAroundOrigin = TransformVerticesAroundOrigin(centerOfProjection, projectedVerticies);
 
        // Apply offset to adjust the position of the projected vertices
-       Vector3 offset = new Vector3(0, 2f, 0); // Adjust the Y value as needed
-       for (int i = 0; i < projectedVerticesAroundOrigin.Length; i++)
-       {
-           projectedVerticesAroundOrigin[i] += offset;
-       }
+       // Vector3 offset = new Vector3(0, 2f, 0); // Adjust the Y value as needed
+       // for (int i = 0; i < projectedVerticesAroundOrigin.Length; i++)
+       // {
+       //     projectedVerticesAroundOrigin[i] += offset;
+       // }
 
        // Check if currMesh is null, if not destroy currMesh (gameobject)
        DestroyProjectedMesh();
@@ -100,11 +98,11 @@ public class ObjectProjection : MonoBehaviour
        projectedMeshObject.AddComponent<MeshRenderer>().material = projectedMaterial;
 
        // Calc Distance from Center of 3D mesh, Scale, transform GameObject back to original position
-       float distanceToPlane = projectedWallTransform - transform.position.z;
-       float scaleFactor = 2 * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
+       // float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
+       // float scaleFactor = 4f * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
 
        // Scale
-       projectedMeshObject.transform.localScale *= scaleFactor;
+       // projectedMeshObject.transform.localScale *= scaleFactor;
        projectedMeshObject.transform.position = centerOfProjection;
    }
 

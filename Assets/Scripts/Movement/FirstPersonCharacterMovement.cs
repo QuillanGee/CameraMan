@@ -25,7 +25,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private bool isGrounded = true;
 
     // Jump Parameters
-    [SerializeField] private float jumpForce = 8f;          // Adjusted for balance
+    [SerializeField] private float jumpForce = 10f;          // Adjusted for balance
     private float jumpCooldown = 0.25f;
     private float airMultiplier = 0.1f;
     private bool readyToJump = true;

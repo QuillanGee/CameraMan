@@ -10,16 +10,10 @@ public class CameraController : MonoBehaviour
     public CinemachineVirtualCamera orthographicCamera;
     public CinemachineVirtualCamera perspectiveCamera;
 
-    public static float perspectiveTransitionSpeed = 1f; // To perspective
+    private float perspectiveTransitionSpeed = 1f; // To perspective
     private float orthographicTransitionSpeed = 1f; //to orthographic
 
-    private bool isZooming = false;
     private CinemachineBrain brain;
-
-    // private void Awake()
-    // {
-    //     DontDestroyOnLoad(gameObject);
-    // }
     
     private void Start()
     {
@@ -40,17 +34,13 @@ public class CameraController : MonoBehaviour
     private void AttachOrthographicCamera()
     {
         orthographicCamera = GameObject.FindWithTag("OrthographicCamera").GetComponent<CinemachineVirtualCamera>();
-        
     }
 
     private void StartZoomInOutTransition()
     {
-        if (!isZooming)
-        {
-            EventManager.instance.PauseGamePlay(true);  // Pause mechanics
-            StartCoroutine(WaitForOrthographicZoom());
-
-        }
+        EventManager.instance.PauseGamePlay(true);  // Pause mechanics
+        brain.m_DefaultBlend.m_Time = perspectiveTransitionSpeed;  // Adjust blend duration
+        StartCoroutine(WaitForOrthographicZoom());
     }
 
 
@@ -58,7 +48,6 @@ public class CameraController : MonoBehaviour
     {
         yield return new WaitForSeconds(perspectiveTransitionSpeed);
         TransitionToPerspectiveCamera();
-        EventManager.instance.PauseGamePlay(false);  // Resume mechanics
     }
 
     private void TransitionToPerspectiveCamera()
@@ -66,10 +55,8 @@ public class CameraController : MonoBehaviour
         EventManager.instance.PostToggleFirstPerson();
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
         orthographicCamera.Priority = 0;
-        // Set the second perspective camera as active to start blending between both
         perspectiveCamera.Priority = 1;
-        // orthographicCamera.SetActive(false);
-        // perspectiveCamera.SetActive(true);
+        EventManager.instance.PauseGamePlay(false);  // Resume mechanics
     }
     private void TransitionToOrthographic()
     {
@@ -85,8 +72,6 @@ public class CameraController : MonoBehaviour
         brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
         perspectiveCamera.Priority = 0;
         orthographicCamera.Priority = 1;
-        // orthographicCamera.SetActive(true);
-        // perspectiveCamera.SetActive(false);
         EventManager.instance.PauseGamePlay(false);  // Resume mechanics
     }
 }

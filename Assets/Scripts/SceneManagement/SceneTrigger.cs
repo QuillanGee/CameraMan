@@ -12,7 +12,7 @@ public class SceneTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))  // Ensure your player has the "Player" tag
         {
-            // Check if the scene is already loaded before loading
+            // // Check if the scene is already loaded before loading
             // if (!IsSceneLoaded(sceneToLoad))
             // {
             //     SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Additive);
@@ -25,7 +25,6 @@ public class SceneTrigger : MonoBehaviour
                 SceneManager.UnloadSceneAsync(sceneToUnload);
                 StartCoroutine(DelayedEventCallForSceneLoading());
             }
-            
         }
     }
 

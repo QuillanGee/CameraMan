@@ -271,7 +271,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8798396313193754910}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -331,7 +331,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004123509, y: 0.960275}
+  m_Offset: {x: 0, y: 0.960275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -342,7 +342,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45004445, y: 1.9051574}
+  m_Size: {x: 0.6, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &5754657939547598030
 MonoBehaviour:
@@ -358,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Alan: {fileID: 0}
   AlanMesh: {fileID: 1003637127107098320}
+  resetPosition: {fileID: 0}
   zAxisFor2Dlevel: {fileID: 0}
 --- !u!1001 &84666207802854273
 PrefabInstance:

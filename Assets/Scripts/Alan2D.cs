@@ -11,7 +11,7 @@ public class Alan2D : MonoBehaviour
     [SerializeField] private GameObject AlanMesh;
     private Vector3 alanDefaultScale;
     [SerializeField] Transform resetPosition;
-    private float scaleFactor = 1f;
+    private float scaleFactor = 4f;
     [SerializeField] private Transform zAxisFor2Dlevel;
     float minScale = 0.5f;  // Example minimum scale
     float maxScale = 1.5f;  // Example maximum scale
@@ -85,7 +85,7 @@ public class Alan2D : MonoBehaviour
     
     private void ScaleAlan()
     {
-        float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
+        float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - Alan.transform.position.z;
         float computedScaleFactor = scaleFactor * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane)));
         int direction = transform.localScale.x > 0 ? 1 : -1;
         Vector3 theScale = alanDefaultScale * computedScaleFactor;

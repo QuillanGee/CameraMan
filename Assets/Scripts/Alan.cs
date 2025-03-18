@@ -21,15 +21,15 @@ public class Alan : MonoBehaviour
     private void Start()
     {
         crossHair = GetComponentInChildren<Canvas>();
-        EventManager.instance.OnPostToggleFirstPerson += ProjectAlan2DToMoveAlan;
+        EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
         EventManager.instance.OnPostToggleFirstPerson += EnableCrossHair;
         EventManager.instance.OnResetAlan += ResetPosition;
         EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
         EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
         EventManager.instance.OnLoadScene += AttachResetPosition;
-        EventManager.instance.OnPostToggleFirstPerson += ShowAlan;
-        EventManager.instance.OnPostToggleTwoD += HideAlan;
+        // EventManager.instance.OnPostToggleFirstPerson += ShowAlan;
+        // EventManager.instance.OnPostToggleTwoD += HideAlan;
         EventManager.instance.OnSendZAxis += SetZAxisToProjectAlan;
     }
 
@@ -40,7 +40,7 @@ public class Alan : MonoBehaviour
     
     private void ProjectAlan2DToMoveAlan()
     {
-        Vector3 newPosition = new Vector3(Alan2D.position.x, Alan2D.position.y, zAxisToProjectAlan);
+        Vector3 newPosition = new Vector3(Alan2D.position.x, Alan2D.position.y, transform.position.z);
         transform.position = newPosition;
     }
 
