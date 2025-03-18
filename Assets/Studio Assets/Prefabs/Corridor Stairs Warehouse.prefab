@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7667765119190351233
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3249238411822694155, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 18e865b042988a449959824e5444d0a6, type: 2}
+    - target: {fileID: 3419025851523949427, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3897691131773804254, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_Name
+      value: Corridor Stairs Warehouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4421604382615864420, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603818543214475101, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7210765147911764340, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300360479400212970, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354595217957700635, guid: 7b9c6d304715646458857cce76306d16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7b9c6d304715646458857cce76306d16, type: 3}
