@@ -5626,11 +5626,11 @@ PrefabInstance:
     - target: {fileID: 3958165833495462411, guid: 220253ad3ec094d5cb383baa504363e2, type: 3}
       propertyPath: openHandReticle
       value: 
-      objectReference: {fileID: 21300000, guid: 35032eb5d114143689db3e8d0204a768, type: 3}
+      objectReference: {fileID: 21300000, guid: e231798bd669c462082abfec8d6150ee, type: 3}
     - target: {fileID: 3958165833495462411, guid: 220253ad3ec094d5cb383baa504363e2, type: 3}
       propertyPath: closedHandReticle
       value: 
-      objectReference: {fileID: 21300000, guid: ee47785fc75be4849bd2777b38a33283, type: 3}
+      objectReference: {fileID: 21300000, guid: 32793278f4fe641aebf2c158738782b5, type: 3}
     - target: {fileID: 5368198319400423940, guid: 220253ad3ec094d5cb383baa504363e2, type: 3}
       propertyPath: m_Priority
       value: 1
