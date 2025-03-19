@@ -1315,7 +1315,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.278827, y: 10.27}
+  m_Size: {x: 10.35, y: 10.27}
   m_EdgeRadius: 0
 --- !u!1001 &123898518
 PrefabInstance:
@@ -3619,7 +3619,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.5, y: 6.2}
+  m_Size: {x: 8.5, y: 7}
   m_EdgeRadius: 0
 --- !u!1 &379468429
 GameObject:
@@ -7392,7 +7392,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.278827, y: 10.3}
+  m_Size: {x: 10.278827, y: 9.8}
   m_EdgeRadius: 0
 --- !u!1001 &759569447
 PrefabInstance:
@@ -9815,7 +9815,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.278827, y: 12.6}
+  m_Size: {x: 10.278827, y: 12.3}
   m_EdgeRadius: 0
 --- !u!1001 &1002060061
 PrefabInstance:
@@ -11158,7 +11158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.278827, y: 10.248701}
+  m_Size: {x: 10.278827, y: 10}
   m_EdgeRadius: 0
 --- !u!4 &1100357700 stripped
 Transform:
@@ -14627,7 +14627,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8, y: 6.2}
+  m_Size: {x: 8, y: 9.3}
   m_EdgeRadius: 0
 --- !u!1001 &1476697553
 PrefabInstance:
@@ -15035,7 +15035,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.278827, y: 10}
+  m_Size: {x: 10.35, y: 9.7}
   m_EdgeRadius: 0
 --- !u!1001 &1483214078
 PrefabInstance:
@@ -16756,7 +16756,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.278827, y: 11}
+  m_Size: {x: 10.278827, y: 10.6}
   m_EdgeRadius: 0
 --- !u!4 &1659853422 stripped
 Transform:
@@ -19888,7 +19888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8756996714186884442, guid: 95871e42bf987d84ca31c5b209eea9f7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8756996714186884442, guid: 95871e42bf987d84ca31c5b209eea9f7, type: 3}
       propertyPath: m_LocalScale.z

@@ -14,6 +14,8 @@ public class Alan : MonoBehaviour
     [SerializeField] private Transform CapsuleHolder;
     private float zAxisToProjectAlan;
     
+    private Rigidbody rb;
+    
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -21,6 +23,7 @@ public class Alan : MonoBehaviour
     private void Start()
     {
         crossHair = GetComponentInChildren<Canvas>();
+        rb = GetComponent<Rigidbody>();
         EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
         EventManager.instance.OnToggleTwoD += DisableCrossHair;
         EventManager.instance.OnPostToggleFirstPerson += EnableCrossHair;
@@ -40,8 +43,8 @@ public class Alan : MonoBehaviour
     
     private void ProjectAlan2DToMoveAlan()
     {
-        Vector3 newPosition = new Vector3(Alan2D.position.x, Alan2D.position.y, transform.position.z);
-        transform.position = newPosition;
+        Vector3 newPosition = new Vector3(Alan2D.position.x, Alan2D.position.y, zAxisToProjectAlan);
+        rb.MovePosition(newPosition);
     }
 
     private void SetZAxisToProjectAlan(object sender, ZAxisEventArgs args)
