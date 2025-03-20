@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;  // Need this for scene management
 public class TwoDCharacterMovement : MonoBehaviour {
 
     public float speed = 3f;
-    private float JumpHeight = 6f;
+    private float JumpHeight = 5f;
     private bool isGrounded = true;
     [SerializeField] private Transform groundCheckPosition;
     private float groundCheckRadius = 0.2f;
