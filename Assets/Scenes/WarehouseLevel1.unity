@@ -5387,8 +5387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isUnlocked: 0
-  door2D: {fileID: 0}
   animationBoolName: Open
+  doorCollider: {fileID: 0}
 --- !u!65 &497687665
 BoxCollider:
   m_ObjectHideFlags: 0

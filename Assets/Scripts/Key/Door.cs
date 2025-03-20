@@ -37,7 +37,7 @@ public class Door : MonoBehaviour
     {
         isUnlocked = true;
         doorAnimator.SetBool(animationBoolName, true);
-        StartCoroutine(DisableCollisionTemporarily()); // Disable collision while opening
+        // StartCoroutine(DisableCollisionTemporarily()); // Disable collision while opening
     }
     
     private void LockDoor()
