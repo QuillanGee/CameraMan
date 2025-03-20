@@ -176,6 +176,7 @@
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Doors" />
      <Folder Include="Assets/Prefabs" />
+     <Folder Include="Assets/Assets/Texture Renderes" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Signs" />
      <Folder Include="Assets/Studio Assets/Textures/Chair Guest" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Lighting" />
