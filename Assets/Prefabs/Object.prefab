@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2971463156247952388}
   - component: {fileID: 5267191256907751877}
   - component: {fileID: 6339863226087825188}
+  - component: {fileID: 2977069430764496214}
   m_Layer: 6
   m_Name: Object
   m_TagString: Untagged
@@ -123,4 +124,15 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  projectedWallTransform: {fileID: 0}
+--- !u!114 &2977069430764496214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412206787091418063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a8c4a1378ed403ab510b0571fd7dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

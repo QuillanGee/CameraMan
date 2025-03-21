@@ -487,8 +487,8 @@ GameObject:
   - component: {fileID: 8185055339313980681}
   - component: {fileID: 8346065569585727941}
   - component: {fileID: 2032443703339194917}
-  - component: {fileID: 3958165833495462411}
   - component: {fileID: 3071922138374577640}
+  - component: {fileID: 7745972244641597812}
   m_Layer: 0
   m_Name: Alan 1
   m_TagString: Untagged
@@ -591,29 +591,6 @@ MonoBehaviour:
   fpc: {fileID: 5368198319400423940}
   characterMesh: {fileID: 5258835069873676033}
   climbSpeed: 3
---- !u!114 &3958165833495462411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7558560907412150959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e6df41b5ccb743b18cc069d1ff19cdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  pickupDistance: 3
-  holdPosition: {fileID: 5645958508628624367}
-  isHolding: 0
-  reticle: {fileID: 7889329296173820786}
-  defaultReticle: {fileID: 21300000, guid: 48f00dce7211c4c1a997b425306af517, type: 3}
-  openHandReticle: {fileID: 21300000, guid: e231798bd669c462082abfec8d6150ee, type: 3}
-  closedHandReticle: {fileID: 21300000, guid: 32793278f4fe641aebf2c158738782b5, type: 3}
-  holdPosCollider: {fileID: 2051808249421386281}
 --- !u!114 &3071922138374577640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,6 +608,25 @@ MonoBehaviour:
   resetPosition: {fileID: 0}
   AlanMesh: {fileID: 1921030076140700776}
   CapsuleHolder: {fileID: 7965249175059549985}
+--- !u!114 &7745972244641597812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558560907412150959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8964ba10a08c245c7ae20f6ed660b793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 2
+  reticle: {fileID: 7889329296173820786}
+  defaultReticle: {fileID: 21300000, guid: 48f00dce7211c4c1a997b425306af517, type: 3}
+  openHandReticle: {fileID: 21300000, guid: 35032eb5d114143689db3e8d0204a768, type: 3}
+  closedHandReticle: {fileID: 21300000, guid: ee47785fc75be4849bd2777b38a33283, type: 3}
+  holdPosition: {fileID: 0}
+  holdPosCollider: {fileID: 0}
 --- !u!1 &7765885919276680502
 GameObject:
   m_ObjectHideFlags: 0

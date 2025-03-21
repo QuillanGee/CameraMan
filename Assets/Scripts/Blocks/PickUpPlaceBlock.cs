@@ -13,8 +13,7 @@ public class PickUpPlaceBlock : MonoBehaviour
     public Sprite defaultReticle; // Default reticle sprite
     public Sprite openHandReticle; // Open hand reticle sprite
     public Sprite closedHandReticle; // Closed hand reticle sprite
-
-    private GameObject player;
+    
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
 
     private GameObject pickedBlock = null; // The currently picked-up block
