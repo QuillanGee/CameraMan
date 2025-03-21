@@ -15,12 +15,10 @@ public class PickableObject : MonoBehaviour, IInteractable
 
     public void OnHoverEnter()
     {
-        Debug.Log("Hovering over " + gameObject.name);
     }
 
     public void OnHoverExit()
     {
-        Debug.Log("Stopped hovering over " + gameObject.name);
     }
 
     public void OnInteract()
@@ -43,7 +41,7 @@ public class PickableObject : MonoBehaviour, IInteractable
     public void Drop()
     {
         if (!isHeld) return;
-
+        isHeld = false;
         rb.isKinematic = false;
         transform.parent = null;
         collider.enabled = true;

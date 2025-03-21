@@ -9,14 +9,6 @@ using Object = UnityEngine.Object;
 
 public class InputManager : MonoBehaviour
 {
-    // [SerializeField] private GameObject currProjected3DObject;
-    // [SerializeField] private ObjectProjection objectProjection;
-    // [SerializeField] private CameraController cameraController;
-    // [SerializeField] private GameObject alan;
-    // [SerializeField] private GameObject alan2D;
-    
-    //keep this for logic purposes
-    [SerializeField] private PickUpPlaceBlock pickUpPlaceBlock;
     private bool isTwoD = false;
 
     void Start()
@@ -49,16 +41,6 @@ public class InputManager : MonoBehaviour
                 EventManager.instance.ToggleTwoD();
                 isTwoD = true;
                 
-                //check if holding block, if is then toggle hold block event (Maybe check if there is a block)
-                
-                if (pickUpPlaceBlock.isHolding)
-                {
-                    EventManager.instance.HoldingBlock();
-                }
-                else
-                {
-                    EventManager.instance.NotHoldingBlock();
-                }
             }
             // TogglePerspective();
         }

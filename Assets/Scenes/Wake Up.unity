@@ -2405,7 +2405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda5a0a711eb446d2a82904c5c1a8e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpPlaceBlock: {fileID: 0}
 --- !u!4 &416267615
 Transform:
   m_ObjectHideFlags: 0
@@ -2473,6 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8390879f3954fe98d5a2b46d096065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialWall: {fileID: 1262757612}
 --- !u!1 &431306205
 GameObject:
   m_ObjectHideFlags: 0
@@ -7309,7 +7309,7 @@ PrefabInstance:
     - target: {fileID: 6339863226087825188, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: projectedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 6145055fcc81142fa876bf948ad16367, type: 2}
+      objectReference: {fileID: 2100000, guid: 4779ec45077fde34a9a602b938ebdc02, type: 2}
     - target: {fileID: 6339863226087825188, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 512

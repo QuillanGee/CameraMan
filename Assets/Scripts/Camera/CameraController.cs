@@ -7,8 +7,8 @@ using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    public CinemachineVirtualCamera orthographicCamera;
-    public CinemachineVirtualCamera perspectiveCamera;
+    [SerializeField] CinemachineVirtualCamera orthographicCamera;
+    [SerializeField] CinemachineVirtualCamera perspectiveCamera;
 
     private float perspectiveTransitionSpeed = 1f; // To perspective
     private float orthographicTransitionSpeed = 1f; //to orthographic
@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnToggleFirstPerson += StartZoomInOutTransition;
         EventManager.instance.OnToggleTwoD += TransitionToOrthographic;
         EventManager.instance.OnLoadScene += AttachOrthographicCamera;
-        AttachOrthographicCamera();
+        // AttachOrthographicCamera();
     }
 
     private void OnDestroy()

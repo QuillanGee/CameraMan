@@ -13,6 +13,7 @@ public class Alan : MonoBehaviour
     [SerializeField] private GameObject AlanMesh;
     [SerializeField] private Transform CapsuleHolder;
     private float zAxisToProjectAlan;
+    private bool isHoldingBlock = false;
     
     private Rigidbody rb;
     
@@ -24,21 +25,36 @@ public class Alan : MonoBehaviour
     {
         crossHair = GetComponentInChildren<Canvas>();
         rb = GetComponent<Rigidbody>();
-        // EventManager.instance.OnToggleFirstPerson += ProjectAlan2DToMoveAlan;
-        EventManager.instance.OnToggleTwoD += DisableCrossHair;
-        EventManager.instance.OnPostToggleFirstPerson += EnableCrossHair;
+        EventManager.instance.OnPostToggleTwoD += ToggleTwoDAction;
+        EventManager.instance.OnPostToggleFirstPerson += ToggleFirstPersonAction;
         EventManager.instance.OnResetAlan += ResetPosition;
-        EventManager.instance.OnHoldingBlock += SetObjectionProjectionInstance;
-        EventManager.instance.OnHoldingBlock += AttachBlockToAlan2D;
         EventManager.instance.OnLoadScene += AttachResetPosition;
-        EventManager.instance.OnPostToggleFirstPerson += ShowAlan;
-        EventManager.instance.OnPostToggleTwoD += HideAlan;
         EventManager.instance.OnSendZAxis += SetZAxisToProjectAlan;
+        EventManager.instance.OnHoldingBlock += SetHoldingBlockTrue;
+        EventManager.instance.OnNotHoldingBlock += SetHoldingBlockFalse;
     }
 
     private void AttachResetPosition()
     {
         resetPosition = GameObject.FindWithTag("ResetPosition").transform;
+    }
+
+    private void ToggleFirstPersonAction()
+    {
+        EnableCrossHair();
+        ProjectAlan2DToMoveAlan();
+        ShowAlan();
+    }
+
+    private void ToggleTwoDAction()
+    {
+        DisableCrossHair();
+        HideAlan();
+        if (isHoldingBlock)
+        {
+            SetObjectionProjectionInstance();
+            AttachBlockToAlan2D();
+        }
     }
     
     private void ProjectAlan2DToMoveAlan()
@@ -67,7 +83,6 @@ public class Alan : MonoBehaviour
     private void EnableCrossHair()
     {
         crossHair.enabled = true;
-        ProjectAlan2DToMoveAlan();
     }
     
     private void SetObjectionProjectionInstance()
@@ -100,5 +115,15 @@ public class Alan : MonoBehaviour
         {
             AlanMesh.SetActive(true);
         }
+    }
+
+    private void SetHoldingBlockTrue()
+    {
+        isHoldingBlock = true;
+    }
+
+    private void SetHoldingBlockFalse()
+    {
+        isHoldingBlock = false;
     }
 }

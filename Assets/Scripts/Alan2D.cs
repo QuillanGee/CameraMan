@@ -40,7 +40,7 @@ public class Alan2D : MonoBehaviour
         EventManager.instance.OnResetAlan2D += ResetPosition;
     }
 
-    private void SetZAxisFor2D()
+    private void SetZAxisFor2D() 
     {
         zAxisFor2Dlevel = GameObject.FindWithTag("zAxisFor2DLevel").transform;
         if (zAxisFor2Dlevel != null)

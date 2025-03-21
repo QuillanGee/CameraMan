@@ -61,19 +61,21 @@ public class InteractionManager : MonoBehaviour
 
     private void HandleInteraction()
     {
-        if (Input.GetMouseButtonDown(1)) // Left Click to interact
+        if (Input.GetMouseButtonDown(1)) 
         {
             if (heldObject == null && currentHoveredObject is PickableObject pickable)
             {
                 pickable.Pickup(holdPosition);
                 heldObject = pickable;
                 holdPosCollider.enabled = true;
+                EventManager.instance.HoldingBlock();
             }
             else if (heldObject != null) // Drop if already holding something
             {
                 heldObject.Drop();
                 heldObject = null;
                 holdPosCollider.enabled = false;
+                EventManager.instance.NotHoldingBlock();
             }
         }
     }

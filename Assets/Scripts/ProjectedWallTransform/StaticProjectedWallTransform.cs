@@ -4,6 +4,7 @@ public class StaticProjectedWallTransform : MonoBehaviour
 {
     public static StaticProjectedWallTransform Instance { get; private set; }
     public static Transform ProjectedWallTransform { get; private set; }
+    [SerializeField] private Transform initialWall;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class StaticProjectedWallTransform : MonoBehaviour
     private void Start()
     {
         EventManager.instance.OnLoadScene += AttachProjectedWallTransform;
-        AttachProjectedWallTransform(); // Initial assignment in the first scene
+        ProjectedWallTransform = initialWall;
     }
 
     private void AttachProjectedWallTransform()

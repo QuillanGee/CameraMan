@@ -88,7 +88,7 @@ public class ObjectProjection : MonoBehaviour
 
        // Create GameObject, create Mesh around Origin
        projectedMeshObject = new GameObject("ProjectedMesh");
-       projectedMeshObject.layer = 9;
+       projectedMeshObject.layer = 11;
        projectedMesh = Create2DMesh(projectedVerticesAroundOrigin, mesh.triangles);
 
        // For collider
