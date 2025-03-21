@@ -141,25 +141,25 @@ public class EventManager : MonoBehaviour
     }
     
     
-    public event EventHandler<ZAxisEventArgs> OnSendZAxis;
+    public event EventHandler<float> OnSendZAxis;
 
-    public void SendZAxis(float zAxis, bool isOnPlatform)
+    public void SendZAxis(float zAxis)
     {
         if (OnSendZAxis != null)
         {
-            OnSendZAxis(this,new (zAxis,isOnPlatform));
+            OnSendZAxis(this, zAxis);
         }
     }
 }
 
-public class ZAxisEventArgs : EventArgs
-{
-    public float ZAxis { get; }
-    public bool IsOnPlatform { get; }
-
-    public ZAxisEventArgs(float zAxis, bool isOnPlatform)
-    {
-        ZAxis = zAxis;
-        IsOnPlatform = isOnPlatform;
-    }
-}
+// public class ZAxisEventArgs : EventArgs
+// {
+//     public float ZAxis { get; }
+//     public bool IsOnPlatform { get; }
+//
+//     public ZAxisEventArgs(float zAxis, bool isOnPlatform)
+//     {
+//         ZAxis = zAxis;
+//         IsOnPlatform = isOnPlatform;
+//     }
+// }

@@ -11,28 +11,29 @@ public class PerspectiveConnector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.instance.OnToggleFirstPerson += CheckIsOnPlatform;
     }
 
-    private void CheckIsOnPlatform()
+    private void SendIsOnPlatform()
     {
-        if (isOnPlatform)
-        {
-            EventManager.instance.SendZAxis(LinkedObject.position.z, isOnPlatform);
-        }
-        else
-        {
-            EventManager.instance.SendZAxis(-1f, isOnPlatform);
-        }
+        EventManager.instance.SendZAxis(LinkedObject.position.z);
+        print("Was on platform");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        EventManager.instance.OnToggleFirstPerson += SendIsOnPlatform;
         isOnPlatform = true;
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
+        EventManager.instance.OnToggleFirstPerson -= SendIsOnPlatform;
+        isOnPlatform = false;
+    }
+
+    private IEnumerator PlatformBuffer()
+    {
+        yield return new WaitForSeconds(1f);
         isOnPlatform = false;
     }
 }

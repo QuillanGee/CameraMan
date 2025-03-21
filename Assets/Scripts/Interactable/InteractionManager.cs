@@ -4,18 +4,18 @@ using UnityEngine.UI;
 public class InteractionManager : MonoBehaviour
 {
     public float interactionRange = 2f;
-    
+
     public Image reticle; // Reference to the reticle UI element
     public Sprite defaultReticle; // Default reticle sprite
     public Sprite openHandReticle; // Open hand reticle sprite
     public Sprite closedHandReticle; // Closed hand reticle sprite
-    
+
     private IInteractable currentHoveredObject;
     private PickableObject heldObject;
     [SerializeField] Transform holdPosition; // Where the block will be held when picked up
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
 
-    
+
     void Update()
     {
         HandleHover();
@@ -33,6 +33,7 @@ public class InteractionManager : MonoBehaviour
 
             if (interactable != null)
             {
+                // If looking at a new object, reset previous and set new hover state
                 if (currentHoveredObject != interactable)
                 {
                     if (currentHoveredObject != null)
@@ -40,20 +41,42 @@ public class InteractionManager : MonoBehaviour
 
                     currentHoveredObject = interactable;
                     currentHoveredObject.OnHoverEnter();
+                }
+
+                // Only change reticle if we are NOT holding something
+                if (heldObject == null)
+                {
                     reticle.sprite = openHandReticle;
                 }
             }
             else
             {
-                reticle.sprite = defaultReticle;
+                // If looking at nothing, reset hover state
+                if (currentHoveredObject != null)
+                {
+                    currentHoveredObject.OnHoverExit();
+                    currentHoveredObject = null;
+                }
+
+                // Only change to default reticle if NOT holding something
+                if (heldObject == null)
+                {
+                    reticle.sprite = defaultReticle;
+                }
             }
         }
         else
         {
+            // If raycast hits nothing, reset hover state
             if (currentHoveredObject != null)
             {
                 currentHoveredObject.OnHoverExit();
                 currentHoveredObject = null;
+            }
+
+            // Only change to default reticle if NOT holding something
+            if (heldObject == null)
+            {
                 reticle.sprite = defaultReticle;
             }
         }
@@ -69,6 +92,9 @@ public class InteractionManager : MonoBehaviour
                 heldObject = pickable;
                 holdPosCollider.enabled = true;
                 EventManager.instance.HoldingBlock();
+                
+                // Change to closed hand when picking up
+                reticle.sprite = closedHandReticle;
             }
             else if (heldObject != null) // Drop if already holding something
             {
@@ -76,7 +102,11 @@ public class InteractionManager : MonoBehaviour
                 heldObject = null;
                 holdPosCollider.enabled = false;
                 EventManager.instance.NotHoldingBlock();
+
+                // Change back to open hand if still hovering over something, otherwise reset
+                reticle.sprite = currentHoveredObject != null ? openHandReticle : defaultReticle;
             }
         }
     }
+
 }

@@ -30,17 +30,15 @@ public class InputManager : MonoBehaviour
         {
             //going to First Person
             if(isTwoD)
-            {            
-                EventManager.instance.ToggleFirstPerson();
+            {
                 isTwoD = false;
-                
+                EventManager.instance.ToggleFirstPerson();
             }
             //going to Two D
             else
             {
-                EventManager.instance.ToggleTwoD();
                 isTwoD = true;
-                
+                EventManager.instance.ToggleTwoD();
             }
             // TogglePerspective();
         }

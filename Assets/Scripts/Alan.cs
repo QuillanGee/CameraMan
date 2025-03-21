@@ -12,8 +12,11 @@ public class Alan : MonoBehaviour
     private ObjectProjection currentHeldObjectProjection;
     [SerializeField] private GameObject AlanMesh;
     [SerializeField] private Transform CapsuleHolder;
-    private float zAxisToProjectAlan;
+    private float zAxisToProjectAlan = -1f;
+    private float zAxisToProjectAlanFromController = -1f;
+    
     private bool isHoldingBlock = false;
+    private bool isOnObject = false;
     
     private Rigidbody rb;
     
@@ -59,20 +62,19 @@ public class Alan : MonoBehaviour
     
     private void ProjectAlan2DToMoveAlan()
     {
-        Vector3 newPosition = new Vector3(Alan2D.position.x, Alan2D.position.y, transform.position.z);
-        rb.MovePosition(newPosition);
-    }
-
-    private void SetZAxisToProjectAlan(object sender, ZAxisEventArgs args)
-    {
-        if (args.IsOnPlatform)
-        {
-            zAxisToProjectAlan = args.ZAxis;
-        }
-        else
+        if (!isOnObject)
         {
             zAxisToProjectAlan = transform.position.z;
         }
+        isOnObject = false;
+        Vector3 newPosition = new Vector3(Alan2D.position.x, Alan2D.position.y, zAxisToProjectAlan);
+        rb.MovePosition(newPosition);
+    }
+
+    private void SetZAxisToProjectAlan(object sender, float zAxis)
+    {
+        isOnObject = true;
+        zAxisToProjectAlan = zAxis;
     }
     
     private void DisableCrossHair()
