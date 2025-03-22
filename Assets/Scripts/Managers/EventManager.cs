@@ -140,6 +140,16 @@ public class EventManager : MonoBehaviour
         }
     }
     
+    public event Action OnPauseMenu;
+
+    public void PauseMenu()
+    {
+        if (OnPauseMenu != null)
+        {
+            OnPauseMenu();
+        }
+    }
+    
     
     public event EventHandler<ZAxisEventArgs> OnSendZAxis;
 

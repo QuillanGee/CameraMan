@@ -47,11 +47,7 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false;  // Stops play mode in editor
-            #else
-                        Application.Quit();  // Quits the built application
-            #endif
+            EventManager.instance.PauseMenu();
         }
     }
 }
