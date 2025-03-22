@@ -24,7 +24,8 @@ public class ObjectProjection : MonoBehaviour
    public Material projectedMaterial;
    public LayerMask groundLayer;
    
-
+   float minScale = 0.5f;  // Example minimum scale
+   float maxScale = 1.5f;  // Example maximum scale
 
    void Awake()
    {
@@ -98,11 +99,12 @@ public class ObjectProjection : MonoBehaviour
        projectedMeshObject.AddComponent<MeshRenderer>().material = projectedMaterial;
 
        // Calc Distance from Center of 3D mesh, Scale, transform GameObject back to original position
-       // float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
-       // float scaleFactor = 4f * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
+       float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
+       float scaleFactor = 4f * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
 
        // Scale
-       // projectedMeshObject.transform.localScale *= scaleFactor;
+       scaleFactor = Mathf.Clamp(scaleFactor, minScale, maxScale);
+       projectedMeshObject.transform.localScale *= scaleFactor;
        projectedMeshObject.transform.position = centerOfProjection;
    }
 
