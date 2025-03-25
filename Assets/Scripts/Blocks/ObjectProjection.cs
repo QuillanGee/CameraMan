@@ -26,6 +26,7 @@ public class ObjectProjection : MonoBehaviour
    
    float minScale = 0.5f;  // Example minimum scale
    float maxScale = 1.5f;  // Example maximum scale
+   [SerializeField] private Transform zAxis;
 
    void Awake()
    {
@@ -38,8 +39,22 @@ public class ObjectProjection : MonoBehaviour
    void Start()
    {
        EventManager.instance.OnToggleTwoD += UpdatePerception;
-       EventManager.instance.OnToggleFirstPerson += DestroyProjectedMesh;
-       EventManager.instance.OnInstantiateGamePlay += UpdatePerception;
+       EventManager.instance.OnPostToggleFirstPerson += DestroyProjectedMesh;
+       EventManager.instance.OnPostToggleFirstPerson += ShowObject;
+       EventManager.instance.OnPostToggleTwoD += HideObject;
+
+       
+       EventManager.instance.OnLoadScene += SetZAxisFor2D;
+
+   }
+   
+   private void SetZAxisFor2D() 
+   {
+       zAxis = GameObject.FindWithTag("zAxisFor2DLevel").transform;
+       if (zAxis != null)
+       {
+           print("Couldn't find zAxis");
+       }
    }
 
 
@@ -77,16 +92,6 @@ public class ObjectProjection : MonoBehaviour
        // MOVE CALCULATE PROJECTION TO ORIGIN (used for getting the gameObject anchor centered with the mesh)
        Vector3[] projectedVerticesAroundOrigin = TransformVerticesAroundOrigin(centerOfProjection, projectedVerticies);
 
-       // Apply offset to adjust the position of the projected vertices
-       // Vector3 offset = new Vector3(0, 2f, 0); // Adjust the Y value as needed
-       // for (int i = 0; i < projectedVerticesAroundOrigin.Length; i++)
-       // {
-       //     projectedVerticesAroundOrigin[i] += offset;
-       // }
-
-       // Check if currMesh is null, if not destroy currMesh (gameobject)
-       DestroyProjectedMesh();
-
        // Create GameObject, create Mesh around Origin
        projectedMeshObject = new GameObject("ProjectedMesh");
        projectedMeshObject.layer = 11;
@@ -105,7 +110,17 @@ public class ObjectProjection : MonoBehaviour
        // Scale
        scaleFactor = Mathf.Clamp(scaleFactor, minScale, maxScale);
        projectedMeshObject.transform.localScale *= scaleFactor;
-       projectedMeshObject.transform.position = centerOfProjection;
+       projectedMeshObject.transform.position = new Vector3(centerOfProjection.x, centerOfProjection.y, zAxis.position.z);
+   }
+
+   private void HideObject()
+   {
+       meshRenderer.enabled = false;
+   }
+   
+   private void ShowObject()
+   {
+       meshRenderer.enabled = true;
    }
 
 

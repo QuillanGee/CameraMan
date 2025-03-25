@@ -13,7 +13,6 @@ public class Alan : MonoBehaviour
     [SerializeField] private GameObject AlanMesh;
     [SerializeField] private Transform CapsuleHolder;
     private float zAxisToProjectAlan = -1f;
-    private float zAxisToProjectAlanFromController = -1f;
     
     private bool isHoldingBlock = false;
     private bool isOnObject = false;

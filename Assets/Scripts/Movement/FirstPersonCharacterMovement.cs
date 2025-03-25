@@ -58,6 +58,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         EventManager.instance.OnPauseGamePlay += HandlePause;
         EventManager.instance.OnPostToggleFirstPerson += EnableControls;
         EventManager.instance.OnPostToggleTwoD += DisableControls;
+        EventManager.instance.OnInteract += DisableControls;
+        EventManager.instance.OnExitInteract += EnableControls;
     }
 
     private void FixedUpdate()

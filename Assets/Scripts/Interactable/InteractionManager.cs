@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,8 @@ public class InteractionManager : MonoBehaviour
     private PickableObject heldObject;
     [SerializeField] Transform holdPosition; // Where the block will be held when picked up
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
-
+    
+    public TMP_Text hoverText;
 
     void Update()
     {
@@ -30,7 +32,7 @@ public class InteractionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactionRange))
         {
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-
+            
             if (interactable != null)
             {
                 // If looking at a new object, reset previous and set new hover state
@@ -41,6 +43,7 @@ public class InteractionManager : MonoBehaviour
 
                     currentHoveredObject = interactable;
                     currentHoveredObject.OnHoverEnter();
+                    hoverText.text = interactable.GetText();
                 }
 
                 // Only change reticle if we are NOT holding something
@@ -56,6 +59,7 @@ public class InteractionManager : MonoBehaviour
                 {
                     currentHoveredObject.OnHoverExit();
                     currentHoveredObject = null;
+                    hoverText.text = "";
                 }
 
                 // Only change to default reticle if NOT holding something
@@ -72,6 +76,7 @@ public class InteractionManager : MonoBehaviour
             {
                 currentHoveredObject.OnHoverExit();
                 currentHoveredObject = null;
+                hoverText.text = "";
             }
 
             // Only change to default reticle if NOT holding something
@@ -84,7 +89,7 @@ public class InteractionManager : MonoBehaviour
 
     private void HandleInteraction()
     {
-        if (Input.GetMouseButtonDown(1)) 
+        if (Input.GetMouseButtonDown(1))
         {
             if (heldObject == null && currentHoveredObject is PickableObject pickable)
             {
@@ -96,7 +101,15 @@ public class InteractionManager : MonoBehaviour
                 // Change to closed hand when picking up
                 reticle.sprite = closedHandReticle;
             }
-            else if (heldObject != null) // Drop if already holding something
+            else if (heldObject == null && currentHoveredObject is InteractableObject interactable)
+            {
+                interactable.OnInteract();
+            }
+            else if (heldObject != null && currentHoveredObject is InteractableObject interactable1) // Drop if already holding something
+            {
+                interactable1.OnExitInteraction();
+            }
+            else if (heldObject != null && currentHoveredObject is PickableObject pickable1) // Drop if already holding something
             {
                 heldObject.Drop();
                 heldObject = null;

@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera orthographicCamera;
     [SerializeField] CinemachineVirtualCamera perspectiveCamera;
+    private CinemachineVirtualCamera interactionCamera;
 
     private float perspectiveTransitionSpeed = 1f; // To perspective
     private float orthographicTransitionSpeed = 1f; //to orthographic
@@ -21,7 +22,9 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnToggleFirstPerson += StartZoomInOutTransition;
         EventManager.instance.OnToggleTwoD += TransitionToOrthographic;
         EventManager.instance.OnLoadScene += AttachOrthographicCamera;
-        // AttachOrthographicCamera();
+        EventManager.instance.OnHover += LinkInteractionCamera;
+        EventManager.instance.OnInteract += TransitionToInteractionCamera;
+        EventManager.instance.OnExitInteract += TransitionFromInteractionCamera;
     }
 
     private void OnDestroy()
@@ -29,6 +32,9 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnToggleFirstPerson -= StartZoomInOutTransition;
         EventManager.instance.OnToggleTwoD -= TransitionToOrthographic;
         EventManager.instance.OnLoadScene -= AttachOrthographicCamera;
+        EventManager.instance.OnHover -= LinkInteractionCamera;
+        EventManager.instance.OnInteract -= TransitionToInteractionCamera;
+        EventManager.instance.OnExitInteract -= TransitionFromInteractionCamera;
     }
 
     private void AttachOrthographicCamera()
@@ -73,5 +79,32 @@ public class CameraController : MonoBehaviour
         perspectiveCamera.Priority = 0;
         orthographicCamera.Priority = 1;
         EventManager.instance.PauseGamePlay(false);  // Resume mechanics
+    }
+
+    private void LinkInteractionCamera(object sender, CinemachineVirtualCamera cameraInteraction)
+    {
+        interactionCamera = cameraInteraction;
+    }
+
+    private void TransitionToInteractionCamera()
+    {
+        if (interactionCamera != null)
+        {
+            brain.m_DefaultBlend.m_Time = 1f;  // Adjust blend duration
+            perspectiveCamera.Priority = 0;
+            interactionCamera.Priority = 1;
+        }
+        else
+        {
+            print("No interaction camera");
+        }
+        
+    }
+
+    private void TransitionFromInteractionCamera()
+    {
+        brain.m_DefaultBlend.m_Time = 1f;  // Adjust blend duration
+        interactionCamera.Priority = 0;
+        perspectiveCamera.Priority = 1;
     }
 }

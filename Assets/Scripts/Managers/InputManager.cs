@@ -10,6 +10,9 @@ using Object = UnityEngine.Object;
 public class InputManager : MonoBehaviour
 {
     private bool isTwoD = false;
+    
+    // link to the pause menu
+    [SerializeField] GameObject pauseMenu;
 
     void Start()
     {
@@ -30,26 +33,33 @@ public class InputManager : MonoBehaviour
         {
             //going to First Person
             if(isTwoD)
-            {
-                isTwoD = false;
+            {            
                 EventManager.instance.ToggleFirstPerson();
+                AudioManager.instance.PlayGlitchSoundEffect();
+                isTwoD = false;
+                
             }
             //going to Two D
             else
             {
-                isTwoD = true;
                 EventManager.instance.ToggleTwoD();
+                AudioManager.instance.PlayGlitchSoundEffect();
+                isTwoD = true;
+                
             }
             // TogglePerspective();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false;  // Stops play mode in editor
-            #else
-                        Application.Quit();  // Quits the built application
-            #endif
+            // show pause menu
+            pauseMenu.SetActive(true);
+            // Re-enable the cursor
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+            EventManager.instance.SetPauseMenu(true);
+            EventManager.instance.PauseGamePlay(true);
         }
     }
 }

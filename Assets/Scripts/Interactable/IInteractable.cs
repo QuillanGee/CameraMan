@@ -7,4 +7,6 @@ public interface IInteractable
     void OnInteract();   // Called when clicked or interacted with
     void Pickup(Transform holdPosition); // Pickup object
     void Drop(); // Drop object
+
+    string GetText();
 }

@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour, IInteractable
@@ -8,31 +9,30 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     private Rigidbody rb;
     private Collider collider;
+    public string hoverText = "(Right Click)";
+    private CinemachineVirtualCamera interactionCamera;
+    
     private void Start()
     {
         objectRenderer = GetComponent<Renderer>();
         rb = GetComponent<Rigidbody>();
         collider = GetComponent<Collider>();
-        if (objectRenderer != null)
+        interactionCamera = GetComponentInParent<CinemachineVirtualCamera>();
+        
+        if (interactionCamera == null)
         {
-            
+            print("No interaction Camera Found");
         }
     }
 
     public void OnHoverEnter()
     {
-        if (objectRenderer != null)
-        {
-            print("Hover");
-        }
+        EventManager.instance.Hover(interactionCamera);
+        // EventManager.instance.PauseGamePlay(true);
     }
 
     public void OnHoverExit()
     {
-        if (objectRenderer != null)
-        {
-            print("Left Hover");
-        }
     }
     
     public void Pickup(Transform holdPosition)
@@ -53,6 +53,17 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
-        Debug.Log("Interacted with " + gameObject.name);
+        EventManager.instance.Interact();
     }
+
+    public void OnExitInteraction()
+    {
+        EventManager.instance.ExitInteract();
+    }
+
+    public string GetText()
+    {
+        return hoverText;
+    }
+
 }

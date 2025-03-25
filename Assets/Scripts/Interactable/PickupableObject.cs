@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PickableObject : MonoBehaviour, IInteractable
@@ -5,7 +6,7 @@ public class PickableObject : MonoBehaviour, IInteractable
     private Rigidbody rb;
     private bool isHeld = false;
     private Collider collider;
-
+    public string hoverText = "(Right Click)";
 
     private void Start()
     {
@@ -45,5 +46,10 @@ public class PickableObject : MonoBehaviour, IInteractable
         rb.isKinematic = false;
         transform.parent = null;
         collider.enabled = true;
+    }
+
+    public string GetText()
+    {
+        return hoverText;
     }
 }

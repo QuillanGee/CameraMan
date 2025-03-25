@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PerspectiveConnector : MonoBehaviour
 {
-    private bool isOnPlatform;
     [SerializeField] private Transform LinkedObject; 
     
     // Start is called before the first frame update
@@ -22,18 +21,15 @@ public class PerspectiveConnector : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         EventManager.instance.OnToggleFirstPerson += SendIsOnPlatform;
-        isOnPlatform = true;
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
         EventManager.instance.OnToggleFirstPerson -= SendIsOnPlatform;
-        isOnPlatform = false;
     }
 
     private IEnumerator PlatformBuffer()
     {
         yield return new WaitForSeconds(1f);
-        isOnPlatform = false;
     }
 }

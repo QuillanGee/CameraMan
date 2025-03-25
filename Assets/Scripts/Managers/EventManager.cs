@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,6 +28,14 @@ public class EventManager : MonoBehaviour
     public event EventHandler<bool> OnPauseGamePlay;
 
     public void PauseGamePlay(bool isPaused)
+    {
+        if (OnPauseGamePlay != null)
+        {
+            OnPauseGamePlay(this, isPaused);
+        }
+    }
+
+    public void SetPauseMenu(bool isPaused)
     {
         if (OnPauseGamePlay != null)
         {
@@ -150,16 +159,35 @@ public class EventManager : MonoBehaviour
             OnSendZAxis(this, zAxis);
         }
     }
-}
+    
+    public event EventHandler<CinemachineVirtualCamera> OnHover;
+    
+    public void Hover(CinemachineVirtualCamera interactionCamera)
+    {
+        if (OnHover != null)
+        {
+            OnHover(this, interactionCamera);
+        }
+    }
+    
+    public event Action OnExitInteract;
 
-// public class ZAxisEventArgs : EventArgs
-// {
-//     public float ZAxis { get; }
-//     public bool IsOnPlatform { get; }
-//
-//     public ZAxisEventArgs(float zAxis, bool isOnPlatform)
-//     {
-//         ZAxis = zAxis;
-//         IsOnPlatform = isOnPlatform;
-//     }
-// }
+    public void ExitInteract()
+    {
+        if (OnExitInteract != null)
+        {
+            OnExitInteract();
+        }
+    }
+    public event Action OnInteract;
+
+    public void Interact()
+    {
+        if (OnInteract != null)
+        {
+            OnInteract();
+        }
+    }
+    
+    
+}
