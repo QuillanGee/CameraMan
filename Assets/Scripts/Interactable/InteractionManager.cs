@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class InteractionManager : MonoBehaviour
 {
-    public float interactionRange = 2f;
+    [SerializeField] private float interactionRange;
 
     public Image reticle; // Reference to the reticle UI element
     public Sprite defaultReticle; // Default reticle sprite
@@ -17,6 +17,8 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
     
     public TMP_Text hoverText;
+
+    private bool isInteracting = false;
 
     void Update()
     {
@@ -91,7 +93,7 @@ public class InteractionManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (heldObject == null && currentHoveredObject is PickableObject pickable)
+            if (!isInteracting && currentHoveredObject is PickableObject pickable)
             {
                 pickable.Pickup(holdPosition);
                 heldObject = pickable;
@@ -100,16 +102,20 @@ public class InteractionManager : MonoBehaviour
                 
                 // Change to closed hand when picking up
                 reticle.sprite = closedHandReticle;
+                isInteracting = true;
             }
-            else if (heldObject == null && currentHoveredObject is InteractableObject interactable)
+            else if (!isInteracting && currentHoveredObject is InteractableObject interactable)
             {
                 interactable.OnInteract();
+                isInteracting = true;
             }
-            else if (heldObject != null && currentHoveredObject is InteractableObject interactable1) // Drop if already holding something
+            else if (isInteracting && currentHoveredObject is InteractableObject interactable1) // Drop if already holding something
             {
                 interactable1.OnExitInteraction();
+                isInteracting = false;
+
             }
-            else if (heldObject != null && currentHoveredObject is PickableObject pickable1) // Drop if already holding something
+            else if (isInteracting && heldObject != null) // Drop if already holding something
             {
                 heldObject.Drop();
                 heldObject = null;
@@ -118,6 +124,8 @@ public class InteractionManager : MonoBehaviour
 
                 // Change back to open hand if still hovering over something, otherwise reset
                 reticle.sprite = currentHoveredObject != null ? openHandReticle : defaultReticle;
+                isInteracting = false;
+                print("Block dropped");
             }
         }
     }

@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    
     // Start is called before the first frame update
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
-        // subscribe to pause menu
-        
+        gameObject.SetActive(false);
     }
     
     // button press

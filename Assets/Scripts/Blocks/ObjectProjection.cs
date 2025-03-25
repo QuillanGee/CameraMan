@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,12 +43,18 @@ public class ObjectProjection : MonoBehaviour
        EventManager.instance.OnPostToggleFirstPerson += DestroyProjectedMesh;
        EventManager.instance.OnPostToggleFirstPerson += ShowObject;
        EventManager.instance.OnPostToggleTwoD += HideObject;
-
-       
        EventManager.instance.OnLoadScene += SetZAxisFor2D;
-
    }
-   
+
+   private void OnDestroy()
+   {
+       EventManager.instance.OnToggleTwoD -= UpdatePerception;
+       EventManager.instance.OnPostToggleFirstPerson -= DestroyProjectedMesh;
+       EventManager.instance.OnPostToggleFirstPerson -= ShowObject;
+       EventManager.instance.OnPostToggleTwoD -= HideObject;
+       EventManager.instance.OnLoadScene -= SetZAxisFor2D;
+   }
+
    private void SetZAxisFor2D() 
    {
        zAxis = GameObject.FindWithTag("zAxisFor2DLevel").transform;
