@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 111
+  controlID: 105
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 363.19995
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 49
+  controlID: 43
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 50
+  controlID: 44
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -319,9 +319,9 @@ MonoBehaviour:
     m_SceneHandles: 
     m_ShowAllHits: 0
     m_SkipHidden: 0
-    m_SearchArea: 0
+    m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Studio CyFi/Industrial & Office Interiors/Prefabs/Signs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -329,30 +329,30 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Studio CyFi/Industrial & Office Interiors/Prefabs/Signs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\mgfan\Desktop\CameraMan
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 120}
-    m_SelectedIDs: 927a0000
-    m_LastClickedID: 31378
-    m_ExpandedIDs: 00000000d0780000d2780000987a00000a8d0000108d00001e8d0000de980200e6980200
+    scrollPos: {x: 0, y: 335}
+    m_SelectedIDs: 2e810000
+    m_LastClickedID: 33070
+    m_ExpandedIDs: 000000003c7f00003e7f0000407f0000427f0000447f0000467f0000487f00004a7f000014810000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Lighting
+      m_OriginalName: Lighting
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 33060
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -366,7 +366,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d0780000d2780000
+    m_ExpandedIDs: 000000003c7f00003e7f0000407f0000427f0000447f0000467f0000487f00004a7f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -418,7 +418,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 163}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
@@ -506,20 +506,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: a87a0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: b4c6ffffcac6ffffd2c6ffffa8c7ffff8ac8ffff92c8ffffc0d7ffffd6d7ffff58dcffff50ddffff36e5ffff90e6ffff1eeefffff07a0000b0890000ca890000f28a00001c8b0000628b0000fa8b0000b08c0000b48c0000ca8c00007493000012950000829500003c970000
+      m_SelectedIDs: c84bfdff
+      m_LastClickedID: -177208
+      m_ExpandedIDs: 9c6dfdfff06ffdff6470fdffc471fdffa285fdffe6c1fdff64c2fdff00e9fdff12eafdff1ef5fdff3004feff382dfeff582ffeffb2ddfeff0ae8feff6c0fffff62ddffff56e4ffffe0ebffffa4d00000bad20000f6d20000d6d4000096da000046080100f0290100a03c0100103e0100f63e0100f6ab010066bf0100a6bf01001ec1010042c10100b4c20100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: MaxTop
-        m_OriginalName: MaxTop
+        m_Name: ConcreteWall (3)
+        m_OriginalName: ConcreteWall (3)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 38280
+        m_UserData: 77252
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -888,9 +888,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -50.157173, y: 0.041421063, z: 1.7048798}
+    m_Target: {x: -38.04509, y: -1.2732433, z: -4.1086287}
     speed: 2
-    m_Value: {x: -50.157173, y: 0.041421063, z: 1.7048798}
+    m_Value: {x: -38.04509, y: -1.2732433, z: -4.1086287}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -936,13 +936,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0008409846, y: 0.9985658, z: -0.05097126, w: -0.016478145}
+    m_Target: {x: -0.044526, y: -0.9424249, z: 0.13954906, w: -0.30082935}
     speed: 2
-    m_Value: {x: -0.00084098295, y: 0.9985639, z: -0.05097116, w: -0.016478114}
+    m_Value: {x: -0.0447326, y: -0.94191635, z: 0.13947378, w: -0.3022246}
   m_Size:
-    m_Target: 10
+    m_Target: 4.479297
     speed: 2
-    m_Value: 10
+    m_Value: 4.286409
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1034,7 +1034,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1086,9 +1086,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 505.6
+    y: 502.4
     width: 1171.8
-    height: 277.8
+    height: 281
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
