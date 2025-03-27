@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
     [SerializeField] private AudioClip glitchSoundEffect;
+    [SerializeField] private AudioClip blockPickUp;
 
     private void Awake()
     {
@@ -23,6 +24,11 @@ public class AudioManager : MonoBehaviour
     public void PlayGlitchSoundEffect()
     {
         sfxSource.PlayOneShot(glitchSoundEffect);
+    }
+
+    public void PlayBlockPickUp()
+    {
+        sfxSource.PlayOneShot(blockPickUp);
     }
 
     public void SetMusicVolume(float volume)

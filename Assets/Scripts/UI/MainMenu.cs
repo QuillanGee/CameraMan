@@ -15,7 +15,11 @@ public class MainMenu : MonoBehaviour
     public void OnClickLoadScene()
     {
         //load the first level
-        FindObjectOfType<FlashTransition>().Flash();
+        // FindObjectOfType<FlashTransition>().Flash();
+        
+        SceneManager.LoadScene("Wake Up");
+        SceneManager.LoadScene("HallwayToWarehouse", LoadSceneMode.Additive);
+        SceneManager.LoadScene("WarehouseLevel", LoadSceneMode.Additive);
 
     }
 
@@ -30,6 +34,7 @@ public class MainMenu : MonoBehaviour
 
     }
     
+    // Used for testing purposes to end level
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))  // Ensure your player has the "Player" tag

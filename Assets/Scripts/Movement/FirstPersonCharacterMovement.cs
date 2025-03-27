@@ -36,6 +36,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera fpc;
     private Rigidbody rb;
     [SerializeField] private GameObject characterMesh;
+    private Animator anim;
 
     // Ladder Climbing
     private bool isOnLadder = false;
@@ -45,6 +46,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         fpc = GetComponentInChildren<CinemachineVirtualCamera>();
+        anim = GetComponentInChildren<Animator>();
 
         // Lock the cursor to the center of the screen and make it invisible
         Cursor.lockState = CursorLockMode.Locked;

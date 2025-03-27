@@ -95,11 +95,11 @@ public class InteractionManager : MonoBehaviour
         {
             if (!isInteracting && currentHoveredObject is PickableObject pickable)
             {
+                AudioManager.instance.PlayBlockPickUp();
                 pickable.Pickup(holdPosition);
                 heldObject = pickable;
                 holdPosCollider.enabled = true;
                 EventManager.instance.HoldingBlock();
-                
                 // Change to closed hand when picking up
                 reticle.sprite = closedHandReticle;
                 isInteracting = true;
@@ -117,6 +117,7 @@ public class InteractionManager : MonoBehaviour
             }
             else if (isInteracting && heldObject != null) // Drop if already holding something
             {
+                AudioManager.instance.PlayBlockPickUp();
                 heldObject.Drop();
                 heldObject = null;
                 holdPosCollider.enabled = false;
