@@ -34,6 +34,14 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public void SetPauseMenu(bool isPaused)
+    {
+        if (OnPauseGamePlay != null)
+        {
+            OnPauseGamePlay(this, isPaused);
+        }
+    }
+
     public event Action OnResetAlan2D;
     public void ResetAlan2D()
     {
@@ -137,16 +145,6 @@ public class EventManager : MonoBehaviour
         if (OnLoadScene != null)
         {
             OnLoadScene();
-        }
-    }
-    
-    public event Action OnPauseMenu;
-
-    public void PauseMenu()
-    {
-        if (OnPauseMenu != null)
-        {
-            OnPauseMenu();
         }
     }
     

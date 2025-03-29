@@ -28,7 +28,7 @@ public class FlashTransition : MonoBehaviour
         yield return new WaitForSeconds(flashDuration);
         SceneManager.LoadScene("Wake Up");
         SceneManager.LoadScene("HallwayToWarehouse", LoadSceneMode.Additive);
-        SceneManager.LoadScene("WarehouseLevel1", LoadSceneMode.Additive);
+        SceneManager.LoadScene("WarehouseLevel", LoadSceneMode.Additive);
         yield return new WaitForSeconds(0.2f);
         flashPanel.alpha = 0;
     }

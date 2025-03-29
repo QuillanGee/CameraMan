@@ -10,6 +10,9 @@ using Object = UnityEngine.Object;
 public class InputManager : MonoBehaviour
 {
     private bool isTwoD = false;
+    
+    // link to the pause menu
+    [SerializeField] GameObject pauseMenu;
 
     void Start()
     {
@@ -47,7 +50,14 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            EventManager.instance.PauseMenu();
+            // show pause menu
+            pauseMenu.SetActive(true);
+            // Re-enable the cursor
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+            EventManager.instance.SetPauseMenu(true);
+            EventManager.instance.PauseGamePlay(true);
         }
     }
 }

@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/HallwayToWarehouse.unity
     guid: 43adfbe3133584d65ae2a525ad1fe1b2
   - enabled: 1
-    path: Assets/Scenes/TunnelLevel.unity
-    guid: e575fdd1bbeb5435499422f3aa028860
-  - enabled: 1
+    path: Assets/Scenes/WarehouseLevel.unity
+    guid: e5df387f731a940bc9aba0a7bd7339d4
+  - enabled: 0
+    path: Assets/Scenes/OfficeLevel.unity
+    guid: 92141a26a1cb044b98a8210dc930b277
+  - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: 26895f8a9596340f9a794e5a8dbe258c
   m_configObjects: {}
