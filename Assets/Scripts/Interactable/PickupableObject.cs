@@ -30,7 +30,7 @@ public class PickableObject : MonoBehaviour, IInteractable
     public void Pickup(Transform holdPosition)
     {
         if (isHeld) return;
-
+        AudioManager.instance.PlayInteractionSound(gameObject.tag);
         isHeld = true;
         transform.position = holdPosition.position;
         transform.rotation = holdPosition.rotation;

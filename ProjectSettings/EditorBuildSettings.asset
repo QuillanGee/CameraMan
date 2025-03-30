@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e2b5ea2d500914a11b6942da658dc4d6
   - enabled: 1
-    path: Assets/Scenes/Wake Up.unity
+    path: Assets/Scenes/Wake Up Clean.unity
     guid: 76cf49919f6bf46a5bc4f9350c7da398
   - enabled: 1
     path: Assets/Scenes/HallwayToWarehouse.unity

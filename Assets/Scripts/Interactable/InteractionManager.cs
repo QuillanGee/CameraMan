@@ -93,40 +93,39 @@ public class InteractionManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            if (!isInteracting && currentHoveredObject is PickableObject pickable)
+            if (!isInteracting)
             {
-                AudioManager.instance.PlayBlockPickUp();
-                pickable.Pickup(holdPosition);
-                heldObject = pickable;
-                holdPosCollider.enabled = true;
-                EventManager.instance.HoldingBlock();
-                // Change to closed hand when picking up
-                reticle.sprite = closedHandReticle;
                 isInteracting = true;
+                if (currentHoveredObject is PickableObject pickable)
+                {
+                    //pickup logic
+                    pickable.Pickup(holdPosition);
+                    heldObject = pickable;
+                    holdPosCollider.enabled = true;
+                    EventManager.instance.HoldingBlock();
+                    reticle.sprite = closedHandReticle;
+                }
+                else if (currentHoveredObject is InteractableObject interactable)
+                {
+                    interactable.OnInteract();
+                }
             }
-            else if (!isInteracting && currentHoveredObject is InteractableObject interactable)
+            else
             {
-                interactable.OnInteract();
-                isInteracting = true;
-            }
-            else if (isInteracting && currentHoveredObject is InteractableObject interactable1) // Drop if already holding something
-            {
-                interactable1.OnExitInteraction();
                 isInteracting = false;
-
-            }
-            else if (isInteracting && heldObject != null) // Drop if already holding something
-            {
-                AudioManager.instance.PlayBlockPickUp();
-                heldObject.Drop();
-                heldObject = null;
-                holdPosCollider.enabled = false;
-                EventManager.instance.NotHoldingBlock();
-
-                // Change back to open hand if still hovering over something, otherwise reset
-                reticle.sprite = currentHoveredObject != null ? openHandReticle : defaultReticle;
-                isInteracting = false;
-                print("Block dropped");
+                if (currentHoveredObject is InteractableObject interactable1)
+                {
+                    interactable1.OnExitInteraction();
+                }
+                else if (heldObject != null)
+                {
+                    heldObject.Drop();
+                    heldObject = null;
+                    holdPosCollider.enabled = false;
+                    EventManager.instance.NotHoldingBlock();
+                    reticle.sprite = currentHoveredObject != null ? openHandReticle : defaultReticle;
+                    isInteracting = false;
+                }
             }
         }
     }

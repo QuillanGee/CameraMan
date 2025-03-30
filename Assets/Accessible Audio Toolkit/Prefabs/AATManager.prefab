@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5352607274028233247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5352607274028233246}
+  - component: {fileID: 5352607274028233245}
+  m_Layer: 0
+  m_Name: AATManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5352607274028233246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352607274028233247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5352607274028233245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5352607274028233247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a13a1210ae0c74b8917e20531776c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sampleDataLength: 1024
+  player: {fileID: 0}
+  maxDistance: 50
+  updateRate: 5
+  audioType:
+  - tagName: Enemy
+    tagColor: {r: 1, g: 0, b: 0, a: 1}
+  enableSphere: 1
+  sphere: {fileID: 0}
+  springForce: 20
+  damping: 5
+  force: 2
+  forceDecay: 0.5
+  radius: 1.5
+  sphereColor: {r: 0, g: 0, b: 0, a: 0}
+  offset: 0.01
+  enableCompass: 1
+  mainCamera: {fileID: 0}
+  icon: {fileID: 21300000, guid: f023f1b9146e5be4cb370ae2a6d82614, type: 3}
+  arrow: {fileID: 21300000, guid: db4034dcd2ef7d7498ca8cd1250598e0, type: 3}
+  compassMarker: {fileID: 3822391179065754093, guid: 28a677647aac05a4e889440fa3688ab7,
+    type: 3}
+  compassImage: {fileID: 0}
+  markerSize: 2

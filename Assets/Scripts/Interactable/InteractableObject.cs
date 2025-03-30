@@ -53,6 +53,7 @@ public class InteractableObject : MonoBehaviour, IInteractable
 
     public void OnInteract()
     {
+        AudioManager.instance.PlayInteractionSound(gameObject.tag);
         EventManager.instance.Interact();
     }
 

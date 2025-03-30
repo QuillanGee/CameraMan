@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Blocks
   - BouncePad
   - SceneTrigger
   - DynamicScaleBox
@@ -14,10 +13,11 @@ TagManager:
   - Player2D
   - ResetPosition
   - zAxisFor2DLevel
-  - PickUp
   - Walls
   - Ladder
   - ResetPosition2D
+  - block
+  - whiteboard
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,4 @@
-Shader "Custom/SelectiveBlur"
+Shader "Custom/CameraBlur"
 {
     Properties
     {
@@ -6,18 +6,9 @@ Shader "Custom/SelectiveBlur"
     }
     SubShader
     {
-        Tags { "Queue" = "Transparent" "RenderType"="Transparent" }
-
-        GrabPass { "_BackgroundTexture" }
-
+        Tags { "RenderType"="Opaque" }
         Pass
         {
-            Stencil
-            {
-                Ref 1       // Reference value
-                Comp NotEqual // Only blur areas NOT marked as "1"
-            }
-
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -33,32 +24,33 @@ Shader "Custom/SelectiveBlur"
                 float2 uv : TEXCOORD0;
             };
 
-            sampler2D _BackgroundTexture;
+            sampler2D _MainTex;
             float _BlurSize;
 
             v2f vert (appdata_t v)
             {
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
-                o.uv = ComputeGrabScreenPos(o.pos).xy;
+                o.uv = v.uv; // Use proper screen-space UV
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 color = fixed4(0, 0, 0, 1);
-                int samples = 5;
+                fixed4 color = tex2D(_MainTex, i.uv); // Sample original color first
+                int samples = 3;
 
                 for (int x = -samples; x <= samples; x++)
                 {
                     for (int y = -samples; y <= samples; y++)
                     {
                         float2 offset = float2(x, y) * _BlurSize;
-                        color += tex2D(_BackgroundTexture, i.uv + offset);
+                        color += tex2D(_MainTex, i.uv + offset);
                     }
                 }
+
                 color /= (samples * 2 + 1) * (samples * 2 + 1);
-                return fixed4(color.rgb, 0.5);
+                return color;
             }
             ENDCG
         }
