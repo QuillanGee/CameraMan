@@ -4512,7 +4512,6 @@ GameObject:
   - component: {fileID: 717139130}
   - component: {fileID: 717139133}
   - component: {fileID: 717139132}
-  - component: {fileID: 717139131}
   m_Layer: 7
   m_Name: DestroyedWall
   m_TagString: Ground
@@ -4535,19 +4534,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 959765041}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &717139131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717139129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6958013eb2964d279de8dedad577f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LinkedObject: {fileID: 0}
 --- !u!212 &717139132
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6492,7 +6478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 984205333868711859, guid: 7a3e4febd2326b74d8e998f15ddb899a, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1632666986819726950, guid: 7a3e4febd2326b74d8e998f15ddb899a, type: 3}
       propertyPath: m_Materials.Array.size
@@ -6704,11 +6690,6 @@ Transform:
   - {fileID: 165627352}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1046649347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2143304710621057648, guid: 443684947edb8934d80d4f58ffefff75, type: 3}
-  m_PrefabInstance: {fileID: 2140325403}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1062642667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 496320810525021449, guid: 7a3e4febd2326b74d8e998f15ddb899a, type: 3}
@@ -7036,6 +7017,10 @@ PrefabInstance:
       value: Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 1412206787091418063, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412206787091418063, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7081,15 +7066,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5273249119622146019, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.87
+      value: -21.004
       objectReference: {fileID: 0}
     - target: {fileID: 5273249119622146019, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.775
+      value: 0.772
       objectReference: {fileID: 0}
     - target: {fileID: 5273249119622146019, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.576
+      value: -9.593
       objectReference: {fileID: 0}
     - target: {fileID: 5273249119622146019, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7125,12 +7110,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4779ec45077fde34a9a602b938ebdc02, type: 2}
     - target: {fileID: 6339863226087825188, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: groundLayer.m_Bits
-      value: 512
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6339863226087825188, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: projectedMeshObject
       value: 
-      objectReference: {fileID: 1046649347}
+      objectReference: {fileID: 919132149155446097, guid: bbcb89e0c7fd9bc4987d138cbe870633, type: 3}
     - target: {fileID: 6339863226087825188, guid: cb87ad895cdcb4ab8b0156cfa84904a9, type: 3}
       propertyPath: projectedWallTransform
       value: 
