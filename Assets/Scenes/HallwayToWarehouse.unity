@@ -944,8 +944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5efa7367dde0241fd8895918e1c93cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: WarehouseLevel1
-  sceneToUnload: Wake Up
+  sceneToLoad: WarehouseLvClean
+  sceneToUnload: Wake Up Clean
 --- !u!1001 &1270009253
 PrefabInstance:
   m_ObjectHideFlags: 0
