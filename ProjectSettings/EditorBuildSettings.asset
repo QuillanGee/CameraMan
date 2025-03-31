@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 26895f8a9596340f9a794e5a8dbe258c
+  - enabled: 1
+    path: Assets/Scenes/WarehouseLvClean.unity
+    guid: 8802aad7ecd1b3a41be6e45073650df0
   m_configObjects: {}

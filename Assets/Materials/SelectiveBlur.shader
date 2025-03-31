@@ -1,8 +1,9 @@
-Shader "Custom/CameraBlur"
+Shader "Custom/BlurShader"
 {
     Properties
     {
-        _BlurSize ("Blur Strength", Range(0.001, 0.02)) = 0.005
+        _MainTex ("Texture", 2D) = "white" {}
+        _BlurSize ("Blur Size", Range(0, 10)) = 2
     }
     SubShader
     {
@@ -20,8 +21,8 @@ Shader "Custom/CameraBlur"
             };
 
             struct v2f {
-                float4 pos : SV_POSITION;
                 float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
             };
 
             sampler2D _MainTex;
@@ -30,28 +31,31 @@ Shader "Custom/CameraBlur"
             v2f vert (appdata_t v)
             {
                 v2f o;
-                o.pos = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv; // Use proper screen-space UV
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.uv = v.uv;
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 color = tex2D(_MainTex, i.uv); // Sample original color first
-                int samples = 3;
+                float2 uv = i.uv;
+                fixed4 sum = fixed4(0, 0, 0, 0);
+                int samples = 5;
+                float weight = 0.0;
 
                 for (int x = -samples; x <= samples; x++)
                 {
                     for (int y = -samples; y <= samples; y++)
                     {
-                        float2 offset = float2(x, y) * _BlurSize;
-                        color += tex2D(_MainTex, i.uv + offset);
+                        float2 offset = float2(x, y) * _BlurSize * 0.0005;  // Reduce step size
+                        sum += tex2D(_MainTex, uv + offset);
+                        weight += 1.0;
                     }
                 }
 
-                color /= (samples * 2 + 1) * (samples * 2 + 1);
-                return color;
+                return sum / weight;  // Normalize correctly
             }
+
             ENDCG
         }
     }

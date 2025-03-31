@@ -17,9 +17,9 @@ public class MainMenu : MonoBehaviour
         //load the first level
         // FindObjectOfType<FlashTransition>().Flash();
         
-        SceneManager.LoadScene("Wake Up");
+        SceneManager.LoadScene("Wake Up Clean");
         SceneManager.LoadScene("HallwayToWarehouse", LoadSceneMode.Additive);
-        SceneManager.LoadScene("WarehouseLevel", LoadSceneMode.Additive);
+        SceneManager.LoadScene("WarehouseLvClean", LoadSceneMode.Additive);
 
     }
 
