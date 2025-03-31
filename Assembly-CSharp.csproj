@@ -102,6 +102,7 @@
      <Compile Include="Assets/Scripts/Interactable/IInteractable.cs" />
      <Compile Include="Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/OvenOpen/OvenFlip.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />
+     <Compile Include="Assets/Scripts/Camera/CameraShake.cs" />
      <Compile Include="Assets/Scripts/SceneManagement/SceneTrigger.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Brick Project Studio/Apartment Kit/_Prefabs/Furniture/Bathroom" />

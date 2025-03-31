@@ -18,6 +18,7 @@ TagManager:
   - Walls
   - Ladder
   - ResetPosition2D
+  - Blurred
   layers:
   - Default
   - TransparentFX
