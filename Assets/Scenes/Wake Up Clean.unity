@@ -584,6 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46214183}
   - component: {fileID: 46214182}
+  - component: {fileID: 46214184}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -668,6 +669,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 65.357, y: 0, z: 0}
+--- !u!114 &46214184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46214181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1001 &55632401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3707,6 +3731,7 @@ GameObject:
   - component: {fileID: 416267615}
   - component: {fileID: 416267614}
   - component: {fileID: 416267616}
+  - component: {fileID: 416267626}
   - component: {fileID: 416267617}
   - component: {fileID: 416267619}
   - component: {fileID: 416267620}
@@ -4108,6 +4133,18 @@ MonoBehaviour:
   glitchSoundEffect: {fileID: 8300000, guid: 3c3eb23eae0c54ee59d8b9f1965b4919, type: 3}
   blockPickUp: {fileID: 8300000, guid: f0d0752ad8b594a118794f85e7a8f1b5, type: 3}
   whiteboard: {fileID: 8300000, guid: 1bf8aa0ee0a1e441e8b424db7853d092, type: 3}
+--- !u!114 &416267626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416267613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831db54070526400caf9eb6485e7152d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &439043056
 PrefabInstance:
   m_ObjectHideFlags: 0

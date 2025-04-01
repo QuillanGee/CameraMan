@@ -91,11 +91,13 @@
      <Compile Include="Assets/Scripts/Alan2D.cs" />
      <Compile Include="Assets/Assets/URP/GlitchRenderPass.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/OvenOpen/OvenFlip.cs" />
+     <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveLockArea.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/LineSubtitle.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/DynamicScaling.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Windows/opencloseWindowApt.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/AATManager.cs" />
      <Compile Include="Assets/Scripts/Managers/InputManager.cs" />
+     <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveLockManager.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Z Axis -1/Drawer_Pull_Zopp.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows/opencloseWindow1.cs" />
      <Compile Include="Assets/Scripts/Blocks/PickUpPlaceBlock.cs" />
