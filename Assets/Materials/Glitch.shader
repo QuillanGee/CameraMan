@@ -1,51 +1,53 @@
-Shader "Hidden/GlitchEffect"
+Shader "Custom/GlitchEffectURP"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Texture", 2D) = "white" {} 
         _GlitchIntensity ("Glitch Intensity", Range(0,1)) = 0.5
     }
+
     SubShader
     {
+        Tags { "RenderPipeline"="UniversalPipeline" "RenderType"="Opaque" }
         Pass
         {
-            ZTest Always
-            ZWrite Off
-            Cull Off
-
+            Name "GlitchPass"
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #include "UnityCG.cginc"
+            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
-            struct appdata_t
+            struct Attributes
             {
-                float4 vertex : POSITION;
+                float4 positionOS : POSITION;
                 float2 uv : TEXCOORD0;
             };
 
-            struct v2f
+            struct Varyings
             {
                 float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
+                float4 positionCS : SV_POSITION;
             };
 
-            sampler2D _MainTex;
+            TEXTURE2D(_MainTex);
+            SAMPLER(sampler_MainTex);
             float _GlitchIntensity;
 
-            v2f vert (appdata_t v)
+            Varyings vert(Attributes IN)
             {
-                v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
-                return o;
+                Varyings OUT;
+                OUT.positionCS = TransformObjectToHClip(IN.positionOS.xyz);
+                OUT.uv = IN.uv;
+                return OUT;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            half4 frag(Varyings IN) : SV_Target
             {
-                float glitch = sin(_Time.y * 30) * _GlitchIntensity;
-                i.uv.x += glitch * (frac(i.uv.y * 100) - 0.5);
-                return tex2D(_MainTex, i.uv);
+                float glitchOffset = sin(_Time.y * 30) * _GlitchIntensity;
+                float2 glitchUV = IN.uv;
+                glitchUV.x += glitchOffset * (frac(IN.uv.y * 100) - 0.5);
+
+                return SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, glitchUV);
             }
             ENDHLSL
         }

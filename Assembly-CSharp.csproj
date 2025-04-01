@@ -90,6 +90,7 @@
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/First Person Player/PlayerMovement.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/Subtitle.cs" />
      <Compile Include="Assets/Scripts/Alan2D.cs" />
+     <Compile Include="Assets/Assets/URP/GlitchRenderPass.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/OvenOpen/OvenFlip.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/LineSubtitle.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/DisableSwitch.cs" />
@@ -287,9 +288,11 @@
      <Folder Include="Assets/TextMesh Pro/Fonts" />
      <Folder Include="Assets/Assets/Texture Renderes" />
      <Folder Include="Assets/Assets/Blueprints" />
+     <Folder Include="Assets/Assets/security-camera/source/model 2/textures" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Signs" />
      <Folder Include="Assets/Studio Assets/Textures/Chair Guest" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Lighting" />
+     <Folder Include="Assets/Assets/security-camera/source/model 2" />
      <Folder Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Textures/Surface" />
      <Folder Include="Assets/Assets/Blueprints/Materials" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
@@ -310,6 +313,7 @@
      <None Include="Assets/Assets/ALP_Assets/Poplar Tree FREE/Shaders/ALP Surface Detail Wind.shader" />
      <Folder Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Materials/Basic Assets" />
      <Folder Include="Assets/Assets/Ground Physics Material" />
+     <Folder Include="Assets/Assets/URP" />
      <Folder Include="Assets/Accessible Audio Toolkit/Scripts" />
      <Folder Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Z Axis -1" />
      <Folder Include="Assets/Assets/ALP_Assets/Poplar Tree FREE/Core/Scripts/GUI" />
@@ -347,6 +351,7 @@
      <Folder Include="Assets/Assets/Concrete textures pack/pattern 15" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Prefabs/Stairs and Railings" />
      <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+     <None Include="Assets/Materials/Blured URP.shader" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Tech Equipment" />
      <Folder Include="Assets/Accessible Audio Toolkit/Models" />
      <Folder Include="Assets/TextMesh Pro/Documentation" />
