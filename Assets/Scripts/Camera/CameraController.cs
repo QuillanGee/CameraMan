@@ -9,10 +9,12 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera orthographicCamera;
     [SerializeField] CinemachineVirtualCamera perspectiveCamera;
+    [SerializeField] CinemachineVirtualCamera beginningAnimationCamera;
     private CinemachineVirtualCamera interactionCamera;
 
-    private float perspectiveTransitionSpeed = 1f; // To perspective
-    private float orthographicTransitionSpeed = 1f; //to orthographic
+    private float perspectiveTransitionSpeed = 0.5f; // To perspective
+    private float orthographicTransitionSpeed = 0.5f; //to orthographic
+    private float beginningTransitionSpeed = 3f;
 
     private CinemachineBrain brain;
     
@@ -25,6 +27,7 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnHover += LinkInteractionCamera;
         EventManager.instance.OnInteract += TransitionToInteractionCamera;
         EventManager.instance.OnExitInteract += TransitionFromInteractionCamera;
+        StartCoroutine(StartBeginningAnimation());
     }
 
     private void OnDestroy()
@@ -35,6 +38,14 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnHover -= LinkInteractionCamera;
         EventManager.instance.OnInteract -= TransitionToInteractionCamera;
         EventManager.instance.OnExitInteract -= TransitionFromInteractionCamera;
+    }
+
+    private IEnumerator StartBeginningAnimation()
+    {
+        yield return new WaitForSeconds(2f);
+        brain.m_DefaultBlend.m_Time = beginningTransitionSpeed;
+        beginningAnimationCamera.Priority = 0;
+        perspectiveCamera.Priority = 1;
     }
 
     private void AttachOrthographicCamera()
