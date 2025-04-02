@@ -10,6 +10,8 @@ public class TwoDCharacterMovement : MonoBehaviour {
     private bool isGrounded = true;
     [SerializeField] private Transform groundCheckPosition;
     private float groundCheckRadius = 0.2f;
+    private float minGroundCheckRadius = 0.1f;
+    private float maxGroundCheckRadius = 0.3f;
     [SerializeField] private LayerMask focusedObjects;
 
     private Rigidbody2D rb;
@@ -44,8 +46,9 @@ public class TwoDCharacterMovement : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveHorizontal * -speed, rb.velocity.y);
         
+        groundCheckRadius = Mathf.Clamp(0.2f * transform.localScale.y, minGroundCheckRadius, maxGroundCheckRadius);
         isGrounded = Physics2D.OverlapCircle(groundCheckPosition.position,groundCheckRadius, focusedObjects);
-
+        
         // Set animation move state (you can adjust this for different animations)
         if (moveHorizontal != 0)
         {

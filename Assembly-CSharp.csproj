@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets/Scripts/Managers/LevelVisibilityManager.cs" />
      <Compile Include="Assets/Scripts/Audio/AudioTrigger.cs" />
+     <Compile Include="Assets/Scripts/DontDestroyOnLoad.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Scenes/Quitgame.cs" />
      <Compile Include="Assets/Scripts/Interactable/InteractableObject.cs" />
      <Compile Include="Assets/Scripts/Camera/GlitchEffect.cs" />
@@ -92,12 +93,14 @@
      <Compile Include="Assets/Scripts/Alan2D.cs" />
      <Compile Include="Assets/Assets/URP/GlitchRenderPass.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/OvenOpen/OvenFlip.cs" />
+     <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveLockArea.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/LineSubtitle.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/DisableSwitch.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/DynamicScaling.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Windows/opencloseWindowApt.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/AATManager.cs" />
      <Compile Include="Assets/Scripts/Managers/InputManager.cs" />
+     <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveLockManager.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Z Axis -1/Drawer_Pull_Zopp.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows/opencloseWindow1.cs" />
      <Compile Include="Assets/Scripts/Blocks/PickUpPlaceBlock.cs" />
@@ -118,9 +121,11 @@
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
      <Compile Include="Assets/Scripts/Interactable/IInteractable.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />
+     <Compile Include="Assets/Scripts/TempToggleF.cs" />
      <Compile Include="Assets/Scripts/SceneManagement/SceneTrigger.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Drawer" />
+     <Folder Include="Assets/Scenes/Wake Up Clean" />
      <Folder Include="Assets/Assets/Art/Blueprints" />
      <Folder Include="Assets/Scripts/ProjectedWallTransform" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

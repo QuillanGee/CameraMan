@@ -7,6 +7,8 @@ public class SceneTrigger : MonoBehaviour
 {
     public string sceneToLoad;   // Assign this in the Inspector
     public string sceneToUnload; // Assign this in the Inspector
+    [SerializeField] private GameObject spawnDoor;
+    [SerializeField] private Transform spawnDoorTransform;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +26,11 @@ public class SceneTrigger : MonoBehaviour
             {
                 SceneManager.UnloadSceneAsync(sceneToUnload);
                 StartCoroutine(DelayedEventCallForSceneLoading());
+            }
+
+            if (spawnDoor != null)
+            {
+                Instantiate(spawnDoor, spawnDoorTransform.position, spawnDoorTransform.rotation);
             }
         }
     }

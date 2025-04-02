@@ -13,6 +13,12 @@ public class InputManager : MonoBehaviour
     
     // link to the pause menu
     [SerializeField] GameObject pauseMenu;
+    
+    [SerializeField] private AudioClip errorSound;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject errorMessageUI;
+    [SerializeField] private float errorDisplayTime = 1f;
+
 
     void Start()
     {
@@ -31,6 +37,13 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            
+            if (PerspectiveLockManager.Instance.IsLocked())
+            {
+                PlayErrorFeedback();
+                return;
+            }
+            
             //going to First Person
             if(isTwoD)
             {            
@@ -62,4 +75,26 @@ public class InputManager : MonoBehaviour
             EventManager.instance.PauseGamePlay(true);
         }
     }
+    
+    private void PlayErrorFeedback()
+    {
+        if (audioSource != null && errorSound != null)
+        {
+            audioSource.PlayOneShot(errorSound);
+        }
+
+        if (errorMessageUI != null)
+        {
+            StopAllCoroutines(); // prevent overlap if spammed
+            errorMessageUI.SetActive(true);
+            StartCoroutine(HideErrorMessage());
+        }
+    }
+
+    private IEnumerator HideErrorMessage()
+    {
+        yield return new WaitForSeconds(errorDisplayTime);
+        errorMessageUI.SetActive(false);
+    }
+
 }

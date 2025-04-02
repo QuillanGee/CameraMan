@@ -17,19 +17,17 @@ public class SubtitleDialogue : MonoBehaviour
         public float time;
         public GameObject speaker;
     }
-    public Line[] line;
-    public int power;
-    public bool startOnAwake = true;
-    public Subtitle sub;
-    List<LineSubtitle> lines = new List<LineSubtitle>();
-    //LineSubtitle ActualLine = new LineSubtitle();
-    private int nLine = 0;
-    private int actualL = -1;
 
-    // Start is called before the first frame update
+    public Line[] line;
+    public Subtitle sub;
+    
+    private List<LineSubtitle> lines = new List<LineSubtitle>();
+    private int currentLine = -1;  // No dialogue playing at start
+
     void Start()
     {
-        for(int i = 0; i < line.Length; i++)
+        // Convert struct into ScriptableObject instances
+        for (int i = 0; i < line.Length; i++)
         {
             LineSubtitle l = ScriptableObject.CreateInstance<LineSubtitle>();
             l.speakerID = line[i].speakerID;
@@ -40,43 +38,31 @@ public class SubtitleDialogue : MonoBehaviour
             l.colorText = line[i].colorText;
             l.time = line[i].time;
             l.speaker = line[i].speaker;
-            l.power = power;
             lines.Add(l);
         }
+    }
 
-        nLine = lines.Count;
-
-        if (startOnAwake)
+    // 🎯 Public function to trigger a specific line
+    public void PlayDialogue(int lineIndex)
+    {
+        if (lineIndex < 0 || lineIndex >= lines.Count)
         {
-            //StartCoroutine(ConverseDelay(0.2f)); // Starting with a delay makes sure that every component has initiated.
-            StartConverse(0.2f);
+            Debug.LogWarning("Invalid dialogue index.");
+            return;
         }
-    }
 
-    public void StartConverse(float startTime)
-    {
-        StartCoroutine(ConverseDelay(startTime));
-    }
+        // Remove previous subtitle
+        if (currentLine >= 0)
+            sub.RemoveLinesActive(lines[currentLine]);
 
-    IEnumerator ConverseDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        if(actualL >= 0)
-            sub.RemoveLinesActive(lines[actualL]);
-        SpeakSubtitle();
-    }
+        currentLine = lineIndex;
+        sub.PutLinesActive(lines[currentLine]); // Display subtitle
+        AudioSource speakerAudio = lines[currentLine].speaker.GetComponent<AudioSource>();
 
-    void SpeakSubtitle()
-    {
-        actualL++;
-
-        if (actualL < nLine)
+        if (speakerAudio != null)
         {
-            sub.PutLinesActive(lines[actualL]);
-            lines[actualL].speaker.GetComponent<AudioSource>().clip = lines[actualL].clip;
-            lines[actualL].speaker.GetComponent<AudioSource>().Play();
-            if (actualL <= lines.Count)
-                StartCoroutine(ConverseDelay(lines[actualL].time));
+            speakerAudio.clip = lines[currentLine].clip;
+            speakerAudio.Play();
         }
     }
 }

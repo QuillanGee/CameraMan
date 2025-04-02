@@ -29,65 +29,51 @@ public class InteractionManager : MonoBehaviour
     private void HandleHover()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        Debug.DrawRay(ray.origin, ray.direction * interactionRange, Color.red);
+        RaycastHit[] hits = Physics.RaycastAll(ray, interactionRange);
+    
+        IInteractable interactable = null;
+        float closestDistance = float.MaxValue;
 
-        if (Physics.Raycast(ray, out hit, interactionRange))
+        foreach (RaycastHit hit in hits)
         {
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
-            
-            if (interactable != null)
+            IInteractable hitInteractable = hit.collider.GetComponent<IInteractable>();
+            if (hitInteractable != null && hit.distance < closestDistance)
             {
-                // If looking at a new object, reset previous and set new hover state
-                if (currentHoveredObject != interactable)
-                {
-                    if (currentHoveredObject != null)
-                        currentHoveredObject.OnHoverExit();
-
-                    currentHoveredObject = interactable;
-                    currentHoveredObject.OnHoverEnter();
-                    hoverText.text = interactable.GetText();
-                }
-
-                // Only change reticle if we are NOT holding something
-                if (heldObject == null)
-                {
-                    reticle.sprite = openHandReticle;
-                }
+                interactable = hitInteractable;
+                closestDistance = hit.distance;
             }
-            else
+        }
+
+        if (interactable != null)
+        {
+            if (currentHoveredObject != interactable)
             {
-                // If looking at nothing, reset hover state
-                if (currentHoveredObject != null)
-                {
-                    currentHoveredObject.OnHoverExit();
-                    currentHoveredObject = null;
-                    hoverText.text = "";
-                }
-
-                // Only change to default reticle if NOT holding something
-                if (heldObject == null)
-                {
-                    reticle.sprite = defaultReticle;
-                }
+                currentHoveredObject?.OnHoverExit();
+                currentHoveredObject = interactable;
+                currentHoveredObject.OnHoverEnter();
+                hoverText.text = interactable.GetText();
             }
+
+            if (heldObject == null)
+                reticle.sprite = openHandReticle;
         }
         else
         {
-            // If raycast hits nothing, reset hover state
-            if (currentHoveredObject != null)
-            {
-                currentHoveredObject.OnHoverExit();
-                currentHoveredObject = null;
-                hoverText.text = "";
-            }
-
-            // Only change to default reticle if NOT holding something
-            if (heldObject == null)
-            {
-                reticle.sprite = defaultReticle;
-            }
+            ResetHoverState();
         }
     }
+
+    private void ResetHoverState()
+    {
+        currentHoveredObject?.OnHoverExit();
+        currentHoveredObject = null;
+        hoverText.text = "";
+
+        if (heldObject == null)
+            reticle.sprite = defaultReticle;
+    }
+
 
     private void HandleInteraction()
     {
