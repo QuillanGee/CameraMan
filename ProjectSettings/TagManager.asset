@@ -18,6 +18,11 @@ TagManager:
   - ResetPosition2D
   - block
   - whiteboard
+  - Platform
+  - DoorToUnlock
+  - Door
+  - PickUp
+  - Lock
   layers:
   - Default
   - TransparentFX

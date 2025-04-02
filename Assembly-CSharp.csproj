@@ -58,7 +58,6 @@
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Drawer/Z Axis/Drawer_Pull_Z.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/TestSceneSubtitle.cs" />
-     <Compile Include="Assets/Scripts/UI/KeepSelected.cs" />
      <Compile Include="Assets/Scripts/Platforms/Ladder.cs" />
      <Compile Include="Assets/Scripts/Interactable/InteractionManager.cs" />
      <Compile Include="Assets/Scripts/ProjectedWallTransform/StaticProjectedWallTransform.cs" />
@@ -95,7 +94,6 @@
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/OvenOpen/OvenFlip.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveLockArea.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/LineSubtitle.cs" />
-     <Compile Include="Assets/Scripts/Perspective Stuff/DisableSwitch.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/DynamicScaling.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Windows/opencloseWindowApt.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/AATManager.cs" />
@@ -111,7 +109,6 @@
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/ControlSoundsScene.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows/opencloseWindow.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveConnector.cs" />
-     <Compile Include="Assets/Scripts/UI/ButtonSelectionHandler.cs" />
      <Compile Include="Assets/Accessible Audio Toolkit/Scripts/AATSource.cs" />
      <Compile Include="Assets/Scripts/UI/CameraUI.cs" />
      <Compile Include="Assets/Scripts/Camera/BlurControl.cs" />
@@ -194,6 +191,7 @@
      <Folder Include="Assets/Assets/ALP_Assets/Poplar Tree FREE/Core/Scripts/Controller" />
      <Folder Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Office Storage" />
+     <Folder Include="Assets/Scenes/HallwayToWarehouse" />
      <Folder Include="Assets/Scripts/Platforms" />
      <Folder Include="Assets/Assets/2D Alan/Prefab" />
      <Folder Include="Assets/Assets/security-camera/source/model/textures" />
