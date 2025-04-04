@@ -88,6 +88,7 @@
      <Folder Include="Assets\Scenes" />
      <Folder Include="Assets\Next-gen Camera" />
      <Folder Include="Assets\UnityTechnologies\Basic Asset Pack Interior\Prefabs\Lights" />
+     <Folder Include="Assets\Assets\Art\Whiteboard Drawings" />
      <Folder Include="Assets\Free_Barrel\Textures" />
      <Folder Include="Assets\Free_Barrel" />
      <Folder Include="Assets\Lighting" />
@@ -134,6 +135,7 @@
      <Folder Include="Assets\Assets\security-camera\source" />
      <Folder Include="Assets\Studio Assets\Meshes" />
      <Folder Include="Assets\Free_Barrel\Prefab" />
+     <Folder Include="Assets\Assets\Art\Whiteboard Drawings\Materials" />
      <Folder Include="Assets\Studio Assets\Textures\Desks" />
      <Folder Include="Assets\Assets\2D Alan\Sprites" />
      <Folder Include="Assets\UnityTechnologies\Basic Asset Pack Interior\Prefabs" />
@@ -176,9 +178,11 @@
      <Folder Include="Assets\UnityTechnologies\Basic Asset Pack Interior" />
      <Folder Include="Assets\Studio CyFi\Industrial &amp; Office Interiors\Textures\Doors" />
      <Folder Include="Assets\Prefabs" />
+     <Folder Include="Assets\Assets\Art\Blueprints" />
      <Folder Include="Assets\Studio CyFi\Industrial &amp; Office Interiors\Prefabs\Signs" />
      <Folder Include="Assets\Studio Assets\Textures\Chair Guest" />
      <Folder Include="Assets\Studio CyFi\Industrial &amp; Office Interiors\Prefabs\Lighting" />
+     <Folder Include="Assets\Assets\Art\Blueprints\Materials" />
      <Folder Include="Assets\Scripts\Key" />
      <Folder Include="Assets\Free SteelLadder Pack\Models" />
      <Folder Include="Assets\UnityTechnologies\Basic Asset Pack Interior\Models\Floor" />
