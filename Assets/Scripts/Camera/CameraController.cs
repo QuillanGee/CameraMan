@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
     private float perspectiveTransitionSpeed = 0.5f; // To perspective
     private float orthographicTransitionSpeed = 0.5f; //to orthographic
     private float beginningTransitionSpeed = 3f;
+    
+    [SerializeField] private bool animateOnStart = true;
 
     private CinemachineBrain brain;
     
@@ -27,7 +29,13 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnHover += LinkInteractionCamera;
         EventManager.instance.OnInteract += TransitionToInteractionCamera;
         EventManager.instance.OnExitInteract += TransitionFromInteractionCamera;
-        StartCoroutine(StartBeginningAnimation());
+
+        if (animateOnStart)
+        {
+            beginningAnimationCamera.Priority = 1;
+            perspectiveCamera.Priority = 0;
+            StartCoroutine(StartBeginningAnimation());
+        }
     }
 
     private void OnDestroy()

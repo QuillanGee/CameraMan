@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class AudioTrigger : MonoBehaviour
 {
-    [SerializeField] private AudioClip overHead;
+    [SerializeField] private List<int> lineIndices;
     private bool hasTriggered = false; // Flag to track if the sound has already played
 
     private void OnTriggerEnter(Collider other)
     {
         if (!hasTriggered && other.CompareTag("Player"))
         {
-            AudioManager.instance.PlaySound(overHead);
-            hasTriggered = true; // Mark as triggered
+            AudioManager.instance.PlayDialogue(lineIndices);
+            hasTriggered = true;
         }
     }
 }

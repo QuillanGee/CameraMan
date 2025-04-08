@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 
 public class TempToggleF : MonoBehaviour
 {
-    [SerializeField] private GameObject FCanvas;
+    [SerializeField] private GameObject FPanel;
     private bool isTriggered = false;
     
     private void OnTriggerEnter(Collider other)
@@ -22,8 +22,8 @@ public class TempToggleF : MonoBehaviour
     private IEnumerator PressFText()
     {
         yield return new WaitForSeconds(2f);
-        FCanvas.SetActive(true);
+        FPanel.SetActive(true);
         yield return new WaitForSeconds(5f);
-        FCanvas.SetActive(false);
+        FPanel.SetActive(false);
     }
 }

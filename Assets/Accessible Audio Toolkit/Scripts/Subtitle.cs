@@ -30,12 +30,6 @@ public class Subtitle : MonoBehaviour
         subtitleArea.SetActive(false);
     }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        
-    }
-
     void createSubtitle()
     {
         linesActive.Clear();
@@ -112,6 +106,8 @@ public class Subtitle : MonoBehaviour
             subtitleArea.SetActive(false);
         }
     }
+
+    
 
     public void PutLinesActive(LineSubtitle l)
     {        

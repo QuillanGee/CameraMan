@@ -70,6 +70,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         {
             ApplyGravity(); // Custom gravity
         }
+        MoveCharacter();
     }
 
     void Update()
@@ -79,27 +80,23 @@ public class FirstPersonCharacterMovement : MonoBehaviour
                      || Physics.CheckSphere(groundCheck.position, groundDistance, blockLayer);
         
         MyInput();
-        SpeedControl();
-        MoveCharacter();
-
-        // Mouse look
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * mouseSensitivity;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * mouseSensitivity;
-
-        rotationY += mouseX;
-        rotationX -= mouseY;
-
-        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
-        fpc.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
-        orientation.rotation = Quaternion.Euler(0, rotationY, 0);
         
-        characterMesh.transform.rotation = Quaternion.Euler(0, rotationY, 0);
+        MouseLook();
+    
+        SpeedControl();
     }
+    
+
 
     private void MyInput()
     {
-        moveX = Input.GetAxis("Horizontal");
-        moveY = Input.GetAxis("Vertical");
+        moveX = 0;
+        moveY = 0;
+
+        if (Input.GetKey(KeyCode.W)) moveY = 1;
+        if (Input.GetKey(KeyCode.S)) moveY = -1;
+        if (Input.GetKey(KeyCode.A)) moveX = -1;
+        if (Input.GetKey(KeyCode.D)) moveX = 1;
 
         if (Input.GetKey(KeyCode.Space) && readyToJump && isGrounded)
         {
@@ -130,6 +127,21 @@ public class FirstPersonCharacterMovement : MonoBehaviour
                 rb.AddForce(moveDirection.normalized * walkSpeed * 10f * airMultiplier, ForceMode.Force);
             }
         }
+    }
+    
+    private void MouseLook()
+    {
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * mouseSensitivity;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * mouseSensitivity;
+
+        rotationY += mouseX;
+        rotationX -= mouseY;
+
+        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+        fpc.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+        orientation.rotation = Quaternion.Euler(0, rotationY, 0);
+        
+        characterMesh.transform.rotation = Quaternion.Euler(0, rotationY, 0);
     }
 
     private void SpeedControl()
