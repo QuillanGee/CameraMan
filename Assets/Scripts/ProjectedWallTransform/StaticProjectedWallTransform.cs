@@ -40,4 +40,9 @@ public class StaticProjectedWallTransform : MonoBehaviour
             Debug.LogWarning("ProjectedWallTransform not found in scene!");
         }
     }
+
+    public void SetWall(Transform wall)
+    {
+        ProjectedWallTransform = wall;
+    }
 }

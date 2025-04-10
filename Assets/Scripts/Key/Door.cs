@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public bool isUnlocked = false;
+    [SerializeField] private bool openLeft = false;
+    [SerializeField] private bool openRight = false;
+    [SerializeField] private bool keepOpen = false;
+    [SerializeField] private bool disableDoorCollider = false;
+
     // [SerializeField] private GameObject door2D;
     private Animator doorAnimator;
-    [SerializeField] private string animationBoolName;
-    [SerializeField] Collider doorCollider;  // Store reference to the collider
+    [SerializeField] Collider rightDoorCollider;
+    [SerializeField] Collider leftDoorCollider;
 
 
     private void Start()
@@ -22,41 +26,57 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            UnlockDoor();
+            if (openRight)
+            {
+                OpenRightDoor();
+            }
+
+            if (openLeft)
+            {
+                OpenLeftDoor();
+            }
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            LockDoor();
+            if (!keepOpen)
+            {
+                CloseDoor();
+            }
         }
     }
     
-    public void UnlockDoor()
+    private void OpenRightDoor()
     {
-        isUnlocked = true;
-        doorAnimator.SetBool(animationBoolName, true);
-        // StartCoroutine(DisableCollisionTemporarily()); // Disable collision while opening
+        doorAnimator.SetBool("OpenRight", true);
+        if (disableDoorCollider)
+        {
+            StartCoroutine(DisableCollisionTemporarily(rightDoorCollider));
+        }
+    }
+
+    private void OpenLeftDoor()
+    {
+        doorAnimator.SetBool("OpenLeft", true);
+        if (disableDoorCollider)
+        {
+            StartCoroutine(DisableCollisionTemporarily(leftDoorCollider));
+        }
+    }
+
+    private void CloseDoor()
+    {
+        doorAnimator.SetBool("OpenRight", false);
+        doorAnimator.SetBool("OpenLeft", false);
     }
     
-    private void LockDoor()
-    {
-        
-        isUnlocked = true;
-        doorAnimator.SetBool(animationBoolName, false);
-    }
-    
-    IEnumerator DisableCollisionTemporarily()
+    IEnumerator DisableCollisionTemporarily(Collider doorCollider)
     {
         doorCollider.enabled = false; // Disable collision
         yield return new WaitForSeconds(doorAnimator.GetCurrentAnimatorStateInfo(0).length); // Wait for animation to finish
         doorCollider.enabled = true;  // Re-enable collision
     }
-
-    // private void OpenDoor()
-    // {
-    //     Destroy(gameObject);
-    //     Destroy(door2D);
-    // }
+    
 }

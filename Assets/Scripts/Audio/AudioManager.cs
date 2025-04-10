@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
 
     private Queue<List<int>> dialogueQueue = new Queue<List<int>>();
     private bool isDialoguePlaying = false;
+    [SerializeField] private bool isMusicOn = true;
 
     [System.Serializable]
     public struct Line
@@ -50,6 +51,15 @@ public class AudioManager : MonoBehaviour
     {
         lines.AddRange(line);
         subtitlePanel.SetActive(false); // Hide subtitle UI at start
+        if (!isMusicOn)
+        {
+            DisableMusic();
+        }
+    }
+
+    private void DisableMusic()
+    {
+        musicSource.enabled = false;
     }
 
     public void PlayInteractionSound(string tagName)
