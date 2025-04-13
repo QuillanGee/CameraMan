@@ -37,13 +37,6 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            
-            if (PerspectiveLockManager.Instance.IsLocked())
-            {
-                PlayErrorFeedback();
-                return;
-            }
-            
             //going to First Person
             if(isTwoD)
             {            
@@ -55,12 +48,16 @@ public class InputManager : MonoBehaviour
             //going to Two D
             else
             {
+                if (PerspectiveLockManager.Instance.IsLocked())
+                {
+                    PlayErrorFeedback();
+                    return;
+                }
                 EventManager.instance.ToggleTwoD();
                 AudioManager.instance.PlayGlitchSoundEffect();
                 isTwoD = true;
-                
+
             }
-            // TogglePerspective();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
