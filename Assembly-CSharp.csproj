@@ -52,12 +52,14 @@
      <Compile Include="Assets/Scripts/Interactable/InteractableObject.cs" />
      <Compile Include="Assets/Scripts/Camera/GlitchEffect.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Slide/opencloseSlide.cs" />
+     <Compile Include="Assets/Scripts/UI/WaiverValidator.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/First Person Player/MouseLook.cs" />
      <Compile Include="Assets/Scripts/UI/MainMenu.cs" />
      <Compile Include="Assets/Assets/Accessible Audio Toolkit/Scripts/ControlSoundsScene.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Drawer/Z Axis/Drawer_Pull_Z.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
+     <Compile Include="Assets/Scripts/UI/ClickSound.cs" />
      <Compile Include="Assets/Scripts/Platforms/Ladder.cs" />
      <Compile Include="Assets/Scripts/Interactable/InteractionManager.cs" />
      <Compile Include="Assets/Scripts/ProjectedWallTransform/StaticProjectedWallTransform.cs" />
