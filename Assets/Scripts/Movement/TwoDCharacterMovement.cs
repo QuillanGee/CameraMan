@@ -129,9 +129,13 @@ public class TwoDCharacterMovement : MonoBehaviour {
     {
         // Flip the character by changing its x-scale
         // also make the player face the left or right
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        Vector3 myRotation = transform.rotation.eulerAngles;
+        myRotation.y += 180f;
+        transform.rotation = Quaternion.Euler(myRotation);
+        
+        // Vector3 theScale = transform.localScale;
+        // theScale.z *= -1;
+        // transform.localScale = theScale;
     }
 
     private void SwitchToHoldBlockAnimationController()
