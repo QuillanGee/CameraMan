@@ -106,6 +106,7 @@
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Z Axis -1/Drawer_Pull_Zopp.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows/opencloseWindow1.cs" />
      <Compile Include="Assets/Scripts/Blocks/PickUpPlaceBlock.cs" />
+     <Compile Include="Assets/Scripts/Animations/PlayerAnimator.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Drawer/X Axis/Drawer_Pull_X.cs" />
      <Compile Include="Assets/Scripts/BouncePad/BouncePad.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraFollow.cs" />
@@ -365,6 +366,7 @@
      <Folder Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Drawer/X Axis" />
      <Folder Include="Assets/UnityTechnologies/Basic Asset Pack Interior/Models/Walls" />
      <None Include="Assets/Assets/ALP_Assets/Poplar Tree FREE/Shaders/ALP Cutout Translucency Wind.shader" />
+     <Folder Include="Assets/Assets/3D Alan/Animation" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
      <Folder Include="Assets/Assets/HQ Laptop/Mesh/Materials" />
      <Folder Include="Assets/Studio Assets/Textures" />

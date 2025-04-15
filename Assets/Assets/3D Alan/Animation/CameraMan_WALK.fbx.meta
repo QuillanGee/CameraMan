@@ -1,0 +1,726 @@
+fileFormatVersion: 2
+guid: f8b1acb281fdd4a16a0c279db2da85e2
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
+      in configuration does not match rotation in animation file:\n\t'CameraManRig_v021:HipPart1_L'
+      : rotation error = 3.637053 deg\n\t'CameraManRig_v021:KneePart1_L' : rotation
+      error = 2.196624 deg\n"
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'CameraManRig_v021:ElbowPart1_R' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'CameraManRig_v021:ElbowPart1_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'CameraManRig_v021:HipPart1_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'CameraManRig_v021:KneePart1_R'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'CameraManRig_v021:HipPart1_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'CameraManRig_v021:KneePart1_L'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: CameraManRig_v021:Root_M
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Hip_L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Hip_R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Knee_L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Knee_R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Ankle_L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Ankle_R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Spine1_M
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Spine2_M
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Neck_M
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Head_M
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Shoulder_L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Shoulder_R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ShoulderPart1_L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ShoulderPart1_R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Elbow_L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Elbow_R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Wrist_L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Wrist_R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Toes_L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Toes_R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ThumbFinger1_L
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ThumbFinger2_L
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ThumbFinger3_L
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:IndexFinger1_L
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:IndexFinger2_L
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:IndexFinger3_L
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ThumbFinger1_R
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ThumbFinger2_R
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:ThumbFinger3_R
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:IndexFinger1_R
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:IndexFinger2_R
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:IndexFinger3_R
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CameraManRig_v021:Chest_M
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: CameraMan_WALK(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:DeformationSystem
+      parentName: CameraMan_WALK(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Root_M
+      parentName: CameraManRig_v021:DeformationSystem
+      position: {x: -2.2020218e-17, y: 0.97226757, z: 0.009224456}
+      rotation: {x: -0.50836587, y: 0.49149182, z: 0.50836587, w: -0.49149182}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: CameraManRig_v021:Hip_L
+      parentName: CameraManRig_v021:Root_M
+      position: {x: 0.034966443, y: -0.0009167917, z: 0.09308683}
+      rotation: {x: 0.9956154, y: 0.007146745, z: 0.06595061, w: -0.06594954}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: CameraManRig_v021:HipPart1_L
+      parentName: CameraManRig_v021:Hip_L
+      position: {x: 0.19626224, y: -2.0038754e-10, z: 9.936229e-13}
+      rotation: {x: -0.00000002235174, y: 0.000000051513773, z: -0.00000012479721, w: 1}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1}
+    - name: CameraManRig_v021:Knee_L
+      parentName: CameraManRig_v021:HipPart1_L
+      position: {x: 0.19626224, y: -1.99921e-10, z: 1.3703349e-11}
+      rotation: {x: 0.0000003710936, y: -0.000000092014425, z: 0.027698549, w: 0.9996163}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1}
+    - name: CameraManRig_v021:KneePart1_L
+      parentName: CameraManRig_v021:Knee_L
+      position: {x: 0.22065748, y: -2.226416e-10, z: 1.7676385e-11}
+      rotation: {x: -0.000000028916219, y: 0.000000032391018, z: 0.000000026077055, w: 1}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000004}
+    - name: CameraManRig_v021:Ankle_L
+      parentName: CameraManRig_v021:KneePart1_L
+      position: {x: 0.22065748, y: -2.2315556e-10, z: 9.129693e-12}
+      rotation: {x: 0.071920305, y: 0.065034956, z: 0.037571415, w: -0.9945785}
+      scale: {x: 0.9999996, y: 0.99999946, z: 0.9999997}
+    - name: CameraManRig_v021:Toes_L
+      parentName: CameraManRig_v021:Ankle_L
+      position: {x: 0.090935126, y: -0.1647645, z: -0.0000000014064274}
+      rotation: {x: 0.011358925, y: 0.011947086, z: -0.6584478, w: 0.7524459}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: CameraManRig_v021:ToesEnd_L
+      parentName: CameraManRig_v021:Toes_L
+      position: {x: 0.054876994, y: 4.440892e-18, z: -1.7763567e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Hip_R
+      parentName: CameraManRig_v021:Root_M
+      position: {x: 0.034966443, y: -0.0009167917, z: -0.09308683}
+      rotation: {x: 0.007146745, y: -0.9956155, z: 0.06594949, w: 0.065950654}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: CameraManRig_v021:HipPart1_R
+      parentName: CameraManRig_v021:Hip_R
+      position: {x: -0.19626224, y: 4.544116e-12, z: -2.5962947e-11}
+      rotation: {x: -0.000000034313413, y: 0.0000000074505797, z: -0.000000048428767, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: CameraManRig_v021:Knee_R
+      parentName: CameraManRig_v021:HipPart1_R
+      position: {x: -0.19626224, y: 2.2804868e-12, z: -2.6258745e-11}
+      rotation: {x: 0.00000040682664, y: -0.000000030749874, z: 0.027698472, w: 0.9996164}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: CameraManRig_v021:KneePart1_R
+      parentName: CameraManRig_v021:Knee_R
+      position: {x: -0.22065748, y: -2.220446e-16, z: 1.0658141e-16}
+      rotation: {x: -0.00000006820684, y: -0.00000003537721, z: 0.00000011734666, w: 1}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+    - name: CameraManRig_v021:Ankle_R
+      parentName: CameraManRig_v021:KneePart1_R
+      position: {x: -0.22065748, y: -1.9539925e-16, z: 1.7763567e-16}
+      rotation: {x: -0.07192026, y: -0.065034896, z: -0.03757155, w: 0.9945785}
+      scale: {x: 0.9999997, y: 0.9999996, z: 0.9999997}
+    - name: CameraManRig_v021:Toes_R
+      parentName: CameraManRig_v021:Ankle_R
+      position: {x: -0.090935126, y: 0.1647645, z: 6.4945558e-12}
+      rotation: {x: 0.011359047, y: 0.011947073, z: -0.6584477, w: 0.752446}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: CameraManRig_v021:ToesEnd_R
+      parentName: CameraManRig_v021:Toes_R
+      position: {x: -0.054876994, y: -3.5527136e-17, z: 1.4210854e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Spine1_M
+      parentName: CameraManRig_v021:Root_M
+      position: {x: -0.14098662, y: -4.440892e-18, z: 5.551115e-17}
+      rotation: {x: -0, y: -0, z: -0.026961233, w: -0.9996365}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000002}
+    - name: CameraManRig_v021:Spine2_M
+      parentName: CameraManRig_v021:Spine1_M
+      position: {x: -0.13298446, y: 1.7763568e-17, z: 2.1094237e-17}
+      rotation: {x: -0, y: -0, z: 0.021748463, w: 0.99976355}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1}
+    - name: CameraManRig_v021:Chest_M
+      parentName: CameraManRig_v021:Spine2_M
+      position: {x: -0.12787355, y: -6.0396133e-16, z: 5.551115e-17}
+      rotation: {x: -0, y: -0, z: 0.012345254, w: 0.9999238}
+      scale: {x: 1.0000001, y: 1.0000002, z: 0.99999994}
+    - name: CameraManRig_v021:Scapula_L
+      parentName: CameraManRig_v021:Chest_M
+      position: {x: -0.08964377, y: 0.0028188888, z: 0.086592786}
+      rotation: {x: -0.82874274, y: 0.050699353, z: -0.5554915, w: -0.04521389}
+      scale: {x: 1.0000002, y: 1, z: 1}
+    - name: CameraManRig_v021:Shoulder_L
+      parentName: CameraManRig_v021:Scapula_L
+      position: {x: 0.11374251, y: -9.6722624e-15, z: 7.389644e-15}
+      rotation: {x: -0.029261824, y: 0.04010881, z: 0.015770711, w: 0.99864227}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
+    - name: CameraManRig_v021:ShoulderPart1_L
+      parentName: CameraManRig_v021:Shoulder_L
+      position: {x: 0.13866772, y: -3.0198067e-16, z: -2.2026825e-15}
+      rotation: {x: 0.000000011175867, y: 0.11752421, z: 0.0034628732, w: 0.99306405}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Elbow_L
+      parentName: CameraManRig_v021:ShoulderPart1_L
+      position: {x: 0.13866772, y: -1.0658141e-16, z: -2.344791e-15}
+      rotation: {x: -0.0036244374, y: -0.026610428, z: 0.03444253, w: -0.9990458}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
+    - name: CameraManRig_v021:ElbowPart1_L
+      parentName: CameraManRig_v021:Elbow_L
+      position: {x: 0.12454025, y: 3.5527136e-17, z: -9.947598e-16}
+      rotation: {x: -0.00000007886491, y: -0.000000055857647, z: 0.000000014901179, w: 1}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000002}
+    - name: CameraManRig_v021:Wrist_L
+      parentName: CameraManRig_v021:ElbowPart1_L
+      position: {x: 0.12454025, y: 1.7763567e-16, z: -1.065814e-15}
+      rotation: {x: 0.050793998, y: -0.08217989, z: -0.6692252, w: 0.7367524}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000002}
+    - name: CameraManRig_v021:IndexFinger1_L
+      parentName: CameraManRig_v021:Wrist_L
+      position: {x: 0.008482088, y: 0.042923596, z: -0.009877521}
+      rotation: {x: 0.11294767, y: 0.034099173, z: -0.6646143, w: -0.7378129}
+      scale: {x: 0.9999998, y: 1.0000001, z: 1.0000001}
+    - name: CameraManRig_v021:IndexFinger2_L
+      parentName: CameraManRig_v021:IndexFinger1_L
+      position: {x: 0.03326023, y: 8.8817837e-17, z: 2.1316282e-16}
+      rotation: {x: -0.06394392, y: -0.024077987, z: -0.021157978, w: 0.9974386}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: CameraManRig_v021:IndexFinger3_L
+      parentName: CameraManRig_v021:IndexFinger2_L
+      position: {x: 0.029483823, y: 8.881784e-18, z: -1.4210854e-16}
+      rotation: {x: -0.026834361, y: -0.03325891, z: 0.0010354585, w: 0.9990859}
+      scale: {x: 1.0000004, y: 1.0000008, z: 1.0000007}
+    - name: CameraManRig_v021:IndexFinger4_L
+      parentName: CameraManRig_v021:IndexFinger3_L
+      position: {x: 0.037679162, y: 1.4210854e-16, z: 5.684342e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:ThumbFinger1_L
+      parentName: CameraManRig_v021:Wrist_L
+      position: {x: 0.038384598, y: 1.4210854e-15, z: -6.3948843e-16}
+      rotation: {x: 0.63425756, y: 0.22640619, z: -0.33927312, w: -0.65677345}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000001}
+    - name: CameraManRig_v021:ThumbFinger2_L
+      parentName: CameraManRig_v021:ThumbFinger1_L
+      position: {x: 0.03231878, y: 4.2632563e-16, z: 0}
+      rotation: {x: -0.08990333, y: -0.030389544, z: 0.025610283, w: 0.9951573}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1.0000005}
+    - name: CameraManRig_v021:ThumbFinger3_L
+      parentName: CameraManRig_v021:ThumbFinger2_L
+      position: {x: 0.029558925, y: -4.973799e-16, z: 1.7763567e-16}
+      rotation: {x: 0.018230624, y: 0.033062063, z: 0.008150173, w: 0.99925387}
+      scale: {x: 1.0000005, y: 1, z: 1.0000001}
+    - name: CameraManRig_v021:ThumbFinger4_L
+      parentName: CameraManRig_v021:ThumbFinger3_L
+      position: {x: 0.04103664, y: 0, z: -1.4210854e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Scapula_R
+      parentName: CameraManRig_v021:Chest_M
+      position: {x: -0.08964377, y: 0.0028188888, z: -0.086592786}
+      rotation: {x: 0.05069936, y: 0.82874274, z: 0.04521386, w: -0.5554914}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: CameraManRig_v021:Shoulder_R
+      parentName: CameraManRig_v021:Scapula_R
+      position: {x: -0.11374251, y: 9.6722624e-15, z: -7.1054274e-15}
+      rotation: {x: -0.029261803, y: 0.040108755, z: 0.01577065, w: 0.9986422}
+      scale: {x: 1.0000002, y: 1, z: 1.0000001}
+    - name: CameraManRig_v021:ShoulderPart1_R
+      parentName: CameraManRig_v021:Shoulder_R
+      position: {x: -0.13866772, y: 3.0198067e-16, z: 2.8421708e-15}
+      rotation: {x: -0.000000009313225, y: 0.11752458, z: 0.0034629996, w: 0.993064}
+      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000002}
+    - name: CameraManRig_v021:Elbow_R
+      parentName: CameraManRig_v021:ShoulderPart1_R
+      position: {x: -0.13866772, y: 1.8651746e-16, z: 2.9132252e-15}
+      rotation: {x: 0.0036244486, y: 0.026610406, z: -0.034442455, w: 0.9990458}
+      scale: {x: 0.99999994, y: 0.9999997, z: 1}
+    - name: CameraManRig_v021:ElbowPart1_R
+      parentName: CameraManRig_v021:Elbow_R
+      position: {x: -0.12454025, y: 1.4210854e-16, z: 1.847411e-15}
+      rotation: {x: -0.000000025507727, y: -0.000000033551633, z: 0.000000059604645, w: 1}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1.0000004}
+    - name: CameraManRig_v021:Wrist_R
+      parentName: CameraManRig_v021:ElbowPart1_R
+      position: {x: -0.12454025, y: -2.1316282e-16, z: 1.7763568e-15}
+      rotation: {x: 0.05079383, y: -0.08217997, z: -0.6692252, w: 0.7367524}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.99999994}
+    - name: CameraManRig_v021:IndexFinger1_R
+      parentName: CameraManRig_v021:Wrist_R
+      position: {x: -0.008482088, y: -0.042923596, z: 0.009877521}
+      rotation: {x: -0.11294769, y: -0.03409919, z: 0.6646143, w: 0.737813}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+    - name: CameraManRig_v021:IndexFinger2_R
+      parentName: CameraManRig_v021:IndexFinger1_R
+      position: {x: -0.03326023, y: 1.4210854e-16, z: -4.2632563e-16}
+      rotation: {x: -0.06394398, y: -0.024078095, z: -0.021157965, w: 0.9974386}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000002}
+    - name: CameraManRig_v021:IndexFinger3_R
+      parentName: CameraManRig_v021:IndexFinger2_R
+      position: {x: -0.029483823, y: -7.105427e-17, z: 2.842171e-16}
+      rotation: {x: -0.026834574, y: -0.033264674, z: 0.0010346128, w: 0.9990858}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+    - name: CameraManRig_v021:IndexFinger4_R
+      parentName: CameraManRig_v021:IndexFinger3_R
+      position: {x: -0.037679162, y: -1.4210854e-16, z: -4.2632563e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:ThumbFinger1_R
+      parentName: CameraManRig_v021:Wrist_R
+      position: {x: -0.038384598, y: -1.1368684e-15, z: 7.81597e-16}
+      rotation: {x: -0.634257, y: -0.22640741, z: 0.33927262, w: 0.6567738}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1}
+    - name: CameraManRig_v021:ThumbFinger2_R
+      parentName: CameraManRig_v021:ThumbFinger1_R
+      position: {x: -0.03231878, y: 4.2632563e-16, z: -4.2632563e-16}
+      rotation: {x: -0.0899035, y: -0.030389328, z: 0.025610423, w: 0.99515724}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: CameraManRig_v021:ThumbFinger3_R
+      parentName: CameraManRig_v021:ThumbFinger2_R
+      position: {x: -0.029558925, y: 1.4210854e-16, z: 1.4210854e-16}
+      rotation: {x: 0.018230828, y: 0.033062074, z: 0.0081497505, w: 0.9992538}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: CameraManRig_v021:ThumbFinger4_R
+      parentName: CameraManRig_v021:ThumbFinger3_R
+      position: {x: -0.04103664, y: -1.4210854e-16, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Neck_M
+      parentName: CameraManRig_v021:Chest_M
+      position: {x: -0.1680653, y: -1.2434498e-16, z: 3.5749182e-16}
+      rotation: {x: -0.00000003156539, y: -0.000000027928172, z: -0.09448774, w: 0.995526}
+      scale: {x: 1.000001, y: 1.000001, z: 1.0000008}
+    - name: CameraManRig_v021:Head_M
+      parentName: CameraManRig_v021:Neck_M
+      position: {x: -0.119160585, y: 8.8817837e-17, z: -5.3290704e-17}
+      rotation: {x: 0.000000029802322, y: 0.000000029802322, z: -0.012511879, w: 0.9999218}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: CameraManRig_v021:HeadEnd_M
+      parentName: CameraManRig_v021:Head_M
+      position: {x: -0.19493495, y: 8.5265126e-16, z: 4.2082903e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Eye_R
+      parentName: CameraManRig_v021:Head_M
+      position: {x: -0.05906988, y: 0.08267845, z: -0.036695533}
+      rotation: {x: -2.41318e-17, y: -2.9751337e-19, z: -0.66385263, w: 0.7478634}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:EyeEnd_R
+      parentName: CameraManRig_v021:Eye_R
+      position: {x: -0.021274026, y: -1.9895197e-15, z: 2.4424907e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Jaw_M
+      parentName: CameraManRig_v021:Head_M
+      position: {x: 0.035227563, y: 0.046398215, z: -4.4408918e-17}
+      rotation: {x: -2.3685465e-17, y: -4.62936e-18, z: -0.78744245, w: 0.6163882}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:JawEnd_M
+      parentName: CameraManRig_v021:Jaw_M
+      position: {x: -0.0687993, y: 0, z: 1.8874832e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Eye_L
+      parentName: CameraManRig_v021:Head_M
+      position: {x: -0.05906988, y: 0.08267845, z: 0.036695533}
+      rotation: {x: 0, y: -0, z: -0.66385263, w: 0.7478634}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:EyeEnd_L
+      parentName: CameraManRig_v021:Eye_L
+      position: {x: -0.021274026, y: -1.9895197e-15, z: -2.3092638e-16}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:Geometry
+      parentName: CameraMan_WALK(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:model:geo
+      parentName: CameraManRig_v021:Geometry
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:model:Body
+      parentName: CameraManRig_v021:model:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CameraManRig_v021:model:Hair
+      parentName: CameraManRig_v021:model:geo
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

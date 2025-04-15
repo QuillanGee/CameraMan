@@ -41,6 +41,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     // Ladder Climbing
     private bool isOnLadder = false;
     public float climbSpeed = 3.0f;
+    
+    [SerializeField] private Animator animator;
 
     void Start()
     {
@@ -81,6 +83,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         
         MyInput();
         
+        AnimationUpdate();
+        
         MouseLook();
     
         SpeedControl();
@@ -97,6 +101,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) moveY = -1;
         if (Input.GetKey(KeyCode.A)) moveX = -1;
         if (Input.GetKey(KeyCode.D)) moveX = 1;
+            
 
         if (Input.GetKey(KeyCode.Space) && readyToJump && isGrounded)
         {
@@ -117,7 +122,6 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         if (!isOnLadder)
         {
             moveDirection = orientation.right * moveX + orientation.forward * moveY;
-
             if (isGrounded)
             {
                 rb.AddForce(moveDirection.normalized * walkSpeed * 10f, ForceMode.Force);
@@ -171,6 +175,38 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void AnimationUpdate()
+    {
+        if (isGrounded)
+        {
+            Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            float speed = horizontalVelocity.magnitude;
+            if (speed > 0.1f)
+            {
+                if (Vector3.Dot(transform.forward, rb.velocity.normalized) > 0)
+                {
+                    animator.SetInteger("AnimInt", 1);
+                }
+                // set backwards walk animation
+                else
+                {
+                    animator.SetInteger("AnimInt", 3);
+                }
+
+            }
+            
+            else
+            {
+                animator.SetInteger("AnimInt", 0);
+            }
+        }
+        else
+        {
+            animator.SetInteger("AnimInt", 2);
+
+        }
     }
 
     private void OnCollisionEnter(Collision other)
