@@ -6,10 +6,10 @@ public class InteractionManager : MonoBehaviour
 {
     [SerializeField] private float interactionRange;
 
-    public Image reticle; // Reference to the reticle UI element
-    public Sprite defaultReticle; // Default reticle sprite
-    public Sprite openHandReticle; // Open hand reticle sprite
-    public Sprite closedHandReticle; // Closed hand reticle sprite
+    // public Image reticle; // Reference to the reticle UI element
+    // public Sprite defaultReticle; // Default reticle sprite
+    // public Sprite openHandReticle; // Open hand reticle sprite
+    // public Sprite closedHandReticle; // Closed hand reticle sprite
 
     private IInteractable currentHoveredObject;
     private PickableObject heldObject;
@@ -25,14 +25,14 @@ public class InteractionManager : MonoBehaviour
 
     void Start()
     {
-        if (showUI)
-        {
-            reticle.gameObject.SetActive(true);
-        }
-        else
-        {
-            reticle.gameObject.SetActive(false);
-        }
+        // if (showUI)
+        // {
+        //     reticle.gameObject.SetActive(true);
+        // }
+        // else
+        // {
+        //     reticle.gameObject.SetActive(false);
+        // }
     }
     
     void Update()
@@ -71,11 +71,11 @@ public class InteractionManager : MonoBehaviour
                 currentHoveredObject = interactable;
                 currentHoveredObject.OnHoverEnter();
                 hoverText.text = interactable.GetText();
-                rightClickImage.enabled = true;
+                // rightClickImage.enabled = true;
             }
 
-            if (heldObject == null)
-                reticle.sprite = openHandReticle;
+            // if (heldObject == null)
+            //     reticle.sprite = openHandReticle;
         }
         else
         {
@@ -88,11 +88,11 @@ public class InteractionManager : MonoBehaviour
         currentHoveredObject?.OnHoverExit();
         currentHoveredObject = null;
         hoverText.text = "";
-        rightClickImage.enabled = false;
+        // rightClickImage.enabled = false;
 
 
-        if (heldObject == null)
-            reticle.sprite = defaultReticle;
+        // if (heldObject == null)
+        //     reticle.sprite = defaultReticle;
     }
 
 
@@ -110,7 +110,7 @@ public class InteractionManager : MonoBehaviour
                     heldObject = pickable;
                     holdPosCollider.enabled = true;
                     EventManager.instance.HoldingBlock();
-                    reticle.sprite = closedHandReticle;
+                    // reticle.sprite = closedHandReticle;
                 }
                 else if (currentHoveredObject is InteractableObject interactable)
                 {
@@ -130,7 +130,7 @@ public class InteractionManager : MonoBehaviour
                     heldObject = null;
                     holdPosCollider.enabled = false;
                     EventManager.instance.NotHoldingBlock();
-                    reticle.sprite = currentHoveredObject != null ? openHandReticle : defaultReticle;
+                    // reticle.sprite = currentHoveredObject != null ? openHandReticle : defaultReticle;
                     isInteracting = false;
                 }
             }

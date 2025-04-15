@@ -16,7 +16,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
 
     private Rigidbody2D rb;
     
-    private Animator currentAnimator;
+    [SerializeField] private Animator currentAnimator;
     private RuntimeAnimatorController alanAnimatorController;
     [SerializeField] private AnimatorOverrideController holdingOverrideController;
     private bool facingRight = false;
@@ -34,7 +34,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
     
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        currentAnimator = GetComponentInChildren<Animator>();
+        // currentAnimator = GetComponentInChildren<Animator>();
         alanAnimatorController = currentAnimator.runtimeAnimatorController;
         
         EventManager.instance.OnHoldingBlock += SwitchToHoldBlockAnimationController;
@@ -73,22 +73,22 @@ public class TwoDCharacterMovement : MonoBehaviour {
         {
             if (moveHorizontal != 0)
             {
-                currentAnimator.SetInteger("AnimInt", 3);
+                currentAnimator.SetInteger("AnimInt", 1);
             }
             else
             {
-                currentAnimator.SetInteger("AnimInt", 1);
+                currentAnimator.SetInteger("AnimInt", 0);
             }
         }
         else
         {
             if (rb.velocity.y > 0.1)
             {
-                currentAnimator.SetInteger("moveState", 2);
+                currentAnimator.SetInteger("AnimInt", 2);
             }
             else
             {
-                currentAnimator.SetInteger("moveState", 0);
+                currentAnimator.SetInteger("AnimInt", 0);
             }
         }
        
@@ -128,6 +128,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
     void Flip()
     {
         // Flip the character by changing its x-scale
+        // also make the player face the left or right
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
