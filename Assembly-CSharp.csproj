@@ -144,6 +144,7 @@
      <Folder Include="Assets\Studio Assets\Textures\Desk White" />
      <Folder Include="Assets\Prefabs\Mechanics" />
      <Folder Include="Assets\Assets\Brick Project Studio\_BPS Basic Assets\_Prefabs\Basic Asset\BA Build Kit\Interior\Int_01" />
+     <Folder Include="Assets\Assets\BasicToonWaterShader\Texture\Materials" />
      <Folder Include="Assets\Assets\2D Alan\Animation\Zombie Extra" />
      <Folder Include="Assets\TextMesh Pro\Resources\Sprite Assets" />
      <Folder Include="Assets\Assets\Brick Project Studio\_BPS Basic Assets\_Prefabs\Basic Asset\BA Build Kit" />
@@ -158,6 +159,7 @@
      <Folder Include="Assets\UnityTechnologies\Basic Asset Pack Interior\Prefabs\Floor" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
      <Folder Include="Assets\Assets\ALP_Assets" />
+     <Folder Include="Assets\Settings" />
      <Folder Include="Assets\Accessible Audio Toolkit\Prefabs" />
      <Folder Include="Assets\Assets\Brick Project Studio\_BPS Basic Assets\Common\Materials" />
      <Folder Include="Assets\Assets\Brick Project Studio\_BPS Basic Assets\Common\Scripts and Animations\Drawer\Z Axis" />
