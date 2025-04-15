@@ -73,11 +73,11 @@ public class TwoDCharacterMovement : MonoBehaviour {
         {
             if (moveHorizontal != 0)
             {
-                currentAnimator.SetInteger("moveState", 1);
+                currentAnimator.SetInteger("AnimInt", 3);
             }
             else
             {
-                currentAnimator.SetInteger("moveState", 0);
+                currentAnimator.SetInteger("AnimInt", 1);
             }
         }
         else
@@ -88,7 +88,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
             }
             else
             {
-                currentAnimator.SetInteger("moveState", 3);
+                currentAnimator.SetInteger("moveState", 0);
             }
         }
        
