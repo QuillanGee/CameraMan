@@ -247,6 +247,7 @@
      <Folder Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Windows" />
      <Folder Include="Assets/Scripts/Blocks" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
+     <Folder Include="Assets/Materials/PlayerColors" />
      <None Include="Assets/Materials/Blured.shader" />
      <Folder Include="Assets/Assets/HQ Laptop/Mesh" />
      <Folder Include="Assets/Studio Assets/Textures/Signs Grudge" />
