@@ -24,6 +24,8 @@ public class AudioManager : MonoBehaviour
     private Queue<List<int>> dialogueQueue = new Queue<List<int>>();
     private bool isDialoguePlaying = false;
     [SerializeField] private bool isMusicOn = true;
+    [SerializeField] private bool isDialogueOn = true;
+    
 
     [System.Serializable]
     public struct Line
@@ -82,17 +84,20 @@ public class AudioManager : MonoBehaviour
 
     public void PlayDialogue(List<int> lineIndices)
     {
-        if (lineIndices == null || lineIndices.Count == 0)
+        if (isDialogueOn)
         {
-            Debug.LogWarning("No dialogue indices provided.");
-            return;
-        }
+            if (lineIndices == null || lineIndices.Count == 0)
+            {
+                Debug.LogWarning("No dialogue indices provided.");
+                return;
+            }
 
-        dialogueQueue.Enqueue(lineIndices);
+            dialogueQueue.Enqueue(lineIndices);
 
-        if (!isDialoguePlaying)
-        {
-            StartCoroutine(ProcessDialogueQueue());
+            if (!isDialoguePlaying)
+            {
+                StartCoroutine(ProcessDialogueQueue());
+            }
         }
     }
 

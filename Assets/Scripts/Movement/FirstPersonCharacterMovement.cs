@@ -179,36 +179,32 @@ public class FirstPersonCharacterMovement : MonoBehaviour
 
     private void AnimationUpdate()
     {
-        if (isGrounded)
+        if (!isGrounded)
         {
-            Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            float speed = horizontalVelocity.magnitude;
-            if (speed > 0.1f)
-            {
-                if (Vector3.Dot(transform.forward, rb.velocity.normalized) > 0)
-                {
-                    animator.SetInteger("AnimInt", 1);
-                }
-                // set backwards walk animation
-                else
-                {
-                    animator.SetInteger("AnimInt", 3);
-                }
+            // Prioritize jump animation when not grounded
+            animator.SetInteger("AnimInt", 2);
+            return;
+        }
 
+        Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        float speed = horizontalVelocity.magnitude;
+
+        if (speed > 0.1f)
+        {
+            if (Vector3.Dot(transform.forward, rb.velocity.normalized) > 0)
+            {
+                animator.SetInteger("AnimInt", 1); // Forward walk
             }
-            
             else
             {
-                animator.SetInteger("AnimInt", 0);
+                animator.SetInteger("AnimInt", 3); // Backward walk
             }
         }
         else
         {
-            animator.SetInteger("AnimInt", 2);
-
+            animator.SetInteger("AnimInt", 0); // Idle
         }
     }
-
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("BouncePad"))
