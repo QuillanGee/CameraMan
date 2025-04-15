@@ -16,14 +16,32 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] Transform holdPosition; // Where the block will be held when picked up
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
     
+    [SerializeField] private Image rightClickImage;
     public TMP_Text hoverText;
 
     private bool isInteracting = false;
 
+    public bool showUI = true;
+
+    void Start()
+    {
+        if (showUI)
+        {
+            reticle.gameObject.SetActive(true);
+        }
+        else
+        {
+            reticle.gameObject.SetActive(false);
+        }
+    }
+    
     void Update()
     {
-        HandleHover();
-        HandleInteraction();
+        if (showUI)
+        {
+            HandleHover();
+            HandleInteraction();
+        }
     }
 
     private void HandleHover()
@@ -53,6 +71,7 @@ public class InteractionManager : MonoBehaviour
                 currentHoveredObject = interactable;
                 currentHoveredObject.OnHoverEnter();
                 hoverText.text = interactable.GetText();
+                rightClickImage.enabled = true;
             }
 
             if (heldObject == null)
@@ -69,6 +88,8 @@ public class InteractionManager : MonoBehaviour
         currentHoveredObject?.OnHoverExit();
         currentHoveredObject = null;
         hoverText.text = "";
+        rightClickImage.enabled = false;
+
 
         if (heldObject == null)
             reticle.sprite = defaultReticle;
