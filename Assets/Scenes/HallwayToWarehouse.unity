@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs 2m Railing Steel
       objectReference: {fileID: 0}
+    - target: {fileID: 3634755542898185125, guid: 0c30311d56b4242b0af8bf4a74851032, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4123870384793864479, guid: 0c30311d56b4242b0af8bf4a74851032, type: 3}
       propertyPath: m_LocalPosition.x
       value: -35.6
