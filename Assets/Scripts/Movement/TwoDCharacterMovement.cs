@@ -56,7 +56,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
             if (moveHorizontal > 0 && !facingRight)
             {
                 // Walk right
-                facingRight = true;
+                facingRight = true; 
                 Flip();
             }
             // Check if the player is moving left and is not already facing left
@@ -67,6 +67,10 @@ public class TwoDCharacterMovement : MonoBehaviour {
                 Flip();
             }
         }
+        // else
+        // {
+        //     StandStraight();
+        // }
 
 
         if (isGrounded)
@@ -127,16 +131,16 @@ public class TwoDCharacterMovement : MonoBehaviour {
     }
     void Flip()
     {
-        // Flip the character by changing its x-scale
-        // also make the player face the left or right
         Vector3 myRotation = transform.rotation.eulerAngles;
         myRotation.y += 180f;
         transform.rotation = Quaternion.Euler(myRotation);
-        
-        // Vector3 theScale = transform.localScale;
-        // theScale.z *= -1;
-        // transform.localScale = theScale;
     }
+
+    // void StandStraight()
+    // {
+    //     Vector3 myRotation = new Vector3(0f, 0f, 0f);
+    //     transform.rotation = Quaternion.Euler(myRotation);
+    // }
 
     private void SwitchToHoldBlockAnimationController()
     {
