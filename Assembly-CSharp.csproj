@@ -56,6 +56,7 @@
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/First Person Player/MouseLook.cs" />
      <Compile Include="Assets/Scripts/UI/MainMenu.cs" />
      <Compile Include="Assets/Assets/Accessible Audio Toolkit/Scripts/ControlSoundsScene.cs" />
+     <Compile Include="Assets/Scripts/Lights/FlickeringLights.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Drawer/Z Axis/Drawer_Pull_Z.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
@@ -245,6 +246,7 @@
      <Folder Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/TableFlip" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
      <Folder Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Windows" />
+     <Folder Include="Assets/Scripts/Lights" />
      <Folder Include="Assets/Scripts/Blocks" />
      <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
      <Folder Include="Assets/Materials/PlayerColors" />

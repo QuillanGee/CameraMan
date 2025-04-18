@@ -29,7 +29,10 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnHover += LinkInteractionCamera;
         EventManager.instance.OnInteract += TransitionToInteractionCamera;
         EventManager.instance.OnExitInteract += TransitionFromInteractionCamera;
-
+        EventManager.instance.OnToggleFirstPerson += AddToCullingMask;
+        EventManager.instance.OnToggleTwoD += RemoveCullingMask;
+        
+        
         if (animateOnStart)
         {
             beginningAnimationCamera.Priority = 1;
@@ -46,6 +49,8 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnHover -= LinkInteractionCamera;
         EventManager.instance.OnInteract -= TransitionToInteractionCamera;
         EventManager.instance.OnExitInteract -= TransitionFromInteractionCamera;
+        EventManager.instance.OnToggleFirstPerson -= AddToCullingMask;
+        EventManager.instance.OnToggleTwoD -= RemoveCullingMask;
     }
 
     private IEnumerator StartBeginningAnimation()
@@ -54,6 +59,16 @@ public class CameraController : MonoBehaviour
         brain.m_DefaultBlend.m_Time = beginningTransitionSpeed;
         beginningAnimationCamera.Priority = 0;
         perspectiveCamera.Priority = 1;
+    }
+
+    private void AddToCullingMask()
+    {
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("TVs");
+    }
+
+    private void RemoveCullingMask()
+    {
+        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("TVs"));
     }
 
     private void AttachOrthographicCamera()

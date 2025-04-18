@@ -746,6 +746,7 @@ MonoBehaviour:
   resetPosition: {fileID: 0}
   AlanMesh: {fileID: 0}
   CapsuleHolder: {fileID: 7965249175059549985}
+  isCrosshairEnabled: 1
 --- !u!114 &7745972244641597812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,13 +760,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 2
-  reticle: {fileID: 7889329296173820786}
-  defaultReticle: {fileID: 21300000, guid: 48f00dce7211c4c1a997b425306af517, type: 3}
-  openHandReticle: {fileID: 21300000, guid: 35032eb5d114143689db3e8d0204a768, type: 3}
-  closedHandReticle: {fileID: 21300000, guid: ee47785fc75be4849bd2777b38a33283, type: 3}
   holdPosition: {fileID: 0}
   holdPosCollider: {fileID: 0}
+  rightClickImage: {fileID: 0}
   hoverText: {fileID: 0}
+  showUI: 1
 --- !u!1 &7765885919276680502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1277,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3226317039270552788, guid: 9f03a8abf663248e29b463a534e7cdcb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b5fb53d9f48e54608af071204b140934, type: 2}
     - target: {fileID: 3401992594827114757, guid: 9f03a8abf663248e29b463a534e7cdcb, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -1322,6 +1325,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 5597979188699215795, guid: 9f03a8abf663248e29b463a534e7cdcb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9345e4aa262174dd489360b35ccd8ccd, type: 2}
     - target: {fileID: 5615971750413278408, guid: 9f03a8abf663248e29b463a534e7cdcb, type: 3}
       propertyPath: m_Layer
       value: 10

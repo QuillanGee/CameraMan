@@ -18,6 +18,8 @@ public class Alan : MonoBehaviour
     private bool isOnObject = false;
     
     private Rigidbody rb;
+
+    [SerializeField] private bool isCrosshairEnabled = true;
     
     private void Awake()
     {
@@ -78,12 +80,18 @@ public class Alan : MonoBehaviour
     
     private void DisableCrossHair()
     {
-        crossHair.enabled = false;
+        if (isCrosshairEnabled)
+        {
+            crossHair.enabled = false;
+        }
     }
 
     private void EnableCrossHair()
     {
-        crossHair.enabled = true;
+        if (isCrosshairEnabled)
+        {
+            crossHair.enabled = true;
+        }
     }
     
     private void SetObjectionProjectionInstance()
