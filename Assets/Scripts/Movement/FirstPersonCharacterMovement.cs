@@ -42,6 +42,12 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private bool isOnLadder = false;
     public float climbSpeed = 3.0f;
     
+    //holding block
+    private float minVerticalAngle = -30.0f;
+    private float maxVerticalAngle = 0f;
+    private bool holdingBlock = false;
+    private InteractionManager interactionManager;
+    
     [SerializeField] private Animator animator;
 
     void Start()
@@ -49,6 +55,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         fpc = GetComponentInChildren<CinemachineVirtualCamera>();
         anim = GetComponentInChildren<Animator>();
+        interactionManager = GetComponent<InteractionManager>();
 
         // Lock the cursor to the center of the screen and make it invisible
         Cursor.lockState = CursorLockMode.Locked;
@@ -141,7 +148,16 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         rotationY += mouseX;
         rotationX -= mouseY;
 
-        rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+        holdingBlock = interactionManager.isInteracting;
+        if (holdingBlock)
+        {
+            rotationX = Mathf.Clamp(rotationX, minVerticalAngle, maxVerticalAngle);
+        }
+        else
+        {
+            rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+
+        }
         fpc.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
         orientation.rotation = Quaternion.Euler(0, rotationY, 0);
         

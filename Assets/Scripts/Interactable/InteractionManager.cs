@@ -19,7 +19,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] private Image rightClickImage;
     public TMP_Text hoverText;
 
-    private bool isInteracting = false;
+    public bool isInteracting = false;
 
     public bool showUI = true;
 
@@ -102,9 +102,9 @@ public class InteractionManager : MonoBehaviour
         {
             if (!isInteracting)
             {
-                isInteracting = true;
                 if (currentHoveredObject is PickableObject pickable)
                 {
+                    isInteracting = true;
                     //pickup logic
                     pickable.Pickup(holdPosition);
                     heldObject = pickable;
@@ -114,6 +114,7 @@ public class InteractionManager : MonoBehaviour
                 }
                 else if (currentHoveredObject is InteractableObject interactable)
                 {
+                    isInteracting = true;
                     interactable.OnInteract();
                 }
             }

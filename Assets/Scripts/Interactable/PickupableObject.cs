@@ -5,13 +5,13 @@ public class PickableObject : MonoBehaviour, IInteractable
 {
     private Rigidbody rb;
     private bool isHeld = false;
-    private Collider collider;
+    private Collider[] colliders;
     public string hoverText = "(Right Click)";
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        collider = GetComponent<Collider>();
+        colliders = GetComponents<Collider>(); // Get all colliders on the object
     }
 
     public void OnHoverEnter()
@@ -36,7 +36,12 @@ public class PickableObject : MonoBehaviour, IInteractable
         transform.rotation = holdPosition.rotation;
         transform.SetParent(holdPosition);
         rb.isKinematic = true;
-        collider.enabled = false;
+        
+        // Disable all colliders
+        foreach (var collider in colliders)
+        {
+            collider.enabled = false;
+        }
     }
 
     public void Drop()
@@ -45,7 +50,12 @@ public class PickableObject : MonoBehaviour, IInteractable
         isHeld = false;
         rb.isKinematic = false;
         transform.parent = null;
-        collider.enabled = true;
+        
+        // Re-enable all colliders
+        foreach (var collider in colliders)
+        {
+            collider.enabled = true;
+        }
     }
 
     public string GetText()
