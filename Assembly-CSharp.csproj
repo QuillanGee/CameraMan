@@ -208,6 +208,8 @@
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors" />
      <Folder Include="Assets/Assets/security-camera/textures" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+     <Folder Include="Assets/Rig" />
+     <Folder Include="Assets/Materials/Maps" />
      <Folder Include="Assets/Scripts/Perspective Stuff" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Crates" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Animations" />
@@ -255,6 +257,7 @@
      <Folder Include="Assets/Assets/HQ Laptop/Mesh" />
      <Folder Include="Assets/Studio Assets/Textures/Signs Grudge" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+     <Folder Include="Assets/Settings" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <Folder Include="Assets/Assets/Free SteelLadder Pack/Textures" />
      <Folder Include="Assets/Assets/BasicToonWaterShader/Material" />
@@ -263,6 +266,7 @@
      <Folder Include="Assets/Assets/Free SteelLadder Pack/Materials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+     <Folder Include="Assets/Anim" />
      <Folder Include="Assets/Studio Assets/Textures/Seating Black" />
      <Folder Include="Assets/Assets/Free SteelLadder Pack/Prefabs/LowPoly" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Windows" />
