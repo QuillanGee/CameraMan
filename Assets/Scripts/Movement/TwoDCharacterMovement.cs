@@ -37,10 +37,11 @@ public class TwoDCharacterMovement : MonoBehaviour {
     private const string PLAYER_RUN = "Run";
     private const string PLAYER_JUMP = "Jump";
     
-    private bool isDoorBigEnough = false;
     private bool enterdoor = false;
+    private bool overlappedDoor = false;
     [SerializeField] private Collider2D playerCollider;
     private Collider2D doorCollider;
+    private Door2D otherDoor;
 
     
     void Start() {
@@ -152,9 +153,9 @@ public class TwoDCharacterMovement : MonoBehaviour {
             StartCoroutine(ClimbStairs());
         }
 
-        if ((isDoorBigEnough) && Input.GetKeyDown(KeyCode.W))
+        if ((overlappedDoor) && Input.GetKeyDown(KeyCode.W))
         {
-            EnterDoor();
+            TryEnterDoor();
         }
     }
     void Flip()
@@ -209,7 +210,8 @@ public class TwoDCharacterMovement : MonoBehaviour {
         if (other.CompareTag("Door"))  // Check if the other object is the player
         {
             doorCollider = other;
-            isDoorBigEnough = IsPlayerTooBigForDoor();
+            overlappedDoor = true;
+            otherDoor = other.gameObject.GetComponent<Door2D>();
         }
     }
     
@@ -223,31 +225,38 @@ public class TwoDCharacterMovement : MonoBehaviour {
         }
         if (other.CompareTag("Door"))  // Check if the other object is the player
         {
+            overlappedDoor = false;
             doorCollider = null;
         }
     }
 
-    private void EnterDoor()
+    private void TryEnterDoor()
     {
         enterdoor = true;
         // Check if the player is too large to enter the door
-        if (isDoorBigEnough)
+        if (IsPlayerTooBigForDoor())
         {
             Debug.Log("Player is too big to enter the door!");
         }
         else
         {
-            // Allow entry (if player is small enough)
-            Debug.Log("Player can enter the door.");
+            EnterDoor();
         }
         enterdoor = false;
+    }
+
+    private void EnterDoor()
+    {
+        transform.position = new Vector3(otherDoor.getCorrespondingDoorTransform().position.x, otherDoor.getCorrespondingDoorTransform().position.y, transform.position.z);
     }
     
     bool IsPlayerTooBigForDoor()
     {
         // Get the size of both the player's and the door's colliders
         Vector2 playerSize = playerCollider.bounds.size;
+        print(playerSize);
         Vector2 doorSize = doorCollider.bounds.size;
+        print(doorSize);
 
         // Compare the player's size to the door's size
         if (playerSize.x > doorSize.x || playerSize.y > doorSize.y)

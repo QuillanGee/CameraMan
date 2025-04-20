@@ -79,7 +79,6 @@
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/TableFlip/TableFlipL.cs" />
      <Compile Include="Assets/Scripts/Managers/EventManager.cs" />
      <Compile Include="Assets/Scripts/Animations/WakeUpAnimationTrigger.cs" />
-     <Compile Include="Assets/Scripts/Key/Door.cs" />
      <Compile Include="Assets/Scripts/Interactable/PickupableObject.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Doors/opencloseDoor1.cs" />
      <Compile Include="Assets/Scripts/Audio/AudioManager.cs" />
@@ -87,6 +86,7 @@
      <Compile Include="Assets/Scripts/ProjectedWallTransform/AttachProjectedWall.cs" />
      <Compile Include="Assets/Scripts/Alan.cs" />
      <Compile Include="Assets/Assets/Accessible Audio Toolkit/Scripts/EventsSubtitles.cs" />
+     <Compile Include="Assets/Scripts/Door/Door2D.cs" />
      <Compile Include="Assets/Scripts/UI/PanelManager.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike.cs" />
      <Compile Include="Assets/Assets/Accessible Audio Toolkit/Scripts/AATManager.cs" />
@@ -113,6 +113,7 @@
      <Compile Include="Assets/Scripts/BouncePad/BouncePad.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraFollow.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows/opencloseWindow.cs" />
+     <Compile Include="Assets/Scripts/Door/Door.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveConnector.cs" />
      <Compile Include="Assets/Scripts/UI/TempToggleF.cs" />
      <Compile Include="Assets/Scripts/UI/CameraUI.cs" />
@@ -209,6 +210,8 @@
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors" />
      <Folder Include="Assets/Assets/security-camera/textures" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
+     <Folder Include="Assets/Rig" />
+     <Folder Include="Assets/Materials/Maps" />
      <Folder Include="Assets/Scripts/Perspective Stuff" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Crates" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Animations" />
@@ -256,6 +259,7 @@
      <Folder Include="Assets/Assets/HQ Laptop/Mesh" />
      <Folder Include="Assets/Studio Assets/Textures/Signs Grudge" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
+     <Folder Include="Assets/Settings" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
      <Folder Include="Assets/Assets/Free SteelLadder Pack/Textures" />
      <Folder Include="Assets/Assets/BasicToonWaterShader/Material" />
@@ -264,6 +268,7 @@
      <Folder Include="Assets/Assets/Free SteelLadder Pack/Materials" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
+     <Folder Include="Assets/Anim" />
      <Folder Include="Assets/Studio Assets/Textures/Seating Black" />
      <Folder Include="Assets/Assets/Free SteelLadder Pack/Prefabs/LowPoly" />
      <Folder Include="Assets/Studio CyFi/Industrial &amp; Office Interiors/Textures/Windows" />
@@ -308,7 +313,7 @@
      <Folder Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Textures/Surface" />
      <Folder Include="Assets/Assets/Blueprints/Materials" />
      <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
-     <Folder Include="Assets/Scripts/Key" />
+     <Folder Include="Assets/Scripts/Door" />
      <Folder Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Materials/Surface" />
      <Folder Include="Assets/Assets/ALP_Assets/Poplar Tree FREE/Core" />
      <Folder Include="Assets/Assets/Free SteelLadder Pack/Models" />

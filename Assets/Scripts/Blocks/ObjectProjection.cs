@@ -30,6 +30,9 @@ public class ObjectProjection : MonoBehaviour
    float minScale = 0.5f;  // Example minimum scale
    float maxScale = 3f;  // Example maximum scale
    [SerializeField] private Transform zAxis;
+   
+   //for Door if they have one
+   [SerializeField] private Transform correspondingDoor;
 
    void Awake()
    {
@@ -122,6 +125,7 @@ public class ObjectProjection : MonoBehaviour
            if (gameObject.CompareTag("Door"))
            {
                projectedMeshObject.tag = "Door";
+               projectedMeshObject.AddComponent<Door2D>().SetCorrepondingDoorTransform(correspondingDoor);
            }
        }
        
