@@ -1,19 +1,37 @@
 using TMPro;
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class PickableObject : MonoBehaviour, IInteractable
 {
     private Rigidbody rb;
     private bool isHeld = false;
-    private Collider[] colliders;
+    private List<Collider> colliders = new List<Collider>();  // Declare a List for colliders
     public string hoverText = "(Right Click)";
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        colliders = GetComponents<Collider>(); // Get all colliders on the object
+
+        // Get all colliders on the parent GameObject and add them to the list
+        colliders.AddRange(GetComponents<Collider>());
+
+        // Loop through all colliders in children and descendants
+        Collider[] allChildColliders = GetComponentsInChildren<Collider>(); // This gets all colliders in children and descendants
+
+        foreach (Collider childCollider in allChildColliders)
+        {
+            // Check if the child collider's GameObject is tagged as "PickUp"
+            if (childCollider.CompareTag("PickUp") || childCollider.CompareTag("Door"))
+            {
+                // Add the collider of the child object to the list
+                colliders.Add(childCollider);
+            }
+        }
     }
 
+    
     public void OnHoverEnter()
     {
     }

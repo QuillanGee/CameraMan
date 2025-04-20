@@ -17,6 +17,8 @@ public class ObjectProjection : MonoBehaviour
    private Vector3 boundsCenter;
    private MeshRenderer meshRenderer;
 
+   //for parent Mesh
+   private MeshRenderer parentMeshRenderer;
 
    //for spawning new mesh
    public GameObject projectedMeshObject;
@@ -26,7 +28,7 @@ public class ObjectProjection : MonoBehaviour
    public LayerMask groundLayer;
    
    float minScale = 0.5f;  // Example minimum scale
-   float maxScale = 1.5f;  // Example maximum scale
+   float maxScale = 3f;  // Example maximum scale
    [SerializeField] private Transform zAxis;
 
    void Awake()
@@ -34,6 +36,7 @@ public class ObjectProjection : MonoBehaviour
        // Get the Mesh Filter attached to this GameObject
        meshFilter = GetComponent<MeshFilter>();
        meshRenderer = GetComponent<MeshRenderer>();
+       parentMeshRenderer = GetComponentInParent<MeshRenderer>();
    }
 
 
@@ -41,8 +44,8 @@ public class ObjectProjection : MonoBehaviour
    {
        EventManager.instance.OnToggleTwoD += UpdatePerception;
        EventManager.instance.OnPostToggleFirstPerson += DestroyProjectedMesh;
-       EventManager.instance.OnPostToggleFirstPerson += ShowObject;
-       EventManager.instance.OnPostToggleTwoD += HideObject;
+       // EventManager.instance.OnPostToggleFirstPerson += ShowObject;
+       // EventManager.instance.OnPostToggleTwoD += HideObject;
        EventManager.instance.OnLoadScene += SetZAxisFor2D;
    }
 
@@ -50,8 +53,8 @@ public class ObjectProjection : MonoBehaviour
    {
        EventManager.instance.OnToggleTwoD -= UpdatePerception;
        EventManager.instance.OnPostToggleFirstPerson -= DestroyProjectedMesh;
-       EventManager.instance.OnPostToggleFirstPerson -= ShowObject;
-       EventManager.instance.OnPostToggleTwoD -= HideObject;
+       // EventManager.instance.OnPostToggleFirstPerson -= ShowObject;
+       // EventManager.instance.OnPostToggleTwoD -= HideObject;
        EventManager.instance.OnLoadScene -= SetZAxisFor2D;
    }
 
@@ -103,32 +106,47 @@ public class ObjectProjection : MonoBehaviour
        projectedMeshObject = new GameObject("ProjectedMesh");
        projectedMeshObject.layer = 9;
        projectedMesh = Create2DMesh(projectedVerticesAroundOrigin, mesh.triangles);
-
+       
        // For collider
        polygonCollider = projectedMeshObject.AddComponent<PolygonCollider2D>();
        AddPolygonColliderFromProjectedVertices(projectedVerticesAroundOrigin, polygonCollider);
+       if (gameObject.CompareTag("Stairs") || gameObject.CompareTag("Walls") || gameObject.CompareTag("Door"))
+       {
+           polygonCollider.isTrigger = true;
+
+           if (gameObject.CompareTag("Stairs"))
+           {
+               projectedMeshObject.tag = "Stairs";
+           }
+
+           if (gameObject.CompareTag("Door"))
+           {
+               projectedMeshObject.tag = "Door";
+           }
+       }
+       
        projectedMeshObject.AddComponent<MeshFilter>().mesh = projectedMesh;
        projectedMeshObject.AddComponent<MeshRenderer>().material = projectedMaterial;
 
        // Calc Distance from Center of 3D mesh, Scale, transform GameObject back to original position
-       float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
-       float scaleFactor = 4f * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
+       // float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
+       // float scaleFactor = 4f * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
 
        // Scale
-       scaleFactor = Mathf.Clamp(scaleFactor, minScale, maxScale);
-       projectedMeshObject.transform.localScale *= scaleFactor;
+       // scaleFactor = Mathf.Clamp(scaleFactor, minScale, maxScale);
+       // projectedMeshObject.transform.localScale *= scaleFactor;
        projectedMeshObject.transform.position = new Vector3(centerOfProjection.x, centerOfProjection.y, zAxis.position.z);
    }
 
-   private void HideObject()
-   {
-       meshRenderer.enabled = false;
-   }
-   
-   private void ShowObject()
-   {
-       meshRenderer.enabled = true;
-   }
+   // private void HideObject()
+   // {
+   //     parentMeshRenderer.enabled = false;
+   // }
+   //
+   // private void ShowObject()
+   // {
+   //     parentMeshRenderer.enabled = true;
+   // }
 
 
    private void DestroyProjectedMesh()

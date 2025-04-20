@@ -7,9 +7,9 @@ public class DynamicScaling : MonoBehaviour
     private Vector3 alanDefaultScale;
     private float initialDistanceFromWall;
     private Transform wallTransform;
-    private float scaleFactor = 4.0f;
+    private float scaleFactor = 7.0f;
     float minScale = 0.5f;  // Example minimum scale
-    float maxScale = 1.5f;  // Example maximum scale
+    float maxScale = 5f;  // Example maximum scale
     
     void Start()
     {

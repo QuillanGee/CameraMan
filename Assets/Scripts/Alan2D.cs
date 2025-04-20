@@ -11,10 +11,10 @@ public class Alan2D : MonoBehaviour
     [SerializeField] private GameObject AlanMesh;
     private Vector3 alanDefaultScale;
     [SerializeField] Transform resetPosition;
-    private float scaleFactor = 4f;
+    private float scaleFactor = 7f;
     [SerializeField] private Transform zAxisFor2Dlevel;
     float minScale = 0.5f;  // Example minimum scale
-    float maxScale = 1.5f;  // Example maximum scale
+    float maxScale = 5f;  // Example maximum scale
     
     private Rigidbody2D rb;
     

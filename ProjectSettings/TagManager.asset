@@ -23,6 +23,7 @@ TagManager:
   - Door
   - PickUp
   - Lock
+  - Stairs
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - Player
   - FocusObjects
   - TVs
-  - 
+  - Gone3D
   - 
   - 
   - 

@@ -29,8 +29,8 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnHover += LinkInteractionCamera;
         EventManager.instance.OnInteract += TransitionToInteractionCamera;
         EventManager.instance.OnExitInteract += TransitionFromInteractionCamera;
-        EventManager.instance.OnToggleFirstPerson += AddToCullingMask;
-        EventManager.instance.OnToggleTwoD += RemoveCullingMask;
+        EventManager.instance.OnToggleFirstPerson += EditCullingMaskGoingToFirstPerson;
+        EventManager.instance.OnToggleTwoD += EditCullingMaskGoingToTwoDPerson;
         
         
         if (animateOnStart)
@@ -49,8 +49,8 @@ public class CameraController : MonoBehaviour
         EventManager.instance.OnHover -= LinkInteractionCamera;
         EventManager.instance.OnInteract -= TransitionToInteractionCamera;
         EventManager.instance.OnExitInteract -= TransitionFromInteractionCamera;
-        EventManager.instance.OnToggleFirstPerson -= AddToCullingMask;
-        EventManager.instance.OnToggleTwoD -= RemoveCullingMask;
+        EventManager.instance.OnToggleFirstPerson -= EditCullingMaskGoingToFirstPerson;
+        EventManager.instance.OnToggleTwoD -= EditCullingMaskGoingToTwoDPerson;
     }
 
     private IEnumerator StartBeginningAnimation()
@@ -61,14 +61,18 @@ public class CameraController : MonoBehaviour
         perspectiveCamera.Priority = 1;
     }
 
-    private void AddToCullingMask()
+    private void EditCullingMaskGoingToFirstPerson()
     {
         Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("TVs");
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Blocks");
+        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Gone3D"));
     }
 
-    private void RemoveCullingMask()
+    private void EditCullingMaskGoingToTwoDPerson()
     {
         Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("TVs"));
+        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Blocks"));
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Gone3D");
     }
 
     private void AttachOrthographicCamera()
