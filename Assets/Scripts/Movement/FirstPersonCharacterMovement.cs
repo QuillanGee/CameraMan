@@ -37,7 +37,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private GameObject characterMesh;
     private Animator anim;
-
+    
     // Ladder Climbing
     private bool isOnLadder = false;
     public float climbSpeed = 3.0f;
@@ -49,6 +49,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private InteractionManager interactionManager;
     
     [SerializeField] private Animator animator;
+    [SerializeField] private AnimatorOverrideController animatorOverrideController;
+    private RuntimeAnimatorController alanAnimatorController;
 
     void Start()
     {
@@ -71,6 +73,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         EventManager.instance.OnPostToggleTwoD += DisableControls;
         EventManager.instance.OnInteract += DisableControls;
         EventManager.instance.OnExitInteract += EnableControls;
+        
+        alanAnimatorController = anim.runtimeAnimatorController;
     }
 
     private void FixedUpdate()
@@ -195,6 +199,14 @@ public class FirstPersonCharacterMovement : MonoBehaviour
 
     private void AnimationUpdate()
     {
+        if (holdingBlock)
+        {
+            animator.runtimeAnimatorController = animatorOverrideController;
+        }
+        else
+        {
+            animator.runtimeAnimatorController = alanAnimatorController;
+        }
         if (!isGrounded)
         {
             // Prioritize jump animation when not grounded
