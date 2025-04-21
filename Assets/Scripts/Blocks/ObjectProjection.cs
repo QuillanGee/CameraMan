@@ -32,7 +32,7 @@ public class ObjectProjection : MonoBehaviour
    [SerializeField] private Transform zAxis;
    
    //for Door if they have one
-   [SerializeField] private Transform correspondingDoor;
+   [SerializeField] private GameObject correspondingDoor;
    private Door door;
 
    void Awake()
@@ -128,7 +128,7 @@ public class ObjectProjection : MonoBehaviour
            {
                projectedMeshObject.tag = "Door";
                projectedMeshObject.AddComponent<Door2D>().SetCorrepondingDoorTransform(correspondingDoor);
-               // projectedMeshObject.GetComponent<Door2D>.SetDoor(door);
+               projectedMeshObject.GetComponent<Door2D>().SetDoor(door);
            }
        }
        

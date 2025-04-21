@@ -14,7 +14,8 @@ public class InteractionManager : MonoBehaviour
     private IInteractable currentHoveredObject;
     private PickableObject heldObject;
     [SerializeField] Transform holdPosition; // Where the block will be held when picked up
-    [SerializeField] Transform holdPositionWall; // Where the block will be held when picked up
+    [SerializeField] Transform holdPositionDoor; // Where the block will be held when picked up
+    [SerializeField] Transform holdPositionWhiteboard; // Where the block will be held when picked up
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
     
     [SerializeField] private Image rightClickImage;
@@ -109,7 +110,11 @@ public class InteractionManager : MonoBehaviour
                     //pickup logic
                     if (pickable.gameObject.CompareTag("Door"))
                     {
-                        pickable.Pickup(holdPositionWall);
+                        pickable.Pickup(holdPositionDoor);
+                    }
+                    else if (pickable.gameObject.CompareTag("Walls"))
+                    {
+                        pickable.Pickup(holdPositionWhiteboard);
                     }
                     else
                     {

@@ -57,7 +57,7 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OpenLeftDoor()
+    public void OpenLeftDoor()
     {
         doorAnimator.SetBool("OpenLeft", true);
         if (disableDoorCollider)

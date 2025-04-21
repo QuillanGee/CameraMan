@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Door2D : MonoBehaviour
 {
-    private Transform correspondingDoor;
-    private Door current3DDoor;
+    private GameObject correspondingDoor;
+    private Door current3DDoor; 
 
-    public Transform getCorrespondingDoorTransform()
+    public GameObject getCorrespondingDoorTransform()
     {
         return correspondingDoor;
     }
 
-    public void SetCorrepondingDoorTransform(Transform newCorrespondingDoorTransform)
+    public void SetCorrepondingDoorTransform(GameObject newCorrespondingDoorTransform)
     {
         correspondingDoor = newCorrespondingDoorTransform;
     }
@@ -25,5 +25,15 @@ public class Door2D : MonoBehaviour
     public Door getDoor()
     {
         return current3DDoor;
+    }
+
+    public void TriggerDoorAnimation()
+    {
+        current3DDoor.OpenLeftDoor();
+    }
+
+    public void TriggerCorrespondingDoorAnimation()
+    {
+        correspondingDoor.GetComponent<Animator>().SetBool("OpenLeft" , true);
     }
 }

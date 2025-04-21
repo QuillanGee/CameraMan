@@ -239,15 +239,17 @@ public class TwoDCharacterMovement : MonoBehaviour {
         }
         else
         {
-            EnterDoor();
+            StartCoroutine(EnterDoor());
         }
     }
 
-    private void EnterDoor()
+    private IEnumerator EnterDoor()
     {
         enterdoor = true;
-        otherDoor.
-        transform.position = new Vector3(otherDoor.getCorrespondingDoorTransform().position.x, otherDoor.getCorrespondingDoorTransform().position.y, transform.position.z);
+        otherDoor.TriggerDoorAnimation();
+        yield return new WaitForSeconds(0.5f);
+        otherDoor.TriggerCorrespondingDoorAnimation();
+        transform.position = new Vector3(otherDoor.getCorrespondingDoorTransform().transform.position.x, otherDoor.getCorrespondingDoorTransform().transform.position.y, transform.position.z);
         enterdoor = false;
     }
     
@@ -255,9 +257,7 @@ public class TwoDCharacterMovement : MonoBehaviour {
     {
         // Get the size of both the player's and the door's colliders
         Vector2 playerSize = playerCollider.bounds.size;
-        print(playerSize);
         Vector2 doorSize = doorCollider.bounds.size;
-        print(doorSize);
 
         // Compare the player's size to the door's size
         if (playerSize.x > doorSize.x || playerSize.y > doorSize.y)
