@@ -27,12 +27,13 @@ public class ObjectProjection : MonoBehaviour
    public Material projectedMaterial;
    public LayerMask groundLayer;
    
-   float minScale = 0.5f;  // Example minimum scale
-   float maxScale = 3f;  // Example maximum scale
+   public float minScale = 0.5f;  // Example minimum scale
+   public float maxScale = 3f;  // Example maximum scale
    [SerializeField] private Transform zAxis;
    
    //for Door if they have one
    [SerializeField] private Transform correspondingDoor;
+   private Door door;
 
    void Awake()
    {
@@ -50,6 +51,7 @@ public class ObjectProjection : MonoBehaviour
        // EventManager.instance.OnPostToggleFirstPerson += ShowObject;
        // EventManager.instance.OnPostToggleTwoD += HideObject;
        EventManager.instance.OnLoadScene += SetZAxisFor2D;
+       door = GetComponent<Door>();
    }
 
    private void OnDestroy()
@@ -126,6 +128,7 @@ public class ObjectProjection : MonoBehaviour
            {
                projectedMeshObject.tag = "Door";
                projectedMeshObject.AddComponent<Door2D>().SetCorrepondingDoorTransform(correspondingDoor);
+               // projectedMeshObject.GetComponent<Door2D>.SetDoor(door);
            }
        }
        

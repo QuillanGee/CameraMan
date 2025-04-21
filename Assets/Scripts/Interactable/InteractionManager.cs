@@ -107,7 +107,7 @@ public class InteractionManager : MonoBehaviour
                 {
                     isInteracting = true;
                     //pickup logic
-                    if (pickable.gameObject.CompareTag("Walls"))
+                    if (pickable.gameObject.CompareTag("Door"))
                     {
                         pickable.Pickup(holdPositionWall);
                     }

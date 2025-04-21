@@ -232,7 +232,6 @@ public class TwoDCharacterMovement : MonoBehaviour {
 
     private void TryEnterDoor()
     {
-        enterdoor = true;
         // Check if the player is too large to enter the door
         if (IsPlayerTooBigForDoor())
         {
@@ -242,12 +241,14 @@ public class TwoDCharacterMovement : MonoBehaviour {
         {
             EnterDoor();
         }
-        enterdoor = false;
     }
 
     private void EnterDoor()
     {
+        enterdoor = true;
+        otherDoor.
         transform.position = new Vector3(otherDoor.getCorrespondingDoorTransform().position.x, otherDoor.getCorrespondingDoorTransform().position.y, transform.position.z);
+        enterdoor = false;
     }
     
     bool IsPlayerTooBigForDoor()
