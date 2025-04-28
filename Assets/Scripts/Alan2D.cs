@@ -12,7 +12,6 @@ public class Alan2D : MonoBehaviour
     private Vector3 alanDefaultScale;
     [SerializeField] Transform resetPosition;
     private float scaleFactor = 7f;
-    [SerializeField] private Transform zAxisFor2Dlevel;
     float minScale = 0.5f;  // Example minimum scale
     float maxScale = 5f;  // Example maximum scale
     
@@ -35,51 +34,20 @@ public class Alan2D : MonoBehaviour
         EventManager.instance.OnPostToggleFirstPerson += HideAlan2D;
         EventManager.instance.OnPostToggleTwoD += ShowAlan2D;
 
-        EventManager.instance.OnLoadScene += SetZAxisFor2D;
         EventManager.instance.OnLoadScene += AttachResetPosition;
         EventManager.instance.OnResetAlan2D += ResetPosition;
-    }
-
-    private void SetZAxisFor2D() 
-    {
-        zAxisFor2Dlevel = GameObject.FindWithTag("zAxisFor2DLevel").transform;
-        if (zAxisFor2Dlevel != null)
-        {
-            print("Couldn't find zAxis");
-        }
     }
     
     private void AttachResetPosition()
     {
         resetPosition = GameObject.FindWithTag("ResetPosition2D").transform;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // if (collision.gameObject.CompareTag("Platform"))
-        // {
-        //     transform.SetParent(collision.transform);
-        // }
-
-        if (collision.gameObject.CompareTag("BouncePad"))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, bouncePadForce);
-        }
-    }
-    
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        // if (collision.gameObject.CompareTag("Platform"))
-        // {
-        //     transform.SetParent(null);
-        // }
-    }
     
     private void ProjectAlanToMoveAlan2D()
     {
         ScaleAlan();
         //Moves to corresponding X position
-        Vector3 newPosition = new Vector3(Alan.position.x, Alan.position.y, zAxisFor2Dlevel.position.z);
+        Vector3 newPosition = new Vector3(Alan.position.x, Alan.position.y, StaticZAxisFor2DLevel.currentZAxis.position.z);
         transform.position = newPosition;
     }
     

@@ -20,10 +20,12 @@ public class TwoDCharacterMovement : MonoBehaviour {
     [SerializeField] private LayerMask focusedObjects;
 
     private Rigidbody2D rb;
-    
+
+    [SerializeField] private Transform AlanMeshTransform;
     [SerializeField] private Animator currentAnimator;
     private RuntimeAnimatorController alanAnimatorController;
     [SerializeField] private AnimatorOverrideController holdingOverrideController;
+    private bool facingLeft = false;
     private bool facingRight = false;
     
     private float coyoteTime = 0.1f;
@@ -76,20 +78,27 @@ public class TwoDCharacterMovement : MonoBehaviour {
             {
                 // Walk right
                 facingRight = true; 
-                Flip();
+                facingLeft = false;
+                AlanMeshTransform.rotation = Quaternion.Euler(0, -90, 0);
+
             }
             // Check if the player is moving left and is not already facing left
-            else if (moveHorizontal < 0 && facingRight)
+            else if (moveHorizontal < 0 && !facingLeft)
             {
                 // Walk left
+                facingLeft = true;
                 facingRight = false;
-                Flip();
+                AlanMeshTransform.rotation = Quaternion.Euler(0, 90, 0);
+
             }
         }
-        // else
-        // {
-        //     StandStraight();
-        // }
+        else
+        {
+            facingRight = false;
+            facingLeft = false;
+            AlanMeshTransform.rotation = Quaternion.Euler(0, 0, 0);
+
+        }
 
 
         if (isGrounded)
@@ -114,7 +123,6 @@ public class TwoDCharacterMovement : MonoBehaviour {
                 currentAnimator.SetInteger("AnimInt", 0);
             }
         }
-       
         
         //FOR DELAYED JUMPING
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f) 
@@ -158,18 +166,6 @@ public class TwoDCharacterMovement : MonoBehaviour {
             TryEnterDoor();
         }
     }
-    void Flip()
-    {
-        Vector3 myRotation = transform.rotation.eulerAngles;
-        myRotation.y += 180f;
-        transform.rotation = Quaternion.Euler(myRotation);
-    }
-    
-    // void StandStraight()
-    // {
-    //     Vector3 myRotation = new Vector3(0f, 0f, 0f);
-    //     transform.rotation = Quaternion.Euler(myRotation);
-    // }
     
     private IEnumerator ClimbStairs()
     {
@@ -246,10 +242,14 @@ public class TwoDCharacterMovement : MonoBehaviour {
     private IEnumerator EnterDoor()
     {
         enterdoor = true;
-        otherDoor.TriggerDoorAnimation();
-        yield return new WaitForSeconds(0.5f);
-        otherDoor.TriggerCorrespondingDoorAnimation();
+        currentAnimator.SetInteger("AnimInt", 1);
+        AlanMeshTransform.rotation = Quaternion.Euler(0, 180, 0);
+        StartCoroutine(otherDoor.TriggerDoorAnimation());
+        yield return new WaitForSeconds(1f);
         transform.position = new Vector3(otherDoor.getCorrespondingDoorTransform().transform.position.x, otherDoor.getCorrespondingDoorTransform().transform.position.y, transform.position.z);
+        AlanMeshTransform.rotation = Quaternion.Euler(0, 0, 0);
+        yield return new WaitForSeconds(0.5f);
+        currentAnimator.SetInteger("AnimInt", 0);
         enterdoor = false;
     }
     

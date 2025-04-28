@@ -27,9 +27,11 @@ public class Door2D : MonoBehaviour
         return current3DDoor;
     }
 
-    public void TriggerDoorAnimation()
+    public IEnumerator TriggerDoorAnimation()
     {
         current3DDoor.OpenLeftDoor();
+        yield return new WaitForSeconds(1f);
+        current3DDoor.CloseDoor();
     }
 
     public void TriggerCorrespondingDoorAnimation()

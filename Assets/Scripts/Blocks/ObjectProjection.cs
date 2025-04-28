@@ -29,11 +29,15 @@ public class ObjectProjection : MonoBehaviour
    
    public float minScale = 0.5f;  // Example minimum scale
    public float maxScale = 3f;  // Example maximum scale
-   [SerializeField] private Transform zAxis;
    
    //for Door if they have one
    [SerializeField] private GameObject correspondingDoor;
    private Door door;
+
+   private bool isHoldingBlock = false;
+   private Transform myParent;
+   private Rigidbody2D rb2D;
+   private Pickable2DObject pickable2DObject; 
 
    void Awake()
    {
@@ -47,29 +51,23 @@ public class ObjectProjection : MonoBehaviour
    void Start()
    {
        EventManager.instance.OnToggleTwoD += UpdatePerception;
-       EventManager.instance.OnPostToggleFirstPerson += DestroyProjectedMesh;
+       EventManager.instance.OnPostToggleFirstPerson += ToggleFirstPersonFunctions;
+       EventManager.instance.OnHoldingBlock += SetHoldingBlockTrue;
+       EventManager.instance.OnNotHoldingBlock += SetHoldingBlockFalse;
        // EventManager.instance.OnPostToggleFirstPerson += ShowObject;
        // EventManager.instance.OnPostToggleTwoD += HideObject;
-       EventManager.instance.OnLoadScene += SetZAxisFor2D;
        door = GetComponent<Door>();
+       myParent = transform.parent;
    }
 
    private void OnDestroy()
    {
        EventManager.instance.OnToggleTwoD -= UpdatePerception;
        EventManager.instance.OnPostToggleFirstPerson -= DestroyProjectedMesh;
+       EventManager.instance.OnHoldingBlock -= SetHoldingBlockTrue;
+       EventManager.instance.OnNotHoldingBlock -= SetHoldingBlockFalse;
        // EventManager.instance.OnPostToggleFirstPerson -= ShowObject;
        // EventManager.instance.OnPostToggleTwoD -= HideObject;
-       EventManager.instance.OnLoadScene -= SetZAxisFor2D;
-   }
-
-   private void SetZAxisFor2D() 
-   {
-       zAxis = GameObject.FindWithTag("zAxisFor2DLevel").transform;
-       if (zAxis != null)
-       {
-           print("Couldn't find zAxis");
-       }
    }
 
 
@@ -114,6 +112,8 @@ public class ObjectProjection : MonoBehaviour
        
        // For collider
        polygonCollider = projectedMeshObject.AddComponent<PolygonCollider2D>();
+       pickable2DObject = projectedMeshObject.AddComponent<Pickable2DObject>();
+       rb2D = projectedMeshObject.AddComponent<Rigidbody2D>();
        AddPolygonColliderFromProjectedVertices(projectedVerticesAroundOrigin, polygonCollider);
        if (gameObject.CompareTag("Stairs") || gameObject.CompareTag("Walls") || gameObject.CompareTag("Door"))
        {
@@ -134,15 +134,10 @@ public class ObjectProjection : MonoBehaviour
        
        projectedMeshObject.AddComponent<MeshFilter>().mesh = projectedMesh;
        projectedMeshObject.AddComponent<MeshRenderer>().material = projectedMaterial;
-
-       // Calc Distance from Center of 3D mesh, Scale, transform GameObject back to original position
-       // float distanceToPlane = StaticProjectedWallTransform.ProjectedWallTransform.position.z - transform.position.z;
-       // float scaleFactor = 4f * (1.0f / Mathf.Max(1e-5f, Mathf.Abs(distanceToPlane))); // Avoid division by zero
-
-       // Scale
-       // scaleFactor = Mathf.Clamp(scaleFactor, minScale, maxScale);
-       // projectedMeshObject.transform.localScale *= scaleFactor;
-       projectedMeshObject.transform.position = new Vector3(centerOfProjection.x, centerOfProjection.y, zAxis.position.z);
+       
+       projectedMeshObject.transform.position = new Vector3(centerOfProjection.x, centerOfProjection.y, StaticZAxisFor2DLevel.currentZAxis.position.z);
+       SetThisParentToProjectedMeshObject();
+       // CheckIfHoldingBLockGoingToTwoD();
    }
 
    // private void HideObject()
@@ -155,6 +150,11 @@ public class ObjectProjection : MonoBehaviour
    //     parentMeshRenderer.enabled = true;
    // }
 
+   private void ToggleFirstPersonFunctions()
+   {
+       PutBackToParent();
+       DestroyProjectedMesh();
+   }
 
    private void DestroyProjectedMesh()
    {
@@ -337,17 +337,34 @@ private class PolarAngleComparer : IComparer<Vector2>
 
        return transformedVertices;
    }
-  
-
-
-   public void PositionBlockToHoldPosition(Vector3 holdPosition)
+   
+   private void SetHoldingBlockTrue()
    {
-       projectedMeshObject.transform.position = holdPosition;
+       isHoldingBlock = true;
+   }
+   private void SetHoldingBlockFalse()
+   {
+       isHoldingBlock = false;
    }
 
-
-   public void SetBlockParent(Transform parent)
+   private void PutBackToParent()
    {
-       projectedMeshObject.transform.SetParent(parent);
+       transform.position = myParent.position;
+       transform.rotation = myParent.rotation;
+       transform.SetParent(myParent);
+   }
+
+   private void SetThisParentToProjectedMeshObject()
+   {
+       Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, StaticZAxisFor2DLevel.currentZAxis.position.z);
+       transform.position = newPosition;
+       transform.SetParent(projectedMeshObject.transform);
+   }
+
+   //USED IN ALAN
+
+   public void AttachBlockToHoldPosition(Transform holdPosition)
+   {
+       pickable2DObject.Pickup(holdPosition);
    }
 }

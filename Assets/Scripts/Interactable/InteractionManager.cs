@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,9 +11,9 @@ public class InteractionManager : MonoBehaviour
     // public Sprite defaultReticle; // Default reticle sprite
     // public Sprite openHandReticle; // Open hand reticle sprite
     // public Sprite closedHandReticle; // Closed hand reticle sprite
-
     private IInteractable currentHoveredObject;
     private PickableObject heldObject;
+    private PickableObject heldObject2D;
     [SerializeField] Transform holdPosition; // Where the block will be held when picked up
     [SerializeField] Transform holdPositionDoor; // Where the block will be held when picked up
     [SerializeField] Transform holdPositionWhiteboard; // Where the block will be held when picked up
@@ -24,17 +25,14 @@ public class InteractionManager : MonoBehaviour
     public bool isInteracting = false;
 
     public bool showUI = true;
+    
+    public bool is2D = false;
+
 
     void Start()
     {
-        // if (showUI)
-        // {
-        //     reticle.gameObject.SetActive(true);
-        // }
-        // else
-        // {
-        //     reticle.gameObject.SetActive(false);
-        // }
+        EventManager.instance.OnToggleFirstPerson += EnableFirstPersonInteraction;
+        EventManager.instance.OnToggleTwoD += DisableFirstPersonInteraction;
     }
     
     void Update()
@@ -48,42 +46,40 @@ public class InteractionManager : MonoBehaviour
 
     private void HandleHover()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction * interactionRange, Color.red);
-        RaycastHit[] hits = Physics.RaycastAll(ray, interactionRange);
-    
-        IInteractable interactable = null;
-        float closestDistance = float.MaxValue;
+            // 3D Hover using Raycasting
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction * interactionRange, Color.red);
+            RaycastHit[] hits = Physics.RaycastAll(ray, interactionRange);
 
-        foreach (RaycastHit hit in hits)
-        {
-            IInteractable hitInteractable = hit.collider.GetComponent<IInteractable>();
-            if (hitInteractable != null && hit.distance < closestDistance)
+            IInteractable interactable = null;
+            float closestDistance = float.MaxValue;
+
+            foreach (RaycastHit hit in hits)
             {
-                interactable = hitInteractable;
-                closestDistance = hit.distance;
+                IInteractable hitInteractable = hit.collider.GetComponent<IInteractable>();
+                if (hitInteractable != null && hit.distance < closestDistance)
+                {
+                    interactable = hitInteractable;
+                    closestDistance = hit.distance;
+                }
             }
-        }
-
-        if (interactable != null)
-        {
-            if (currentHoveredObject != interactable)
+            
+            if (interactable != null)
             {
-                currentHoveredObject?.OnHoverExit();
-                currentHoveredObject = interactable;
-                currentHoveredObject.OnHoverEnter();
-                hoverText.text = interactable.GetText();
-                // rightClickImage.enabled = true;
+                if (currentHoveredObject != interactable)
+                {
+                    currentHoveredObject?.OnHoverExit();
+                    currentHoveredObject = interactable;
+                    currentHoveredObject.OnHoverEnter();
+                    hoverText.text = interactable.GetText();
+                }
             }
-
-            // if (heldObject == null)
-            //     reticle.sprite = openHandReticle;
-        }
-        else
-        {
-            ResetHoverState();
-        }
+            else
+            {
+                ResetHoverState();
+            }
     }
+    
 
     private void ResetHoverState()
     {
@@ -107,7 +103,7 @@ public class InteractionManager : MonoBehaviour
                 if (currentHoveredObject is PickableObject pickable)
                 {
                     isInteracting = true;
-                    //pickup logic
+                    // Pickup logic for 2D
                     if (pickable.gameObject.CompareTag("Door"))
                     {
                         pickable.Pickup(holdPositionDoor);
@@ -123,7 +119,6 @@ public class InteractionManager : MonoBehaviour
                     heldObject = pickable;
                     holdPosCollider.enabled = true;
                     EventManager.instance.HoldingBlock();
-                    // reticle.sprite = closedHandReticle;
                 }
                 else if (currentHoveredObject is InteractableObject interactable)
                 {
@@ -138,17 +133,25 @@ public class InteractionManager : MonoBehaviour
                 {
                     interactable1.OnExitInteraction();
                 }
-                else if (heldObject != null)
+                if (heldObject != null)
                 {
                     heldObject.Drop();
                     heldObject = null;
                     holdPosCollider.enabled = false;
                     EventManager.instance.NotHoldingBlock();
-                    // reticle.sprite = currentHoveredObject != null ? openHandReticle : defaultReticle;
                     isInteracting = false;
                 }
             }
         }
     }
 
+    private void DisableFirstPersonInteraction()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void EnableFirstPersonInteraction()
+    {
+        gameObject.SetActive(true);
+    }
 }

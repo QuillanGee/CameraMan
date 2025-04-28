@@ -189,5 +189,13 @@ public class EventManager : MonoBehaviour
         }
     }
     
-    
+    public event Action OnToggleWhileHolding;
+
+    public void ToggleWhileHolding()
+    {
+        if (OnToggleWhileHolding != null)
+        {
+            OnToggleWhileHolding();
+        }
+    }
 }

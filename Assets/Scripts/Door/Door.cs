@@ -66,7 +66,7 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void CloseDoor()
+    public void CloseDoor()
     {
         doorAnimator.SetBool("OpenRight", false);
         doorAnimator.SetBool("OpenLeft", false);

@@ -60,6 +60,7 @@
      <Compile Include="Assets/Scripts/Camera/CameraController.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Drawer/Z Axis/Drawer_Pull_Z.cs" />
      <Compile Include="Assets/Scripts/UI/FlashTransition.cs" />
+     <Compile Include="Assets/Scripts/ProjectedWallTransform/StaticZAxisFor2DLevel.cs" />
      <Compile Include="Assets/Scripts/UI/ClickSound.cs" />
      <Compile Include="Assets/Scripts/Platforms/Ladder.cs" />
      <Compile Include="Assets/Scripts/Interactable/InteractionManager.cs" />
@@ -83,6 +84,7 @@
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Doors/opencloseDoor1.cs" />
      <Compile Include="Assets/Scripts/Audio/AudioManager.cs" />
      <Compile Include="Assets/Scripts/Platforms/DetectPlayer.cs" />
+     <Compile Include="Assets/Scripts/Interactable/InteractionManager2D.cs" />
      <Compile Include="Assets/Scripts/ProjectedWallTransform/AttachProjectedWall.cs" />
      <Compile Include="Assets/Scripts/Alan.cs" />
      <Compile Include="Assets/Assets/Accessible Audio Toolkit/Scripts/EventsSubtitles.cs" />
@@ -121,6 +123,7 @@
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Doors/opencloseStallDoor.cs" />
      <Compile Include="Assets/Scripts/UI/PauseMenu.cs" />
      <Compile Include="Assets/Scripts/Platforms/Moveable2DPlatform.cs" />
+     <Compile Include="Assets/Scripts/Interactable/Pickupable2DObject.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
      <Compile Include="Assets/Scripts/Interactable/IInteractable.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />

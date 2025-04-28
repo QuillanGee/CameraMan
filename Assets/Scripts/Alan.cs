@@ -10,6 +10,7 @@ public class Alan : MonoBehaviour
     private Canvas crossHair;
     [SerializeField] Transform resetPosition;
     private ObjectProjection currentHeldObjectProjection;
+    private Transform transformOfParentOfHeldObject;
     [SerializeField] private GameObject AlanMesh;
     [SerializeField] private Transform CapsuleHolder;
     private float zAxisToProjectAlan = -1f;
@@ -56,8 +57,8 @@ public class Alan : MonoBehaviour
         HideAlan();
         if (isHoldingBlock)
         {
-            SetObjectionProjectionInstance();
             AttachBlockToAlan2D();
+            EventManager.instance.ToggleWhileHolding();
         }
     }
     
@@ -94,16 +95,6 @@ public class Alan : MonoBehaviour
         }
     }
     
-    private void SetObjectionProjectionInstance()
-    {
-        currentHeldObjectProjection = GetComponentInChildren<ObjectProjection>();
-    }
-    
-    private void AttachBlockToAlan2D()
-    {
-        currentHeldObjectProjection.PositionBlockToHoldPosition(holdPosition2D.position);
-        currentHeldObjectProjection.SetBlockParent(Alan2D);
-    }
 
     private void ResetPosition()
     {
@@ -129,7 +120,15 @@ public class Alan : MonoBehaviour
     private void SetHoldingBlockTrue()
     {
         isHoldingBlock = true;
+        currentHeldObjectProjection = GetComponentInChildren<ObjectProjection>();
     }
+    
+    private void AttachBlockToAlan2D()
+    {
+        currentHeldObjectProjection.AttachBlockToHoldPosition(holdPosition2D);
+    }
+    
+    //this script needs to attach block to Alan2D if holding from Alan
 
     private void SetHoldingBlockFalse()
     {

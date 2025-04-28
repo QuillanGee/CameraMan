@@ -10,12 +10,12 @@ public class DynamicScaling : MonoBehaviour
     private float scaleFactor = 7.0f;
     float minScale = 0.5f;  // Example minimum scale
     float maxScale = 5f;  // Example maximum scale
-    
+
     void Start()
     {
         alanDefaultScale = transform.localScale;
     }
-    
+
     void StartScaling()
     {
         if (scaleCoroutine != null)
