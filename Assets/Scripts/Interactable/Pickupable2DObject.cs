@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 public class Pickable2DObject : MonoBehaviour, IInteractable
 {
-    private Rigidbody2D rb;
+    // private Rigidbody2D rb;
     private bool isHeld = false;
     private List<Collider2D> colliders = new List<Collider2D>();  // Declare a List for colliders
     public string hoverText = "(Right Click)";
     
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        // rb = GetComponent<Rigidbody2D>();
 
         // Get all colliders on the parent GameObject and add them to the list
         colliders.AddRange(GetComponents<Collider2D>());
@@ -50,7 +50,7 @@ public class Pickable2DObject : MonoBehaviour, IInteractable
         if (isHeld) return;
         AudioManager.instance.PlayInteractionSound(gameObject.tag);
         isHeld = true;
-        rb.isKinematic = true;
+        // rb.isKinematic = true;
         transform.position = holdPosition.position;
         transform.rotation = holdPosition.rotation;
         transform.SetParent(holdPosition);
@@ -68,7 +68,7 @@ public class Pickable2DObject : MonoBehaviour, IInteractable
         if (!isHeld) return;
         isHeld = false;
         transform.rotation = Quaternion.Euler(0, 0, 0);
-        rb.isKinematic = false;
+        // rb.isKinematic = false;
         transform.parent = null;
         
         

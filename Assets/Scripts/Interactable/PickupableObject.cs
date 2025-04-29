@@ -54,6 +54,7 @@ public class PickableObject : MonoBehaviour, IInteractable
         transform.rotation = holdPosition.rotation;
         transform.SetParent(holdPosition);
         rb.isKinematic = true;
+        rb.constraints = RigidbodyConstraints.None;
         
         // Disable all colliders
         foreach (var collider in colliders)

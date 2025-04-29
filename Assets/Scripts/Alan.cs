@@ -58,7 +58,7 @@ public class Alan : MonoBehaviour
         if (isHoldingBlock)
         {
             AttachBlockToAlan2D();
-            EventManager.instance.ToggleWhileHolding();
+            // EventManager.instance.ToggleWhileHolding();
         }
     }
     

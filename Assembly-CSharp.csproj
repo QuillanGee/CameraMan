@@ -83,6 +83,7 @@
      <Compile Include="Assets/Scripts/Interactable/PickupableObject.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Doors/opencloseDoor1.cs" />
      <Compile Include="Assets/Scripts/Audio/AudioManager.cs" />
+     <Compile Include="Assets/Scripts/Movement/SpinControls.cs" />
      <Compile Include="Assets/Scripts/Platforms/DetectPlayer.cs" />
      <Compile Include="Assets/Scripts/Interactable/InteractionManager2D.cs" />
      <Compile Include="Assets/Scripts/ProjectedWallTransform/AttachProjectedWall.cs" />
@@ -117,6 +118,7 @@
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows/opencloseWindow.cs" />
      <Compile Include="Assets/Scripts/Door/Door.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveConnector.cs" />
+     <Compile Include="Assets/Scripts/Interactable/Spinable.cs" />
      <Compile Include="Assets/Scripts/UI/TempToggleF.cs" />
      <Compile Include="Assets/Scripts/UI/CameraUI.cs" />
      <Compile Include="Assets/Scripts/Camera/BlurControl.cs" />

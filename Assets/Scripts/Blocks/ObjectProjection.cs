@@ -113,7 +113,7 @@ public class ObjectProjection : MonoBehaviour
        // For collider
        polygonCollider = projectedMeshObject.AddComponent<PolygonCollider2D>();
        pickable2DObject = projectedMeshObject.AddComponent<Pickable2DObject>();
-       rb2D = projectedMeshObject.AddComponent<Rigidbody2D>();
+       // rb2D = projectedMeshObject.AddComponent<Rigidbody2D>();
        AddPolygonColliderFromProjectedVertices(projectedVerticesAroundOrigin, polygonCollider);
        if (gameObject.CompareTag("Stairs") || gameObject.CompareTag("Walls") || gameObject.CompareTag("Door"))
        {

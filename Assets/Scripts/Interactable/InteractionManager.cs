@@ -17,6 +17,7 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] Transform holdPosition; // Where the block will be held when picked up
     [SerializeField] Transform holdPositionDoor; // Where the block will be held when picked up
     [SerializeField] Transform holdPositionWhiteboard; // Where the block will be held when picked up
+    [SerializeField] Transform holdPositionDuct; // Where the block will be held when picked up
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
     
     [SerializeField] private Image rightClickImage;
@@ -112,6 +113,10 @@ public class InteractionManager : MonoBehaviour
                     {
                         pickable.Pickup(holdPositionWhiteboard);
                     }
+                    else if (pickable.gameObject.CompareTag("Duct"))
+                    {
+                        pickable.Pickup(holdPositionDuct);
+                    }
                     else
                     {
                         pickable.Pickup(holdPosition);
@@ -124,6 +129,11 @@ public class InteractionManager : MonoBehaviour
                 {
                     isInteracting = true;
                     interactable.OnInteract();
+                }
+                else if (currentHoveredObject is Spinable spinable)
+                {
+                    isInteracting = true;
+                    spinable.OnInteract();
                 }
             }
             else
@@ -140,6 +150,10 @@ public class InteractionManager : MonoBehaviour
                     holdPosCollider.enabled = false;
                     EventManager.instance.NotHoldingBlock();
                     isInteracting = false;
+                }
+                else if (currentHoveredObject is Spinable spinable1)
+                {
+                    spinable1.OnExitInteraction();
                 }
             }
         }

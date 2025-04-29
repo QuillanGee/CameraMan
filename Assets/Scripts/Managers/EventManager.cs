@@ -198,4 +198,24 @@ public class EventManager : MonoBehaviour
             OnToggleWhileHolding();
         }
     }
+    
+    public event EventHandler<Transform> OnEnableSpinControls;
+
+    public void EnableSpinControls(Transform spinableObject)
+    {
+        if (OnEnableSpinControls != null)
+        {
+            OnEnableSpinControls(this, spinableObject);
+        }
+    }
+    
+    public event Action OnDisableSpinControls;
+
+    public void DisableSpinControls()
+    {
+        if (OnDisableSpinControls != null)
+        {
+            OnDisableSpinControls();
+        }
+    }
 }
