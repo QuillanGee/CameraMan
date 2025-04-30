@@ -45,13 +45,14 @@ public class Spinable : MonoBehaviour, IInteractable
         AudioManager.instance.PlayInteractionSound(gameObject.tag);
         EventManager.instance.Interact();
         EventManager.instance.EnableSpinControls(transform);
+        PerspectiveLockManager.Instance.SetLock(true);
     }
 
     public void OnExitInteraction()
     {
         EventManager.instance.ExitInteract();
         EventManager.instance.DisableSpinControls();
-
+        PerspectiveLockManager.Instance.SetLock(false);
     }
 
     public string GetText()

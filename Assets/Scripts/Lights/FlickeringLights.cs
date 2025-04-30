@@ -1,47 +1,49 @@
+using System.Collections;
 using UnityEngine;
 
-public class BrokenFlickeringLight : MonoBehaviour
+[RequireComponent(typeof(Light))]
+public class FlickeringLights : MonoBehaviour
 {
-    public float minIntensity = 0.1f;  // Minimum light intensity
-    public float maxIntensity = 1f;    // Maximum light intensity
-    public float flickerSpeed = 0.5f;  // Speed of flicker transition (how fast the intensity changes)
-    public float flickerInterval = 1f; // Time between flickers, light stays on for a longer period before turning off
-    
-    private Light lightSource;
-    private bool isLightOn;
-    private float timer;
+    [Header("Flicker Timing")]
+    public float minFlickerDelay = 0.05f;  // Minimum time between flickers
+    public float maxFlickerDelay = 0.5f;   // Maximum time between flickers
+
+    [Header("Light Intensity")]
+    public float minIntensity = 0.3f;      // Minimum light intensity
+    public float maxIntensity = 1.5f;      // Maximum light intensity
+
+    [Header("Flicker Chance")]
+    [Range(0f, 1f)]
+    public float flickerOffChance = 0.2f;  // Chance light turns off completely during flicker
+
+    private Light flickerLight;
+    private float originalIntensity;
 
     void Start()
     {
-        lightSource = GetComponent<Light>();
-        isLightOn = true;  // Start with the light on
-        lightSource.intensity = Random.Range(minIntensity, maxIntensity); // Set initial random intensity
-        timer = flickerInterval; // Set initial timer to the flicker interval
+        flickerLight = GetComponent<Light>();
+        originalIntensity = flickerLight.intensity;
+        StartCoroutine(FlickerLoop());
     }
 
-    void Update()
+    IEnumerator FlickerLoop()
     {
-        timer -= Time.deltaTime;  // Decrease the timer by the frame time
-
-        // When the timer reaches zero, switch the light state
-        if (timer <= 0f)
+        while (true)
         {
-            isLightOn = !isLightOn;
-            timer = flickerInterval; // Reset the timer to the flicker interval
+            float delay = Random.Range(minFlickerDelay, maxFlickerDelay);
 
-            if (isLightOn)
+            // Decide if the light turns off or just dims
+            if (Random.value < flickerOffChance)
             {
-                // Light is on, set intensity randomly within the range
-                lightSource.intensity = Random.Range(minIntensity, maxIntensity);
+                flickerLight.enabled = false;
             }
             else
             {
-                // Light is off, set intensity to 0 (turn it off)
-                lightSource.intensity = 0f;
+                flickerLight.enabled = true;
+                flickerLight.intensity = Random.Range(minIntensity, maxIntensity);
             }
-        }
 
-        // Smoothly transition the light intensity to the target intensity
-        lightSource.intensity = Mathf.Lerp(lightSource.intensity, lightSource.intensity, Time.deltaTime * flickerSpeed);
+            yield return new WaitForSeconds(delay);
+        }
     }
 }

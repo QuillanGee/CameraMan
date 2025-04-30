@@ -24,6 +24,7 @@ TagManager:
   - PickUp
   - Lock
   - Duct
+  - Stairs
   layers:
   - Default
   - TransparentFX

@@ -55,11 +55,13 @@ public class InteractableObject : MonoBehaviour, IInteractable
     {
         AudioManager.instance.PlayInteractionSound(gameObject.tag);
         EventManager.instance.Interact();
+        PerspectiveLockManager.Instance.SetLock(true);
     }
 
     public void OnExitInteraction()
     {
         EventManager.instance.ExitInteract();
+        PerspectiveLockManager.Instance.SetLock(false);
     }
 
     public string GetText()

@@ -114,7 +114,7 @@ public class ObjectProjection : MonoBehaviour
        polygonCollider = projectedMeshObject.AddComponent<PolygonCollider2D>();
        pickable2DObject = projectedMeshObject.AddComponent<Pickable2DObject>();
        // rb2D = projectedMeshObject.AddComponent<Rigidbody2D>();
-       AddPolygonColliderFromProjectedVertices(projectedVerticesAroundOrigin, polygonCollider);
+       CreateOwnPolygonCollider(projectedVerticesAroundOrigin, polygonCollider);
        if (gameObject.CompareTag("Stairs") || gameObject.CompareTag("Walls") || gameObject.CompareTag("Door"))
        {
            polygonCollider.isTrigger = true;
@@ -126,6 +126,7 @@ public class ObjectProjection : MonoBehaviour
 
            if (gameObject.CompareTag("Door"))
            {
+               projectedMeshObject.layer = 0;
                projectedMeshObject.tag = "Door";
                projectedMeshObject.AddComponent<Door2D>().SetCorrepondingDoorTransform(correspondingDoor);
                projectedMeshObject.GetComponent<Door2D>().SetDoor(door);
@@ -164,6 +165,7 @@ public class ObjectProjection : MonoBehaviour
        }
    }
   
+   //gets the orthographic projection
    private Vector3[] ProjectVerticesTo2DAlgorithm(Vector3[] currVertices)
    {
        Vector3[] projectedVerticies = new Vector3[currVertices.Length];
@@ -199,6 +201,19 @@ public class ObjectProjection : MonoBehaviour
 
 
        return newMesh;
+   }
+
+   private void CreateOwnPolygonCollider(Vector3[] projectedVertices, PolygonCollider2D polyCollider)
+   {
+       Vector2[] points = new Vector2[projectedMesh.vertexCount];
+       for (int i = 0; i < projectedMesh.vertexCount; i++)
+       {
+           Vector3 vertex = projectedMesh.vertices[i];
+           points[i] = new Vector2(vertex.x, vertex.y); // Assuming your mesh is flat on XY plane
+       }
+
+       polyCollider.pathCount = 1;
+       polyCollider.SetPath(0, points);
    }
   
    private void AddPolygonColliderFromProjectedVertices(Vector3[] projectedVertices, PolygonCollider2D polyCollider)

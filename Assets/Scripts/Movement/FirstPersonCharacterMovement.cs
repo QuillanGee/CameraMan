@@ -47,6 +47,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     private float maxVerticalAngle = 0f;
     private bool holdingBlock = false;
     private InteractionManager interactionManager;
+    private bool controlsEnabled = true;
     
     [SerializeField] private Animator animator;
     [SerializeField] private AnimatorOverrideController animatorOverrideController;
@@ -79,26 +80,32 @@ public class FirstPersonCharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isOnLadder)
+        if (controlsEnabled)
         {
-            ApplyGravity(); // Custom gravity
+            if (!isOnLadder)
+            {
+                ApplyGravity(); // Custom gravity
+            }
+            MoveCharacter();
         }
-        MoveCharacter();
     }
 
     void Update()
     {
-        // Check if grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer)
-                     || Physics.CheckSphere(groundCheck.position, groundDistance, blockLayer);
+        if (controlsEnabled)
+        {
+            // Check if grounded
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer)
+                         || Physics.CheckSphere(groundCheck.position, groundDistance, blockLayer);
         
-        MyInput();
+            MyInput();
         
-        AnimationUpdate();
+            AnimationUpdate();
         
-        MouseLook();
+            MouseLook();
     
-        SpeedControl();
+            SpeedControl();
+        }
     }
     
 
@@ -276,10 +283,13 @@ public class FirstPersonCharacterMovement : MonoBehaviour
 
     private void DisableControls()
     {
-        this.enabled = false;
+        controlsEnabled = false;
+        animator.SetInteger("AnimInt", 0); // Idle
+        rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
     }
     private void EnableControls()
     {
-        this.enabled = true;
+        controlsEnabled = true;
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
     }
 }
