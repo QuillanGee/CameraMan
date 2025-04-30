@@ -37,6 +37,12 @@ public class Alan : MonoBehaviour
         EventManager.instance.OnSendZAxis += SetZAxisToProjectAlan;
         EventManager.instance.OnHoldingBlock += SetHoldingBlockTrue;
         EventManager.instance.OnNotHoldingBlock += SetHoldingBlockFalse;
+        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+    }
+    
+    private void DestorySelf()
+    {
+        Destroy(gameObject);
     }
 
     private void AttachResetPosition()

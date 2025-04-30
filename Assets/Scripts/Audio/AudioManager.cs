@@ -51,12 +51,18 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
+        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
         lines.AddRange(line);
         subtitlePanel.SetActive(false); // Hide subtitle UI at start
         if (!isMusicOn)
         {
             DisableMusic();
         }
+    }
+
+    private void DestorySelf()
+    {
+        Destroy(gameObject);
     }
 
     private void DisableMusic()

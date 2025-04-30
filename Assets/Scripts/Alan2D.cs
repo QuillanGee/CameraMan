@@ -36,6 +36,12 @@ public class Alan2D : MonoBehaviour
 
         EventManager.instance.OnLoadScene += AttachResetPosition;
         EventManager.instance.OnResetAlan2D += ResetPosition;
+        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+    }
+    
+    private void DestorySelf()
+    {
+        Destroy(gameObject);
     }
     
     private void AttachResetPosition()

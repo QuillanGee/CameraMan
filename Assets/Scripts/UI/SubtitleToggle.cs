@@ -20,4 +20,14 @@ public class SubtitleToggle : MonoBehaviour
             Destroy(gameObject); // Prevent duplicates
         }
     }
+
+    private void Start()
+    {
+        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+    }
+    
+    private void DestorySelf()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -13,9 +13,14 @@ public class GlitchEffect : MonoBehaviour
     private void Start()
     {
         EventManager.instance.OnPauseGamePlay += HandlePause;
+        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+
     }
     
-    
+    private void DestorySelf()
+    {
+        Destroy(gameObject);
+    }
 
     private void HandlePause(object sender, bool isPaused)
     {
