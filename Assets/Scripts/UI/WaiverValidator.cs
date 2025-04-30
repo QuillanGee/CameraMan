@@ -6,7 +6,6 @@ using System.Collections;
 public class WaiverValidator : MonoBehaviour
 {
     public Toggle[] waiverCheckBoxes;
-    public ToggleGroup[] yesNoToggleGroups;
     public Button signatureButton;
     public Button submitButton;
     public Text signText;
@@ -20,13 +19,6 @@ public class WaiverValidator : MonoBehaviour
 
         foreach (var toggle in waiverCheckBoxes)
             toggle.onValueChanged.AddListener(delegate { AutoEnableSubmit(); });
-
-        foreach (var group in yesNoToggleGroups)
-        {
-            foreach (var toggle in group.GetComponentsInChildren<Toggle>())
-                toggle.onValueChanged.AddListener(delegate { AutoEnableSubmit(); });
-        }
-
         signatureButton.onClick.AddListener(OnSignClicked);
     }
 
@@ -48,19 +40,9 @@ public class WaiverValidator : MonoBehaviour
         return true;
     }
 
-    private bool AreYesNoGroupsComplete()
-    {
-        foreach (var group in yesNoToggleGroups)
-        {
-            if (!group.AnyTogglesOn())
-                return false;
-        }
-        return true;
-    }
-
     private void AutoEnableSubmit()
     {
-        submitButton.interactable = AreCheckBoxesComplete() && AreYesNoGroupsComplete() && isSigned;
+        submitButton.interactable = AreCheckBoxesComplete() && isSigned;
     }
     
     
