@@ -44,14 +44,6 @@ public class MainMenu : MonoBehaviour
     public void OnClickSubtitles()
     {
         // Toggle the subtitles
-        SubtitleToggle.Instance.check = !SubtitleToggle.Instance.check;
-
-        // Update the button text
-        UpdateSubtitlesButtonText();
-    }
-
-    private void UpdateSubtitlesButtonText()
-    {
         if (SubtitleToggle.Instance.check)
         {
             subtitlesButtonText.text = "Subtitles: Off";
@@ -60,8 +52,10 @@ public class MainMenu : MonoBehaviour
         {
             subtitlesButtonText.text = "Subtitles: On";
         }
-    }
+        SubtitleToggle.Instance.check = !SubtitleToggle.Instance.check;
 
+        // Update the button text
+    }
     public void OnClickQuit()
     {
         #if UNITY_EDITOR

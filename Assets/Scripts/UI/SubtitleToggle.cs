@@ -5,7 +5,7 @@ public class SubtitleToggle : MonoBehaviour
     public static SubtitleToggle Instance;
 
     // Your persistent check variable
-    public bool check = false;
+    public bool check = true;
 
     private void Awake()
     {
