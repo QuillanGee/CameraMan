@@ -49,6 +49,7 @@
      <Compile Include="Assets/Scripts/Audio/AudioTrigger.cs" />
      <Compile Include="Assets/Scripts/DontDestroyOnLoad.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Scenes/Quitgame.cs" />
+     <Compile Include="Assets/Scripts/UI/LoadingScreen.cs" />
      <Compile Include="Assets/Scripts/Interactable/InteractableObject.cs" />
      <Compile Include="Assets/Scripts/Camera/GlitchEffect.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Slide/opencloseSlide.cs" />
@@ -117,6 +118,7 @@
      <Compile Include="Assets/Scripts/BouncePad/BouncePad.cs" />
      <Compile Include="Assets/Scripts/Camera/CameraFollow.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/_BPS Basic Assets/Common/Scripts and Animations/Windows/opencloseWindow.cs" />
+     <Compile Include="Assets/Scripts/Audio/PauseMusic.cs" />
      <Compile Include="Assets/Scripts/Door/Door.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveConnector.cs" />
      <Compile Include="Assets/Scripts/Interactable/Spinable.cs" />
@@ -129,6 +131,7 @@
      <Compile Include="Assets/Scripts/Interactable/Pickupable2DObject.cs" />
      <Compile Include="Assets/Scripts/Spikes/Spike2D.cs" />
      <Compile Include="Assets/Scripts/Interactable/IInteractable.cs" />
+     <Compile Include="Assets/Scripts/UI/SubtitleToggle.cs" />
      <Compile Include="Assets/Scripts/Movement/TwoDCharacterMovement.cs" />
      <Compile Include="Assets/Assets/Accessible Audio Toolkit/Scripts/Wireframe.cs" />
      <Compile Include="Assets/Scripts/SceneManagement/SceneTrigger.cs" />

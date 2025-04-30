@@ -149,6 +149,28 @@ public class AudioManager : MonoBehaviour
         isDialoguePlaying = false;
     }
 
+    
+    public void FadeMusicVolume(float targetVolume, float duration)
+    {
+        StartCoroutine(FadeVolumeCoroutine(targetVolume, duration));
+    }
+
+    private IEnumerator FadeVolumeCoroutine(float targetVolume, float duration)
+    {
+        float startVolume = musicSource.volume;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            musicSource.volume = Mathf.Lerp(startVolume, targetVolume, t);
+            yield return null;
+        }
+
+        musicSource.volume = targetVolume;
+    }
+    
     public void SetMusicVolume(float volume)
     {
         musicSource.volume = volume;

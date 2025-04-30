@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject settingsMenu;
+    public Text subtitlesButtonText; 
     public void Start()
     {
         Cursor.visible = true;
@@ -18,11 +22,45 @@ public class MainMenu : MonoBehaviour
         // FindObjectOfType<FlashTransition>().Flash();
         
         SceneManager.LoadScene("Wake Up Clean");
-        SceneManager.LoadScene("HallwayToWarehouse", LoadSceneMode.Additive);
-        SceneManager.LoadScene("WarehouseLvClean", LoadSceneMode.Additive);
 
     }
 
+    public void OnClickSettings()
+    {
+        // Hide the main menu
+        mainMenu.SetActive(false);
+        // Show the settings menu
+        settingsMenu.SetActive(true);
+    }
+
+    public void OnClickSettingsBack()
+    {
+        // Hide the main menu
+        mainMenu.SetActive(true);
+        // Show the settings menu
+        settingsMenu.SetActive(false);
+    }
+    
+    public void OnClickSubtitles()
+    {
+        // Toggle the subtitles
+        SubtitleToggle.Instance.check = !SubtitleToggle.Instance.check;
+
+        // Update the button text
+        UpdateSubtitlesButtonText();
+    }
+
+    private void UpdateSubtitlesButtonText()
+    {
+        if (SubtitleToggle.Instance.check)
+        {
+            subtitlesButtonText.text = "Subtitles: Off";
+        }
+        else
+        {
+            subtitlesButtonText.text = "Subtitles: On";
+        }
+    }
 
     public void OnClickQuit()
     {

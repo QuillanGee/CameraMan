@@ -16,13 +16,22 @@ public class InputManager : MonoBehaviour
     
     [SerializeField] private AudioClip errorSound;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private GameObject errorMessageUI;
+    [SerializeField] private Text errorMessageUI;
     [SerializeField] private float errorDisplayTime = 1f;
+    [SerializeField] private GameObject Subtitles;
 
 
     void Start()
     {
         StartCoroutine(WaitToInstantiateGamePlay());
+        if (SubtitleToggle.Instance.check == false)
+        {
+            Subtitles.SetActive(false);
+        }
+        else
+        {
+            Subtitles.SetActive(true);
+        }
     }
     
     //So that block 
@@ -31,6 +40,7 @@ public class InputManager : MonoBehaviour
         yield return null;
         
         EventManager.instance.InstantiateGamePlay();
+        EventManager.instance.OnSendError += PlayErrorFeedback;
     }
 
     void Update()
@@ -50,7 +60,7 @@ public class InputManager : MonoBehaviour
             {
                 if (PerspectiveLockManager.Instance.IsLocked())
                 {
-                    PlayErrorFeedback();
+                    PlayErrorFeedback(this, "Obstruction Detected");
                     return;
                 }
                 EventManager.instance.ToggleTwoD();
@@ -73,7 +83,7 @@ public class InputManager : MonoBehaviour
         }
     }
     
-    private void PlayErrorFeedback()
+    private void PlayErrorFeedback(object sender, String errorFeedback)
     {
         if (audioSource != null && errorSound != null)
         {
@@ -83,7 +93,8 @@ public class InputManager : MonoBehaviour
         if (errorMessageUI != null)
         {
             StopAllCoroutines(); // prevent overlap if spammed
-            errorMessageUI.SetActive(true);
+            print("set text");
+            errorMessageUI.text = errorFeedback;
             StartCoroutine(HideErrorMessage());
         }
     }
@@ -91,7 +102,7 @@ public class InputManager : MonoBehaviour
     private IEnumerator HideErrorMessage()
     {
         yield return new WaitForSeconds(errorDisplayTime);
-        errorMessageUI.SetActive(false);
+        errorMessageUI.text = "";
     }
 
 }

@@ -103,9 +103,9 @@ public class InteractionManager : MonoBehaviour
         {
             if (!isInteracting)
             {
-                reticle.enabled = false;
                 if (currentHoveredObject is PickableObject pickable)
                 {
+                    reticle.enabled = false;
                     isInteracting = true;
                     // Pickup logic for 2D
                     if (pickable.gameObject.CompareTag("Door"))
@@ -131,11 +131,13 @@ public class InteractionManager : MonoBehaviour
                 else if (currentHoveredObject is InteractableObject interactable)
                 {
                     isInteracting = true;
+                    reticle.enabled = false;
                     interactable.OnInteract();
                 }
                 else if (currentHoveredObject is Spinable spinable)
                 {
                     isInteracting = true;
+                    reticle.enabled = false;
                     spinable.OnInteract();
                 }
             }

@@ -218,4 +218,24 @@ public class EventManager : MonoBehaviour
             OnDisableSpinControls();
         }
     }
+    
+    public event EventHandler<String> OnSendError;
+
+    public void SendError(String message)
+    {
+        if (OnSendError != null)
+        {
+            OnSendError(this, message);
+        }
+    }
+    
+    public event Action OnTriggerLoadingScene;
+
+    public void TriggerLoadingScene()
+    {
+        if (OnTriggerLoadingScene != null)
+        {
+            OnTriggerLoadingScene();
+        }
+    }
 }

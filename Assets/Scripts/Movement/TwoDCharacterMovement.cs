@@ -235,9 +235,11 @@ public class TwoDCharacterMovement : MonoBehaviour {
         }
         else
         {
-            StartCoroutine(EnterDoor());
+            EventManager.instance.TriggerLoadingScene();
         }
     }
+    
+    
 
     private IEnumerator EnterDoor()
     {
