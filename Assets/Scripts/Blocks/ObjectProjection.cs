@@ -114,7 +114,7 @@ public class ObjectProjection : MonoBehaviour
        polygonCollider = projectedMeshObject.AddComponent<PolygonCollider2D>();
        pickable2DObject = projectedMeshObject.AddComponent<Pickable2DObject>();
        // rb2D = projectedMeshObject.AddComponent<Rigidbody2D>();
-       CreateOwnPolygonCollider(projectedVerticesAroundOrigin, polygonCollider);
+       AddPolygonColliderFromProjectedVertices(projectedVerticesAroundOrigin, polygonCollider);
        if (gameObject.CompareTag("Stairs") || gameObject.CompareTag("Walls") || gameObject.CompareTag("Door"))
        {
            polygonCollider.isTrigger = true;
@@ -133,8 +133,8 @@ public class ObjectProjection : MonoBehaviour
            }
        }
        
-       projectedMeshObject.AddComponent<MeshFilter>().mesh = projectedMesh;
-       projectedMeshObject.AddComponent<MeshRenderer>().material = projectedMaterial;
+       // projectedMeshObject.AddComponent<MeshFilter>().mesh = projectedMesh;
+       // projectedMeshObject.AddComponent<MeshRenderer>().material = projectedMaterial;
        
        projectedMeshObject.transform.position = new Vector3(centerOfProjection.x, centerOfProjection.y, StaticZAxisFor2DLevel.currentZAxis.position.z);
        SetThisParentToProjectedMeshObject();

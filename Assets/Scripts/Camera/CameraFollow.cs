@@ -47,4 +47,9 @@ public class CameraFollow : MonoBehaviour
         // Apply the new position
         transform.position = smoothedPosition;
     }
+
+    public void SetMinBottom(Transform min)
+    {
+        minBottom = min;
+    }
 }

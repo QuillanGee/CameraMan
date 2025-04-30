@@ -8,8 +8,8 @@ public class DynamicScaling : MonoBehaviour
     private float initialDistanceFromWall;
     private Transform wallTransform;
     private float scaleFactor = 7.0f;
-    float minScale = 0.5f;  // Example minimum scale
-    float maxScale = 5f;  // Example maximum scale
+    public float minScale = 0.5f;  // Example minimum scale
+    public float maxScale = 5f;  // Example maximum scale
 
     void Start()
     {

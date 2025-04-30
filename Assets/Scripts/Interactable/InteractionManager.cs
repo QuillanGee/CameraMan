@@ -7,9 +7,9 @@ public class InteractionManager : MonoBehaviour
 {
     [SerializeField] private float interactionRange;
 
-    // public Image reticle; // Reference to the reticle UI element
-    // public Sprite defaultReticle; // Default reticle sprite
-    // public Sprite openHandReticle; // Open hand reticle sprite
+    public Image reticle; // Reference to the reticle UI element
+    public Sprite defaultReticle; // Default reticle sprite
+    public Sprite rightClickReticle; // Open hand reticle sprite
     // public Sprite closedHandReticle; // Closed hand reticle sprite
     private IInteractable currentHoveredObject;
     private PickableObject heldObject;
@@ -20,7 +20,6 @@ public class InteractionManager : MonoBehaviour
     [SerializeField] Transform holdPositionDuct; // Where the block will be held when picked up
     [SerializeField] private Collider holdPosCollider; // The collider of the hold position
     
-    [SerializeField] private Image rightClickImage;
     public TMP_Text hoverText;
 
     public bool isInteracting = false;
@@ -72,7 +71,9 @@ public class InteractionManager : MonoBehaviour
                     currentHoveredObject?.OnHoverExit();
                     currentHoveredObject = interactable;
                     currentHoveredObject.OnHoverEnter();
-                    hoverText.text = interactable.GetText();
+                    reticle.sprite = rightClickReticle;
+                    reticle.transform.localScale = new Vector3(5, 5, 5);
+                    // hoverText.text = interactable.GetText();
                 }
             }
             else
@@ -86,8 +87,9 @@ public class InteractionManager : MonoBehaviour
     {
         currentHoveredObject?.OnHoverExit();
         currentHoveredObject = null;
-        hoverText.text = "";
-        // rightClickImage.enabled = false;
+        reticle.sprite = defaultReticle;
+        reticle.transform.localScale = new Vector3(1, 1, 1);
+        // hoverText.text = "";
 
 
         // if (heldObject == null)
@@ -101,6 +103,7 @@ public class InteractionManager : MonoBehaviour
         {
             if (!isInteracting)
             {
+                reticle.enabled = false;
                 if (currentHoveredObject is PickableObject pickable)
                 {
                     isInteracting = true;
@@ -139,6 +142,7 @@ public class InteractionManager : MonoBehaviour
             else
             {
                 isInteracting = false;
+                reticle.enabled = true;
                 if (currentHoveredObject is InteractableObject interactable1)
                 {
                     interactable1.OnExitInteraction();

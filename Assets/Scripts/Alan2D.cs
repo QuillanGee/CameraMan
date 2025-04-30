@@ -13,7 +13,7 @@ public class Alan2D : MonoBehaviour
     [SerializeField] Transform resetPosition;
     private float scaleFactor = 7f;
     float minScale = 0.5f;  // Example minimum scale
-    float maxScale = 5f;  // Example maximum scale
+    float maxScale = 1.5f;  // Example maximum scale
     
     private Rigidbody2D rb;
     

@@ -81,7 +81,7 @@ public class Alan : MonoBehaviour
     
     private void DisableCrossHair()
     {
-        if (isCrosshairEnabled)
+        if (!isCrosshairEnabled)
         {
             crossHair.enabled = false;
         }
