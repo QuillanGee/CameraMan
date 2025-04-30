@@ -115,10 +115,15 @@ public class ObjectProjection : MonoBehaviour
        pickable2DObject = projectedMeshObject.AddComponent<Pickable2DObject>();
        // rb2D = projectedMeshObject.AddComponent<Rigidbody2D>();
        AddPolygonColliderFromProjectedVertices(projectedVerticesAroundOrigin, polygonCollider);
+       if (gameObject.CompareTag("whiteboard"))
+       {
+           projectedMeshObject.tag = "whiteboard";
+       }
+       
        if (gameObject.CompareTag("Stairs") || gameObject.CompareTag("Walls") || gameObject.CompareTag("Door"))
        {
            polygonCollider.isTrigger = true;
-
+           
            if (gameObject.CompareTag("Stairs"))
            {
                projectedMeshObject.tag = "Stairs";
@@ -361,11 +366,19 @@ private class PolarAngleComparer : IComparer<Vector2>
    {
        isHoldingBlock = false;
    }
-
+   
    private void PutBackToParent()
    {
-       transform.position = myParent.position;
-       transform.rotation = myParent.rotation;
+       if (projectedMeshObject.CompareTag("whiteboard"))
+       {
+           transform.position = new Vector3(transform.position.x, transform.position.y, myParent.position.z);
+       }
+       else
+       {
+           transform.position = myParent.transform.position;
+           transform.rotation = myParent.transform.rotation;
+       }
+       // transform.rotation = myParent.rotation;
        transform.SetParent(myParent);
    }
 

@@ -24,14 +24,14 @@ public class InputManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(WaitToInstantiateGamePlay());
-        if (SubtitleToggle.Instance.check == false)
-        {
-            Subtitles.SetActive(false);
-        }
-        else
-        {
-            Subtitles.SetActive(true);
-        }
+        // if (SubtitleToggle.Instance.check == false)
+        // {
+        //     Subtitles.SetActive(false);
+        // }
+        // else
+        // {
+        //     Subtitles.SetActive(true);
+        // }
     }
     
     //So that block 

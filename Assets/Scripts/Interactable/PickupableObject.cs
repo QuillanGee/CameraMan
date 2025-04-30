@@ -23,7 +23,7 @@ public class PickableObject : MonoBehaviour, IInteractable
         foreach (Collider childCollider in allChildColliders)
         {
             // Check if the child collider's GameObject is tagged as "PickUp"
-            if (childCollider.CompareTag("PickUp") || childCollider.CompareTag("Door"))
+            if (childCollider.CompareTag("PickUp") || childCollider.CompareTag("Door") || childCollider.CompareTag("whiteboard"))
             {
                 // Add the collider of the child object to the list
                 colliders.Add(childCollider);
