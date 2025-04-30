@@ -268,10 +268,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "By signing this form, I affirm that I have read, understood, and agreed
-    \nto all terms and conditions described above. I voluntarily accept any \nrisk
-    associated with participation in the V.I.S.T.A testing program and \nrelease
-    Kannon Labs from all liabilities."
+  m_Text: "By signing this form, I attest that I have read and comply with all the
+    terms and \nconditions discussed above. I voluntarily accept any potential risks
+    associated \nwith participation in the V.I.S.T.A project and release Kannon Labs
+    from all \nfuture liabilities."
 --- !u!222 &19586501
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -327,7 +327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -325, y: 0}
+  m_AnchoredPosition: {x: -325, y: 499.99994}
   m_SizeDelta: {x: 648, y: 500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &24158106
@@ -347,11 +347,6 @@ MonoBehaviour:
   - {fileID: 990686930}
   - {fileID: 27908805}
   - {fileID: 566639747}
-  yesNoToggleGroups:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   signatureButton: {fileID: 450301082}
   submitButton: {fileID: 1346390400}
   signText: {fileID: 1589130989}
@@ -1329,8 +1324,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2016761421}
   m_HandleRect: {fileID: 2016761420}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.48154294
+  m_Value: 0.0000001220703
+  m_Size: 0.48154292
   m_NumberOfSteps: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1869,6 +1864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall 4m Office (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2545546419002941485, guid: 0fa9e4f6fa2874940862ca56335dbbf6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2889138702498429591, guid: 0fa9e4f6fa2874940862ca56335dbbf6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -623.76105
@@ -1989,11 +1988,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Welcome to the V.I.S.T.A Tester Waiver Form, brought to you by Kannon
-    Labs\u2122. You're \nabout to engage with V.I.S.T.A, a next-gen testing environment
-    engineered with the \nfuture in mind. At Kannon Labs, we believe progress doesn\u2019t
-    wait for permission. This \nwaiver ensures you're informed, aligned, and ready
-    to step into uncharted territory. \nPlease review the details below before proceeding. "
+  m_Text: "Welcome to the V.I.S.T.A Tester Waiver Form, brought to you by the innovative
+    minds \nat Kannon Labs\u2122. You're about to engage with V.I.S.T.A, an experimental
+    research project \nthat aims to change the perspective of participants. Please
+    review the information \nbelow before proceeding. "
 --- !u!222 &663745035
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2195,7 +2193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &881314630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3096,7 +3094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2889138702498429591, guid: 0fa9e4f6fa2874940862ca56335dbbf6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12
+      value: -11.9
       objectReference: {fileID: 0}
     - target: {fileID: 2889138702498429591, guid: 0fa9e4f6fa2874940862ca56335dbbf6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3946,7 +3944,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Alan Cannon
+  m_Text: Alan
 --- !u!222 &1589130990
 CanvasRenderer:
   m_ObjectHideFlags: 0
