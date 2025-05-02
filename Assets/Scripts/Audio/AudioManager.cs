@@ -53,7 +53,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.OnTriggerLoadingScene += DestorySelf;
-        EventManager.instance.OnPauseGamePlay += HandleSoundsOnPause;
+        EventManager.instance.OnSetPauseMenu += HandleSoundsOnPause;
         lines.AddRange(line);
         subtitlePanel.SetActive(false); // Hide subtitle UI at start
         if (!isMusicOn)

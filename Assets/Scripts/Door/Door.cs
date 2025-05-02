@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     [SerializeField] private bool openRight = false;
     [SerializeField] private bool keepOpen = false;
     [SerializeField] private bool disableDoorCollider = false;
+    [SerializeField] private bool lockDoorAfterClosing = false;
+    private bool keepDoorclosed = false;
 
     // [SerializeField] private GameObject door2D;
     private Animator doorAnimator;
@@ -26,6 +28,8 @@ public class Door : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (keepDoorclosed == true)
+                return;
             if (openRight)
             {
                 OpenRightDoor();
@@ -44,6 +48,10 @@ public class Door : MonoBehaviour
             if (!keepOpen)
             {
                 CloseDoor();
+                if (lockDoorAfterClosing)
+                {
+                    keepDoorclosed = true;
+                }
             }
         }
     }

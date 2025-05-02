@@ -34,12 +34,14 @@ public class EventManager : MonoBehaviour
             OnPauseGamePlay(this, isPaused);
         }
     }
+    
+    public event EventHandler<bool> OnSetPauseMenu;
 
     public void SetPauseMenu(bool isPaused)
     {
-        if (OnPauseGamePlay != null)
+        if (OnSetPauseMenu != null)
         {
-            OnPauseGamePlay(this, isPaused);
+            OnSetPauseMenu(this, isPaused);
         }
     }
 
