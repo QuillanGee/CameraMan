@@ -22286,6 +22286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sign Arrow (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1448117698904502842, guid: 2b73981f64697114d93e25d9882c9106, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2257270929700219008, guid: 2b73981f64697114d93e25d9882c9106, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5667412
@@ -38905,8 +38909,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1680379040}
     m_Modifications:
     - target: {fileID: 4793132499785513920, guid: 09c80b0f33e0c4dec9be0530ba82577d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.20145556
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793132499785513920, guid: 09c80b0f33e0c4dec9be0530ba82577d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14
+      value: -14.4
       objectReference: {fileID: 0}
     - target: {fileID: 4793132499785513920, guid: 09c80b0f33e0c4dec9be0530ba82577d, type: 3}
       propertyPath: m_LocalPosition.y
