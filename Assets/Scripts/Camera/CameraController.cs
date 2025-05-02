@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera orthographicCamera;
     [SerializeField] CinemachineVirtualCamera perspectiveCamera;
     [SerializeField] CinemachineVirtualCamera beginningAnimationCamera;
+    [SerializeField] private float glitchEffectDuration = 0.8f; // Duration of the glitch effect
     private CinemachineVirtualCamera interactionCamera;
 
     private float perspectiveTransitionSpeed = 0.5f; // To perspective
@@ -66,13 +67,18 @@ public class CameraController : MonoBehaviour
         Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("TVs");
         Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Blocks");
         Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Gone3D"));
+        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Player")); // Hide player in perspective view
     }
 
     private void EditCullingMaskGoingToTwoDPerson()
     {
-        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("TVs"));
-        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Blocks"));
-        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Gone3D");
+        // Only update culling mask if we're actually in 2D mode
+        if (orthographicCamera.Priority > perspectiveCamera.Priority)
+        {
+            // Keep TVs visible during transition
+            Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Blocks"));
+            Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Gone3D");
+        }
     }
 
     private void AttachOrthographicCamera()
@@ -104,18 +110,37 @@ public class CameraController : MonoBehaviour
     }
     private void TransitionToOrthographic()
     {
-        EventManager.instance.PauseGamePlay(true);  // Resume mechanics
-        brain.m_DefaultBlend.m_Time = orthographicTransitionSpeed;  // Adjust blend duration
-        StartCoroutine(WaitToTransitionToOrthographic());
+        EventManager.instance.PauseGamePlay(true);  // Pause mechanics
+        brain.m_DefaultBlend.m_Time = 0f;  // Set blend time to 0 to prevent blending
+        perspectiveCamera.Priority = 1;  // Ensure perspective camera stays active
+        orthographicCamera.Priority = 0;  // Ensure orthographic camera is inactive
+        
+        // Ensure player and TVs are visible at the start of transition
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("TVs");
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Player");
+        
+        brain.enabled = false;  // Freeze the camera's image
+        StartCoroutine(WaitForGlitchEffect());
     }
 
-    private IEnumerator WaitToTransitionToOrthographic()
+    private IEnumerator WaitForGlitchEffect()
     {
-        yield return new WaitForSeconds(orthographicTransitionSpeed);
-        EventManager.instance.PostToggleTwoD();
-        brain.m_DefaultBlend.m_Time = 0f;  // Adjust blend duration
+        // Wait for the glitch effect to play
+        yield return new WaitForSeconds(glitchEffectDuration);
+        
+        // After glitch effect, switch to orthographic camera
+        brain.enabled = true;  // Re-enable the brain
         perspectiveCamera.Priority = 0;
         orthographicCamera.Priority = 1;
+        
+        // Update culling mask after the transition
+        EditCullingMaskGoingToTwoDPerson();
+        
+        // Hide TVs after the transition is complete
+        yield return new WaitForEndOfFrame();
+        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("TVs"));
+        
+        EventManager.instance.PostToggleTwoD();
         EventManager.instance.PauseGamePlay(false);  // Resume mechanics
     }
 
