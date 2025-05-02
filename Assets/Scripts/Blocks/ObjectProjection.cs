@@ -36,6 +36,10 @@ public class ObjectProjection : MonoBehaviour
 
    private bool isHoldingBlock = false;
    private Transform myParent;
+   private Vector3 relativePositionHold;
+   private Quaternion relativeRotationHold;
+   private Vector3 relativeScaleHold;
+
    private Rigidbody2D rb2D;
    private Pickable2DObject pickable2DObject; 
 
@@ -83,7 +87,6 @@ public class ObjectProjection : MonoBehaviour
            for (int i = 0; i < vertices.Length; i++)
            {
                vertices[i] = transform.TransformPoint(vertices[i]);
-               // Debug.Log("Vertex " + i + " world position: " + vertices[i]);
            }
        }
        else
@@ -114,7 +117,7 @@ public class ObjectProjection : MonoBehaviour
        polygonCollider = projectedMeshObject.AddComponent<PolygonCollider2D>();
        pickable2DObject = projectedMeshObject.AddComponent<Pickable2DObject>();
        // rb2D = projectedMeshObject.AddComponent<Rigidbody2D>();
-       AddPolygonColliderFromProjectedVertices(projectedVerticesAroundOrigin, polygonCollider);
+       CreateColliderFromTriangles(projectedMesh,polygonCollider);
        if (gameObject.CompareTag("whiteboard"))
        {
            projectedMeshObject.tag = "whiteboard";
@@ -139,11 +142,11 @@ public class ObjectProjection : MonoBehaviour
        }
        
        // projectedMeshObject.AddComponent<MeshFilter>().mesh = projectedMesh;
+       // projectedMeshObject.AddComponent<MeshVisualizer>();
        // projectedMeshObject.AddComponent<MeshRenderer>().material = projectedMaterial;
        
        projectedMeshObject.transform.position = new Vector3(centerOfProjection.x, centerOfProjection.y, StaticZAxisFor2DLevel.currentZAxis.position.z);
        SetThisParentToProjectedMeshObject();
-       // CheckIfHoldingBLockGoingToTwoD();
    }
 
    // private void HideObject()
@@ -220,105 +223,42 @@ public class ObjectProjection : MonoBehaviour
        polyCollider.pathCount = 1;
        polyCollider.SetPath(0, points);
    }
-  
-   private void AddPolygonColliderFromProjectedVertices(Vector3[] projectedVertices, PolygonCollider2D polyCollider)
+   
+   private void CreateColliderFromTriangles(Mesh myMesh, PolygonCollider2D polyCollider)
    {
-       // Convert to Vector2 array first
-       Vector2[] points2D = new Vector2[projectedVertices.Length];
-       for (int i = 0; i < projectedVertices.Length; i++)
+       Vector3[] mYvertices = myMesh.vertices;
+       int[] triangles = myMesh.triangles;
+    
+       List<Vector2> outlinePoints = new List<Vector2>();
+
+       // Loop through each triangle in the mesh
+       for (int i = 0; i < triangles.Length; i += 3)
        {
-           points2D[i] = new Vector2(projectedVertices[i].x, projectedVertices[i].y);
+           // Get the indices of the three vertices that form a triangle
+           int index0 = triangles[i];
+           int index1 = triangles[i + 1];
+           int index2 = triangles[i + 2];
+
+           // Add the triangle edges to the list
+           AddEdgeToOutline(mYvertices[index0], mYvertices[index1], outlinePoints);
+           AddEdgeToOutline(mYvertices[index1], mYvertices[index2], outlinePoints);
+           AddEdgeToOutline(mYvertices[index2], mYvertices[index0], outlinePoints);
        }
 
-
-       // Get the convex hull of the points
-       Vector2[] convexHull = ComputeConvexHull(points2D);
-
-
-       // Set the convex hull points as the collider path
-       polyCollider.SetPath(0, convexHull);
+       // Set the path for the collider (ensure it's a closed loop)
+       polyCollider.pathCount = 1;
+       polyCollider.SetPath(0, outlinePoints.ToArray());
    }
 
-
-   // Graham Scan algorithm to compute convex hull
-   private Vector2[] ComputeConvexHull(Vector2[] points)
+   private void AddEdgeToOutline(Vector3 start, Vector3 end, List<Vector2> outlinePoints)
    {
-       if (points.Length < 3) return points;
-
-
-       // Find point with lowest y-coordinate (and leftmost if tied)
-       int lowestPoint = 0;
-       for (int i = 1; i < points.Length; i++)
+       // Check if the edge already exists in the outline
+       // (This is simplified; in practice, you should compare both directions of the edge)
+       if (!outlinePoints.Contains(new Vector2(start.x, start.y)) && !outlinePoints.Contains(new Vector2(end.x, end.y)))
        {
-           if (points[i].y < points[lowestPoint].y ||
-               (points[i].y == points[lowestPoint].y && points[i].x < points[lowestPoint].x))
-           {
-               lowestPoint = i;
-           }
+           outlinePoints.Add(new Vector2(start.x, start.y));
+           outlinePoints.Add(new Vector2(end.x, end.y));
        }
-
-
-       // Swap the lowest point to be first in array
-       Vector2 temp = points[0];
-       points[0] = points[lowestPoint];
-       points[lowestPoint] = temp;
-
-
-       // Sort points by polar angle with respect to base point
-       Vector2 basePoint = points[0];
-       System.Array.Sort(points, 1, points.Length - 1, new PolarAngleComparer(basePoint));
-
-
-       // Build convex hull
-       List<Vector2> hull = new List<Vector2>();
-       hull.Add(points[0]);
-       hull.Add(points[1]);
-
-
-       for (int i = 2; i < points.Length; i++)
-       {
-           while (hull.Count >= 2 && !IsLeftTurn(hull[hull.Count - 2], hull[hull.Count - 1], points[i]))
-           {
-               hull.RemoveAt(hull.Count - 1);
-           }
-           hull.Add(points[i]);
-       }
-
-
-       return hull.ToArray();
-   }
-
-
-private class PolarAngleComparer : IComparer<Vector2>
-{
-   private Vector2 basePoint;
-
-
-   public PolarAngleComparer(Vector2 basePoint)
-   {
-       this.basePoint = basePoint;
-   }
-
-
-   public int Compare(Vector2 a, Vector2 b)
-   {
-       float angleA = Mathf.Atan2(a.y - basePoint.y, a.x - basePoint.x);
-       float angleB = Mathf.Atan2(b.y - basePoint.y, b.x - basePoint.x);
-      
-       if (angleA < angleB) return -1;
-       if (angleA > angleB) return 1;
-      
-       // If angles are equal, put closer point first
-       float distA = Vector2.SqrMagnitude(a - basePoint);
-       float distB = Vector2.SqrMagnitude(b - basePoint);
-       return distA.CompareTo(distB);
-   }
-}
-
-
-   private bool IsLeftTurn(Vector2 a, Vector2 b, Vector2 c)
-   {
-       return ((b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)) > 0;
    }
   
    private static Vector3 AverageVector3Array(Vector3[] vectors)
@@ -369,21 +309,27 @@ private class PolarAngleComparer : IComparer<Vector2>
    
    private void PutBackToParent()
    {
-       if (projectedMeshObject.CompareTag("whiteboard"))
-       {
-           transform.position = new Vector3(transform.position.x, transform.position.y, myParent.position.z);
-       }
-       else
-       {
-           transform.position = myParent.transform.position;
-           transform.rotation = myParent.transform.rotation;
-       }
+       // if (projectedMeshObject.CompareTag("whiteboard"))
+       // {
+       //     transform.position = new Vector3(transform.position.x, transform.position.y, myParent.position.z);
+       // }
+       // else
+       // {
+           // transform.position = myParent.transform.position;
+           // transform.rotation = myParent.transform.rotation;
+       // }
        // transform.rotation = myParent.rotation;
        transform.SetParent(myParent);
+       transform.localPosition = relativePositionHold;
+       transform.localRotation = relativeRotationHold;
+       transform.localScale = relativeScaleHold;
    }
 
    private void SetThisParentToProjectedMeshObject()
    {
+       relativePositionHold = transform.localPosition;
+       relativeRotationHold = transform.localRotation;
+       relativeScaleHold = transform.localScale;
        Vector3 newPosition = new Vector3(transform.position.x, transform.position.y, StaticZAxisFor2DLevel.currentZAxis.position.z);
        transform.position = newPosition;
        transform.SetParent(projectedMeshObject.transform);

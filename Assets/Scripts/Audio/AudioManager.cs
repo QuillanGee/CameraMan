@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Sources")]
     public AudioSource musicSource;
+    public AudioSource whiteNoise;
     public AudioSource sfxSource;
     public AudioSource dialogueSource;
 
@@ -52,6 +53,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+        EventManager.instance.OnPauseGamePlay += HandleSoundsOnPause;
         lines.AddRange(line);
         subtitlePanel.SetActive(false); // Hide subtitle UI at start
         if (!isMusicOn)
@@ -65,6 +67,24 @@ public class AudioManager : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void HandleSoundsOnPause(object sender, bool isPaused)
+    {
+        if (isPaused)
+        {
+            whiteNoise.Pause();
+            musicSource.Pause();
+            dialogueSource.Pause();
+            sfxSource.Pause();
+        }
+        else
+        {
+            whiteNoise.UnPause();
+            musicSource.UnPause();
+            dialogueSource.UnPause();
+            sfxSource.UnPause();
+        }
+    }
+
     private void DisableMusic()
     {
         musicSource.enabled = false;
@@ -72,15 +92,15 @@ public class AudioManager : MonoBehaviour
 
     public void PlayInteractionSound(string tagName)
     {
-        if (tagName == "whiteboard")
-        {
-            sfxSource.PlayOneShot(whiteboard);
-        }
-
-        if (tagName == "block")
-        {
-            sfxSource.PlayOneShot(blockPickUp);
-        }
+        // if (tagName == "whiteboard")
+        // {
+        sfxSource.PlayOneShot(blockPickUp);
+        // }
+        //
+        // if (tagName == "block")
+        // {
+        //     sfxSource.PlayOneShot(blockPickUp);
+        // }
     }
 
     public void PlayGlitchSoundEffect()

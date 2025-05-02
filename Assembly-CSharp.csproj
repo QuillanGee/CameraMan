@@ -108,6 +108,7 @@
      <Compile Include="Assets/Scripts/GetMeshDimensions.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/DynamicScaling.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Windows/opencloseWindowApt.cs" />
+     <Compile Include="Assets/Scripts/Blocks/MeshVisualizer.cs" />
      <Compile Include="Assets/Scripts/Managers/InputManager.cs" />
      <Compile Include="Assets/Scripts/Perspective Stuff/PerspectiveLockManager.cs" />
      <Compile Include="Assets/Assets/Brick Project Studio/Apartment Kit/Common/Scripts &amp; Animation/Z Axis -1/Drawer_Pull_Zopp.cs" />
