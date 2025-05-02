@@ -270,7 +270,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "By signing this form, I attest that I have read and comply with all the
     terms and \nconditions discussed above. I voluntarily accept any potential risks
-    associated \nwith participation in the V.I.S.T.A project and release Kannon Labs
+    associated \nwith participation in the V.I.S.T.A project and release Kanon Labs
     from all \nfuture liabilities."
 --- !u!222 &19586501
 CanvasRenderer:
@@ -327,7 +327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -325, y: -0.000061035156}
+  m_AnchoredPosition: {x: -325, y: 0}
   m_SizeDelta: {x: 648, y: 500}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &24158106
@@ -1590,8 +1590,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2016761421}
   m_HandleRect: {fileID: 2016761420}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.48154292
+  m_Value: 0.9999999
+  m_Size: 0
   m_NumberOfSteps: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2346,7 +2346,7 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Welcome to the V.I.S.T.A Tester Waiver Form, brought to you by the innovative
-    minds \nat Kannon Labs\u2122. You're about to engage with V.I.S.T.A, an experimental
+    minds \nat Kanon Labs\u2122. You're about to engage with V.I.S.T.A, an experimental
     research project \nthat is designed to challenge your perspective. Please review
     the information below."
 --- !u!222 &663745035
@@ -2550,7 +2550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &881314630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4068,7 +4068,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "I consent to Kannon Labs' right to remotely monitor all my \nexperiences
+  m_Text: "I consent to Kanon Labs' right to remotely monitor all my \nexperiences
     and reactions at all times during the experiment."
 --- !u!222 &1412373108
 CanvasRenderer:
@@ -4857,7 +4857,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 30.00003}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 20, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016761421
