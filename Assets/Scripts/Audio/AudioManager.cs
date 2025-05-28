@@ -46,13 +46,13 @@ public class AudioManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else { Destroy(gameObject); return; }
-
-        DontDestroyOnLoad(gameObject);
+    
+        // DontDestroyOnLoad(gameObject);
     }
 
     void Start()
     {
-        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+        // EventManager.instance.OnTriggerLoadingScene += DestorySelf;
         EventManager.instance.OnSetPauseMenu += HandleSoundsOnPause;
         lines.AddRange(line);
         subtitlePanel.SetActive(false); // Hide subtitle UI at start

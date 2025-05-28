@@ -13,7 +13,7 @@ public class SubtitleToggle : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Persist through scenes
+            // DontDestroyOnLoad(gameObject); // Persist through scenes
         }
         else
         {

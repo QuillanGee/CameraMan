@@ -70,8 +70,14 @@ public class ObjectProjection : MonoBehaviour
        EventManager.instance.OnPostToggleFirstPerson -= DestroyProjectedMesh;
        EventManager.instance.OnHoldingBlock -= SetHoldingBlockTrue;
        EventManager.instance.OnNotHoldingBlock -= SetHoldingBlockFalse;
+       // EventManager.instance.OnTriggerLoadingScene += DestorySelf; 
        // EventManager.instance.OnPostToggleFirstPerson -= ShowObject;
        // EventManager.instance.OnPostToggleTwoD -= HideObject;
+   }
+   
+   private void DestorySelf()
+   {
+       Destroy(gameObject);
    }
 
 

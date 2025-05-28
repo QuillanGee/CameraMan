@@ -14,7 +14,7 @@ public class StaticZAxisFor2DLevel : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Persist across scenes
+            // DontDestroyOnLoad(gameObject); // Persist across scenes
         }
         else
         {

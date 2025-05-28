@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour
         
         EventManager.instance.InstantiateGamePlay();
         EventManager.instance.OnSendError += PlayErrorFeedback;
-        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+        // EventManager.instance.OnPostTriggerLoadingScene += DestorySelf;
     }
     
     private void DestorySelf()

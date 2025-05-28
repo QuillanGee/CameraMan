@@ -47,5 +47,6 @@ public class LoadingScreen : MonoBehaviour
 
             yield return null;
         }
+        // EventManager.instance.PostTriggerLoadingScene();
     }
 }

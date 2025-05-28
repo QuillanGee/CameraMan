@@ -49,6 +49,7 @@ public class PickableObject : MonoBehaviour, IInteractable
     {
         if (isHeld) return;
         AudioManager.instance.PlayInteractionSound(gameObject.tag);
+        PerspectiveLockManager.Instance.SetLock(true);
         isHeld = true;
         transform.position = holdPosition.position;
         transform.rotation = holdPosition.rotation;
@@ -69,6 +70,8 @@ public class PickableObject : MonoBehaviour, IInteractable
         isHeld = false;
         rb.isKinematic = false;
         transform.parent = null;
+        PerspectiveLockManager.Instance.SetLock(false);
+
         
         // Re-enable all colliders
         foreach (var collider in colliders)

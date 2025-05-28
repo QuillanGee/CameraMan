@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
     void Start()
     {

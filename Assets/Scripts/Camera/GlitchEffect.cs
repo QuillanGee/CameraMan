@@ -7,13 +7,13 @@ public class GlitchEffect : MonoBehaviour
 {
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
         EventManager.instance.OnPauseGamePlay += HandlePause;
-        EventManager.instance.OnTriggerLoadingScene += DestorySelf;
+        EventManager.instance.OnPostTriggerLoadingScene += DestorySelf;
 
     }
     

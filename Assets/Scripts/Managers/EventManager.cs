@@ -12,7 +12,7 @@ public class EventManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
     public event Action OnInstantiateGamePlay;
@@ -238,6 +238,16 @@ public class EventManager : MonoBehaviour
         if (OnTriggerLoadingScene != null)
         {
             OnTriggerLoadingScene();
+        }
+    }
+    
+    public event Action OnPostTriggerLoadingScene;
+
+    public void PostTriggerLoadingScene()
+    {
+        if (OnPostTriggerLoadingScene != null)
+        {
+            OnPostTriggerLoadingScene();
         }
     }
 }

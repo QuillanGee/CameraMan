@@ -8,7 +8,7 @@ public class FirstPersonCharacterMovement : MonoBehaviour
     // Player Control Settings
     [SerializeField] private float walkSpeed = 3.0f;            // Movement speed
     private float gravity = -28.0f;           // Custom gravity force
-    private float mouseSensitivity = 200.0f;  // Mouse sensitivity for look around
+    public float mouseSensitivity = 100.0f;  // Mouse sensitivity for look around
 
     [SerializeField] private Transform orientation;
     private float rotationX = 0.0f;           // Pitch rotation (up-down)
@@ -76,6 +76,8 @@ public class FirstPersonCharacterMovement : MonoBehaviour
         EventManager.instance.OnExitInteract += EnableControls;
         
         alanAnimatorController = anim.runtimeAnimatorController;
+        Cursor.visible = false;
+
     }
 
     private void FixedUpdate()
